@@ -457,13 +457,13 @@
   <template id="tpl-terminus">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <circle class="cds-draw" cx="12" cy="12" r="9" stroke="#1a1814" stroke-width="1.5"/>
-      <line class="cds-draw" x1="12" y1="4.2" x2="12" y2="19.8" stroke="#1a1814" stroke-width="1.5"/>
-      <line class="cds-draw" x1="4.2" y1="12" x2="19.8" y2="12" stroke="#1a1814" stroke-width="1.5"/>
-      <line class="cds-bloom" x1="7.4" y1="7.4" x2="9.1" y2="9.1" stroke="#a8772a" stroke-width="1.5"/>
-      <line class="cds-bloom" x1="16.6" y1="7.4" x2="14.9" y2="9.1" stroke="#a8772a" stroke-width="1.5"/>
-      <line class="cds-bloom" x1="7.4" y1="16.6" x2="9.1" y2="14.9" stroke="#a8772a" stroke-width="1.5"/>
-      <line class="cds-bloom" x1="16.6" y1="16.6" x2="14.9" y2="14.9" stroke="#a8772a" stroke-width="1.5"/>
-      <circle class="cds-bloom" cx="12" cy="12" r="1.6" fill="#a8772a"/>
+      <line class="cds-draw" style="--cds-d: 150ms" x1="12" y1="4.2" x2="12" y2="19.8" stroke="#1a1814" stroke-width="1.5"/>
+      <line class="cds-draw" style="--cds-d: 300ms" x1="4.2" y1="12" x2="19.8" y2="12" stroke="#1a1814" stroke-width="1.5"/>
+      <circle class="cds-bloom" style="--cds-d: 650ms" cx="12" cy="12" r="1.6" fill="#a8772a"/>
+      <line class="cds-bloom" style="--cds-d: 800ms" x1="16.6" y1="7.4" x2="14.9" y2="9.1" stroke="#a8772a" stroke-width="1.5"/>
+      <line class="cds-bloom" style="--cds-d: 900ms" x1="7.4" y1="7.4" x2="9.1" y2="9.1" stroke="#a8772a" stroke-width="1.5"/>
+      <line class="cds-bloom" style="--cds-d: 1000ms" x1="7.4" y1="16.6" x2="9.1" y2="14.9" stroke="#a8772a" stroke-width="1.5"/>
+      <line class="cds-bloom" style="--cds-d: 1100ms" x1="16.6" y1="16.6" x2="14.9" y2="14.9" stroke="#a8772a" stroke-width="1.5"/>
     </svg>
   </template>
 
@@ -471,10 +471,10 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <line class="cds-draw" x1="7" y1="21" x2="7" y2="11" stroke="#1a1814" stroke-width="1.5"/>
       <line class="cds-draw" x1="17" y1="21" x2="17" y2="11" stroke="#1a1814" stroke-width="1.5"/>
-      <path class="cds-draw" d="M7 11 A5 5 0 0 1 17 11" stroke="#1a1814" stroke-width="1.5"/>
-      <line class="cds-draw" x1="4.5" y1="21" x2="19.5" y2="21" stroke="#1a1814" stroke-width="1.5"/>
-      <circle class="cds-bloom" cx="12" cy="12.6" r="1.9" fill="#a8772a"/>
-      <path class="cds-bloom" d="M10.9 13.6 L11.4 17.6 L12.6 17.6 L13.1 13.6 Z" fill="#a8772a"/>
+      <path class="cds-draw" style="--cds-d: 200ms" d="M7 11 A5 5 0 0 1 17 11" stroke="#1a1814" stroke-width="1.5"/>
+      <line class="cds-draw" style="--cds-d: 400ms" x1="4.5" y1="21" x2="19.5" y2="21" stroke="#1a1814" stroke-width="1.5"/>
+      <circle class="cds-bloom" style="--cds-d: 650ms" cx="12" cy="12.6" r="1.9" fill="#a8772a"/>
+      <path class="cds-bloom" style="--cds-d: 750ms" d="M10.9 13.6 L11.4 17.6 L12.6 17.6 L13.1 13.6 Z" fill="#a8772a"/>
     </svg>
   </template>
 

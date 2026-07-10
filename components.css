@@ -418,11 +418,15 @@
   opacity: 0;
   animation: cds-splash-name-in 700ms var(--ease, ease) 1200ms forwards;
 }
-/* stroked elements draw in via dashoffset */
+/* stroked elements draw in via dashoffset; each element sets its own
+   stagger with an inline --cds-d (e.g. style="--cds-d: 150ms").
+   nth-of-type is NOT used: it counts by tag among all siblings, which
+   silently breaks the stagger when the icon mixes lines/circles/paths. */
 .cds-splash-mark .cds-draw {
   stroke-dasharray: 64;
   stroke-dashoffset: 64;
   animation: cds-splash-draw 900ms var(--ease, ease) forwards;
+  animation-delay: var(--cds-d, 0ms);
 }
 /* filled elements (gold ticks/dot/keyhole) bloom in */
 .cds-splash-mark .cds-bloom {
@@ -430,17 +434,8 @@
   transform-origin: center;
   transform: scale(0);
   animation: cds-splash-bloom 400ms var(--ease, ease) forwards;
+  animation-delay: var(--cds-d, 650ms);
 }
-/* stagger: outline first, gold accents after */
-.cds-splash-mark .cds-draw:nth-of-type(1) { animation-delay: 0ms; }
-.cds-splash-mark .cds-draw:nth-of-type(2) { animation-delay: 150ms; }
-.cds-splash-mark .cds-draw:nth-of-type(3) { animation-delay: 300ms; }
-.cds-splash-mark .cds-draw:nth-of-type(4) { animation-delay: 300ms; }
-.cds-splash-mark .cds-bloom:nth-of-type(1) { animation-delay: 650ms; }
-.cds-splash-mark .cds-bloom:nth-of-type(2) { animation-delay: 750ms; }
-.cds-splash-mark .cds-bloom:nth-of-type(3) { animation-delay: 850ms; }
-.cds-splash-mark .cds-bloom:nth-of-type(4) { animation-delay: 950ms; }
-.cds-splash-mark .cds-bloom:nth-of-type(5) { animation-delay: 1050ms; }
 @keyframes cds-splash-draw { to { stroke-dashoffset: 0; } }
 @keyframes cds-splash-bloom { to { transform: scale(1); } }
 @keyframes cds-splash-name-in {
