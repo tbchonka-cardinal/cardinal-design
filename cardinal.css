@@ -1,0 +1,14 @@
+/* ============================================================
+   Cardinal Design System — cardinal.css
+   Version: v1.0.0
+   The one file an app links. Loads the font, then tokens, then components.
+
+   Usage (pin to a git tag, never @main):
+   <link rel="stylesheet"
+     href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v1.0.0/cardinal.css">
+
+   Token-only consumers (e.g. TopLeaseMap) link tokens.css the same way.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+@import 'tokens.css';
+@import 'components.css';

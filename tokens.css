@@ -1,0 +1,123 @@
+/* ============================================================
+   Cardinal Design System — tokens.css
+   Version: v1.0.0
+   Source:  TopLeaseMap src/style.css :root (the "Editorial Almanac" system)
+   Philosophy: an aged-ledger look — warm paper, dark ink, gold hairline
+               rules, and Garamond set small and letterspaced.
+   Note: the EB Garamond @import lives in cardinal.css, not here, so token-only
+         consumers can layer their own font loading if they prefer.
+   ============================================================ */
+:root {
+  /* Fonts — EB Garamond first (guaranteed via the @import in cardinal.css),
+     then local Garamond / Georgia fallbacks. */
+  --font-display: 'EB Garamond', Garamond, Georgia, serif;
+  --font-body:    'EB Garamond', Garamond, Georgia, serif;
+  --font-mono:    'EB Garamond', Garamond, Georgia, serif;
+
+  /* Paper surfaces */
+  --paper:     #f7f1e3;
+  --paper-2:   #efe7d3;
+  --paper-3:   #e6dcc2;
+  --rule:      #c8b894;
+  --rule-soft: #d8caac;
+
+  /* Ink */
+  --ink:       #1a1814;
+  --ink-soft:  #4a443c;
+  --ink-mute:  #8a8378;
+
+  /* Accents */
+  --gold:        #a8772a;
+  --gold-soft:   #d4a373;
+  --gold-bright: #c89045;
+  --gold-wash:   rgba(168, 119, 42, 0.08);
+  --gold-tint:   rgba(168, 119, 42, 0.16);
+
+  --ink-blue: #234e70;
+  --moss:     #486b32;
+  --brick:    #8b2a1f;
+
+  --focus: #a8772a;
+
+  /* Spacing */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px;  --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px;
+
+  /* Type scale */
+  --fs-eyebrow: 10px;
+  --fs-meta:    11px;
+  --fs-body:    13px;
+  --fs-data:    13px;
+  --fs-title:   20px;
+  --fs-display: 15px;
+  --ls-eyebrow: 0.12em;
+
+  /* Radii */
+  --radius-xs: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* Shadows */
+  --shadow-page: 0 1px 0 var(--rule), 0 16px 40px -20px rgba(40, 30, 18, 0.45);
+  --shadow-pop:  0 1px 0 var(--rule), 0 12px 28px -16px rgba(40, 30, 18, 0.4);
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.4, 0.2, 1);
+  --dur:  180ms;
+
+  /* Paper texture — 1% noise SVG */
+  --paper-noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0.045 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+
+  /* --- Added for the component layer (beyond the TopLeaseMap :root) --- */
+  /* Hairline divider for dark (ink) card headers. Generalized from
+     card-header-bar's rgba(255,255,255,0.18); tinted to paper so the rule
+     reads as warm, not clinical white, on an ink header. */
+  --rule-on-ink: rgba(247, 241, 227, 0.18);
+  /* Danger-button hover. TopLeaseMap uses --brick only for solid error states
+     (no hover variant existed); this is the brick parallel to --gold-bright so
+     .cds-btn-danger:hover can lift the same way .cds-btn-primary:hover does. */
+  --brick-bright: #a5352a;
+
+  /* --- Plain-English aliases (map onto paper/ink/gold/rule above) --- */
+  --bg:         var(--paper);
+  --bg-raised:  var(--paper-2);
+  --text:       var(--ink);
+  --text-soft:  var(--ink-soft);
+  --text-mute:  var(--ink-mute);
+  --accent:     var(--gold);
+  --border:     var(--rule);
+}
+
+/* ============================================================
+   Base element styles
+   ============================================================ */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image: var(--paper-noise);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+  /* Garamond stylistic sets: small-cap alternates + old-style figures. */
+  font-feature-settings: 'ss01', 'cv11';
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color var(--dur) var(--ease);
+}
+a:hover { color: var(--gold-bright); text-decoration: underline; }
+
+::selection {
+  background: var(--gold-tint);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}

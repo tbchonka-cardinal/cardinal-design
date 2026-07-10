@@ -1,0 +1,377 @@
+/* ============================================================
+   Cardinal Design System — components.css
+   Version: v1.0.0
+   Depends on: tokens.css (every value below is a var(); no raw hex/rgb).
+   Generalized from TopLeaseMap's app CSS under the cds- prefix.
+   Behavior contract: no JS beyond toggling the .active class.
+   ============================================================ */
+
+/* ===== Card ===== */
+/* from #lease-card + .card-header-bar + .card-content-body (aged-ledger card;
+   the auth-card source was legacy bootstrap and is intentionally NOT copied). */
+.cds-card {
+  background-color: var(--paper);
+  background-image: var(--paper-noise);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-page);
+  overflow: hidden;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.5;
+}
+
+.cds-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-4) 10px;
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 1px solid var(--rule-on-ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow);
+}
+
+.cds-card-body {
+  padding: var(--s-4) var(--s-4) 10px;
+  overflow-y: auto;
+  scrollbar-color: var(--rule) transparent;
+}
+.cds-card-body::-webkit-scrollbar { width: 10px; }
+.cds-card-body::-webkit-scrollbar-thumb {
+  background: var(--rule);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--paper);
+}
+.cds-card-body::-webkit-scrollbar-track { background: transparent; }
+
+/* ===== Buttons ===== */
+/* base from .admin-trigger-btn / .upload-confirm / .upload-cancel (shared shape). */
+.cds-btn {
+  padding: var(--s-2) var(--s-4);
+  font-family: var(--font-body);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--dur) var(--ease),
+              color var(--dur) var(--ease),
+              border-color var(--dur) var(--ease);
+}
+.cds-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* primary — from .upload-confirm / .admin-trigger-btn.all-btn (solid gold) */
+.cds-btn-primary {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--paper);
+}
+.cds-btn-primary:hover:not(:disabled) {
+  background: var(--gold-bright);
+  border-color: var(--gold-bright);
+  color: var(--paper);
+}
+
+/* ghost — from .admin-trigger-btn / .upload-cancel (outline that fills on hover) */
+.cds-btn-ghost {
+  border-color: var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+}
+.cds-btn-ghost:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* danger — solid brick (from the .admin-job-status.error / delete treatments) */
+.cds-btn-danger {
+  border-color: var(--brick);
+  background: var(--brick);
+  color: var(--paper);
+}
+.cds-btn-danger:hover:not(:disabled) {
+  background: var(--brick-bright);
+  border-color: var(--brick-bright);
+  color: var(--paper);
+}
+
+/* ===== Panel ===== */
+/* from #left-sidebar / sb-* surfaces (raised paper surface with a hairline rule) */
+.cds-panel {
+  background-color: var(--paper);
+  background-image: var(--paper-noise);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-pop);
+  color: var(--ink);
+}
+
+/* ===== Table ===== */
+/* from .prod-history-table / .bb-lease-table (gold eyebrow headers, hairline rows) */
+.cds-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--ink);
+}
+.cds-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--paper-2);
+  background-image: var(--paper-noise);
+  padding: 9px 10px;
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--gold);
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+.cds-table tbody td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--rule-soft);
+  color: var(--ink);
+}
+.cds-table tbody tr:hover td { background: var(--gold-wash); }
+/* right-aligned tabular numbers (from .bb-lease-table td.num) */
+.cds-table .cds-num {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== Fields ===== */
+/* from .bb-lb-form-col inputs + .bb-lb-label (gold eyebrow label over a paper-2 input) */
+.cds-field { margin-bottom: 14px; }
+.cds-field > label,
+.cds-label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--gold);
+}
+
+.cds-input,
+.cds-select,
+.cds-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 7px 10px;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: var(--ink);
+  background: var(--paper-2);
+  border: 1px solid var(--ink-soft);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--dur) var(--ease),
+              box-shadow var(--dur) var(--ease);
+}
+.cds-field textarea { resize: vertical; }
+
+.cds-input:focus,
+.cds-select:focus,
+.cds-field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px var(--gold-tint);
+}
+.cds-input:disabled,
+.cds-select:disabled,
+.cds-field textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== Pill ===== */
+/* from .sb-filter-pill (outline chip; fills to solid ink when .active) */
+.cds-pill {
+  display: inline-block;
+  padding: 3px 9px;
+  font-family: var(--font-body);
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  color: var(--ink-soft);
+  background: var(--paper);
+  border: 1px solid var(--ink-soft);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--dur) var(--ease),
+              color var(--dur) var(--ease),
+              border-color var(--dur) var(--ease);
+}
+.cds-pill:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+  background: var(--gold-wash);
+}
+.cds-pill.active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ===== Badge ===== */
+/* from .card-notes-status (tiny status dot + label; state modifiers) */
+.cds-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-body);
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  color: var(--ink-mute);
+}
+.cds-badge::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.cds-badge-success { color: var(--moss); }
+.cds-badge-error   { color: var(--brick); }
+.cds-badge-muted   { color: var(--ink-mute); font-style: italic; }
+
+/* ===== Eyebrow ===== */
+/* from .sb-section-label / .card-section-header (uppercase gold section label) */
+.cds-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--gold);
+}
+
+/* ===== Tabs ===== */
+/* from .well-tab (paper-surface tabs; ink-mute idle, gold dot under .active).
+   Canonicalized on well-tab rather than the masthead .nav-tab so the component
+   consumes tokens cleanly and works on a paper surface. */
+.cds-tabs {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.cds-tab {
+  position: relative;
+  padding: var(--s-2) var(--s-4) 9px;
+  font-family: var(--font-body);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--ink-mute);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease);
+}
+.cds-tab:hover { color: var(--ink-soft); }
+.cds-tab.active { color: var(--ink); }
+.cds-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+}
+
+/* ===== Stat (label + value) ===== */
+/* from .prod-summary-grid pairs + .hero-value (gold eyebrow over a mono value) */
+.cds-stat { display: flex; flex-direction: column; gap: 2px; }
+.cds-stat-label {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--gold);
+}
+.cds-stat-value {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== Switch ===== */
+/* from .sb-switch (paper-3 track, ink knob; gold track + paper knob when on) */
+.cds-switch {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 18px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.cds-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.cds-switch-slider {
+  position: absolute;
+  inset: 0;
+  background: var(--paper-3);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  transition: background var(--dur) var(--ease),
+              border-color var(--dur) var(--ease);
+}
+.cds-switch-slider::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 2px;
+  top: 2px;
+  background: var(--ink-soft);
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  transition: transform var(--dur) var(--ease),
+              background var(--dur) var(--ease);
+}
+.cds-switch input:checked + .cds-switch-slider {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.cds-switch input:checked + .cds-switch-slider::before {
+  transform: translateX(14px);
+  background: var(--paper);
+  border-color: var(--ink);
+}
+.cds-switch input:focus-visible + .cds-switch-slider {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
