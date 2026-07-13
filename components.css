@@ -411,6 +411,12 @@
 .cds-splash-name {
   font-family: var(--font-display);
   font-size: 2.4rem;
+  /* Pinned line-height: the EB Garamond webfont loads after first paint, and
+     its normal line box (~50px at 2.4rem) is taller than the Georgia/local
+     Garamond fallback's (~44px). Without a pin, the swap re-centers the flex
+     column and visibly jerks the mark upward. 1.3 reproduces the EB Garamond
+     height, so the swap becomes layout-neutral. */
+  line-height: 1.3;
   letter-spacing: 0.5em;
   text-indent: 0.5em;
   color: var(--ink);
