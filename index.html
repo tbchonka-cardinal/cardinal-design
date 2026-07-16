@@ -444,9 +444,17 @@
       <img src="icons/janus.svg" width="96" height="96" alt="Janus 96px">
     </p>
 
+    <h3>Minerva mark</h3>
+    <p style="display:flex; align-items:center; gap:24px;">
+      <img src="icons/minerva.svg" width="16" height="16" alt="Minerva 16px">
+      <img src="icons/minerva.svg" width="32" height="32" alt="Minerva 32px">
+      <img src="icons/minerva.svg" width="96" height="96" alt="Minerva 96px">
+    </p>
+
     <h3>Boot splash</h3>
     <p><button class="cds-btn cds-btn-primary" id="replay-terminus">Play Terminus splash</button>
-       <button class="cds-btn" id="replay-janus">Play Janus splash</button></p>
+       <button class="cds-btn" id="replay-janus">Play Janus splash</button>
+       <button class="cds-btn" id="replay-minerva">Play Minerva splash</button></p>
   </section>
 
   <div class="cds-splash cds-splash--done" id="demo-splash" style="display:none;">
@@ -478,6 +486,16 @@
     </svg>
   </template>
 
+  <template id="tpl-minerva">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle class="cds-draw" cx="12" cy="12" r="9" stroke="#1a1814" stroke-width="1.5"/>
+      <path class="cds-draw" style="--cds-d: 300ms" d="M7 9.4 Q9.5 7.2 12 9.4 Q14.5 7.2 17 9.4" stroke="#1a1814" stroke-width="1.5"/>
+      <circle class="cds-bloom" style="--cds-d: 800ms" cx="8.8" cy="11.8" r="1.7" fill="#a8772a"/>
+      <circle class="cds-bloom" style="--cds-d: 900ms" cx="15.2" cy="11.8" r="1.7" fill="#a8772a"/>
+      <path class="cds-bloom" style="--cds-d: 1000ms" d="M12 13.6 L10.9 15.4 L12 17.2 L13.1 15.4 Z" fill="#a8772a"/>
+    </svg>
+  </template>
+
   <script>
     function playSplash(tplId, name) {
       const splash = document.getElementById('demo-splash');
@@ -499,9 +517,10 @@
     }
     document.getElementById('replay-terminus').addEventListener('click', () => playSplash('tpl-terminus', 'Terminus'));
     document.getElementById('replay-janus').addEventListener('click', () => playSplash('tpl-janus', 'Janus'));
+    document.getElementById('replay-minerva').addEventListener('click', () => playSplash('tpl-minerva', 'Minerva'));
   </script>
 
-  <p class="sc-footer">Cardinal Design System v1.1.2 · Cardinality ecosystem, tbchonka-cardinal</p>
+  <p class="sc-footer">Cardinal Design System v1.2.0 · Cardinality ecosystem, tbchonka-cardinal</p>
 </div>
 
 </body>
