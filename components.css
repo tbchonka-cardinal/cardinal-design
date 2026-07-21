@@ -1,6 +1,6 @@
 /* ============================================================
    Cardinal Design System — components.css
-   Version: v1.0.0
+   Version: v2.0.0
    Depends on: tokens.css (every value below is a var(); no raw hex/rgb).
    Generalized from TopLeaseMap's app CSS under the cds- prefix.
    Behavior contract: no JS beyond toggling the .active class.
@@ -27,9 +27,10 @@
   align-items: center;
   gap: var(--s-2);
   padding: var(--s-3) var(--s-4) 10px;
-  background: var(--ink);
+  background-color: var(--imperial);   /* fallback if gradients unsupported */
+  background-image: var(--grad-imperial);
   color: var(--paper);
-  border-bottom: 1px solid var(--rule-on-ink);
+  border-bottom: 1px solid var(--gold);
   font-family: var(--font-body);
   font-size: var(--fs-meta);
   font-weight: 600;
@@ -74,15 +75,18 @@
   cursor: not-allowed;
 }
 
-/* primary — from .upload-confirm / .admin-trigger-btn.all-btn (solid gold) */
+/* primary — gold glass: flag-gold gradient with an inset top highlight */
 .cds-btn-primary {
   border-color: var(--gold);
-  background: var(--gold);
+  background-color: var(--gold);       /* fallback */
+  background-image: var(--grad-gold);
+  box-shadow: inset 0 1px 0 rgba(255, 240, 190, 0.4);
   color: var(--paper);
 }
 .cds-btn-primary:hover:not(:disabled) {
-  background: var(--gold-bright);
   border-color: var(--gold-bright);
+  background-color: var(--gold-bright);
+  background-image: linear-gradient(180deg, #e3bb45 0%, var(--gold-bright) 100%);
   color: var(--paper);
 }
 
@@ -93,7 +97,8 @@
   color: var(--ink);
 }
 .cds-btn-ghost:hover:not(:disabled) {
-  background: var(--ink);
+  background: var(--imperial);
+  border-color: var(--imperial);
   color: var(--paper);
 }
 
@@ -229,8 +234,8 @@
   background: var(--gold-wash);
 }
 .cds-pill.active {
-  border-color: var(--ink);
-  background: var(--ink);
+  border-color: var(--imperial);
+  background: var(--imperial);
   color: var(--paper);
 }
 
