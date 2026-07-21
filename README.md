@@ -29,13 +29,13 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 
 ## Versioning policy
 
-- Pin every consumer to a git tag (`@v1.0.0`), never `@main`. jsDelivr caches tags
+- Pin every consumer to a git tag (`@v2.0.0`), never `@main`. jsDelivr caches tags
   aggressively; `@main` will not reliably pick up changes and gives you no way to
   roll back.
 - Workflow to change anything: edit the CSS in this repo, tag a new version
   (`v1.x.y`), then go bump the pinned tag in each consuming app deliberately. No
   app auto-follows a moving target.
-- Non-goals for v1: no dark theme, no JS behaviors, no build pipeline or npm
+- Non-goals: no dark theme, no JS behaviors, no build pipeline or npm
   package, no React.
 
 ## Class reference
