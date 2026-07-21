@@ -1,6 +1,6 @@
 /* ============================================================
    Cardinal Design System — tokens.css
-   Version: v3.0.0
+   Version: v3.1.0
    Source:  TopLeaseMap src/style.css :root, repalette for the
             "heritage parchment" system.
    Philosophy: a layered, high-contrast parchment look. Warm off-white
@@ -73,6 +73,11 @@
   /* Spacing */
   --s-1: 4px;  --s-2: 8px;  --s-3: 12px;  --s-4: 16px;
   --s-5: 24px; --s-6: 32px; --s-7: 48px;
+
+  /* Control sizing — one height for inputs/selects/buttons so rows line up.
+     Micro controls (legend, dense toolbars) use the small size. */
+  --control-h: 32px;
+  --control-h-sm: 28px;
 
   /* Type scale */
   --fs-eyebrow: 10px;

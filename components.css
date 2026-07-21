@@ -1,6 +1,6 @@
 /* ============================================================
    Cardinal Design System — components.css
-   Version: v3.0.0
+   Version: v3.1.0
    Depends on: tokens.css (every value below is a var(); no raw hex/rgb).
    Generalized from TopLeaseMap's app CSS under the cds- prefix.
    Behavior contract: no JS beyond toggling the .active class.
@@ -111,6 +111,32 @@
   border-color: var(--brick-bright);
   color: var(--paper);
 }
+
+/* icon — square hit target for a single inline SVG (close, add, edit, menu).
+   Replaces raw-text glyph buttons ('x', '+', '⋯'). The SVG inherits
+   currentColor; size it 14-16px inside the 28px box. */
+.cds-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-h-sm);
+  height: var(--control-h-sm);
+  padding: 0;
+  flex-shrink: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background var(--dur) var(--ease),
+              color var(--dur) var(--ease);
+}
+.cds-btn-icon:hover:not(:disabled) {
+  background: var(--paper-3);
+  color: var(--ink);
+}
+.cds-btn-icon:disabled { opacity: 0.4; cursor: not-allowed; }
+.cds-btn-icon svg { width: 15px; height: 15px; display: block; }
 
 /* ===== Panel ===== */
 /* Floating white surface (sidebars, filter panels, popovers): crisp, with the

@@ -17,14 +17,14 @@ snippets.
 Link the whole system (font + tokens + components):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v3.0.0/cardinal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v3.1.0/cardinal.css">
 ```
 
 Token-only alternative, for an app that wants the color/spacing/type variables but
 keeps its own component CSS:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v3.0.0/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v3.1.0/tokens.css">
 ```
 
 Or vendor `tokens.css` into the consuming app's own repo (copy the file in,
@@ -53,6 +53,7 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 | `.cds-btn-primary` | Brass-glass gradient button, for the main action |
 | `.cds-btn-ghost` | Outline button that fills to oxblood on hover |
 | `.cds-btn-danger` | Solid hot-red button, for destructive actions |
+| `.cds-btn-icon` | 28px square icon button for one inline SVG (close, add, edit, menu) |
 | `.cds-panel` | Floating white surface with a hairline rule border, for sidebars/filters |
 | `.cds-table` | Data table: sticky ink-on-paper-2 headers, zebra rows, hairline dividers |
 | `.cds-num` | Right-aligned, tabular-numeral table cell for numeric columns |
