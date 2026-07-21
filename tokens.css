@@ -1,9 +1,10 @@
 /* ============================================================
    Cardinal Design System — tokens.css
-   Version: v1.0.0
+   Version: v2.0.0
    Source:  TopLeaseMap src/style.css :root (the "Editorial Almanac" system)
-   Philosophy: an aged-ledger look — warm paper, dark ink, gold hairline
-               rules, and Garamond set small and letterspaced.
+   Philosophy: an aged-ledger look in SPQR colors — light gold paper, dark
+               ink text, imperial red chrome, gold hairline rules, and
+               Garamond set small and letterspaced.
    Note: the EB Garamond @import lives in cardinal.css, not here, so token-only
          consumers can layer their own font loading if they prefer.
    ============================================================ */
@@ -15,11 +16,11 @@
   --font-mono:    'EB Garamond', Garamond, Georgia, serif;
 
   /* Paper surfaces */
-  --paper:     #f7f1e3;
-  --paper-2:   #efe7d3;
-  --paper-3:   #e6dcc2;
-  --rule:      #c8b894;
-  --rule-soft: #d8caac;
+  --paper:     #faf3da;
+  --paper-2:   #f3e8c4;
+  --paper-3:   #ead9a8;
+  --rule:      #cbb271;
+  --rule-soft: #dcc98f;
 
   /* Ink */
   --ink:       #1a1814;
@@ -27,17 +28,22 @@
   --ink-mute:  #8a8378;
 
   /* Accents */
-  --gold:        #a8772a;
-  --gold-soft:   #d4a373;
-  --gold-bright: #c89045;
-  --gold-wash:   rgba(168, 119, 42, 0.08);
-  --gold-tint:   rgba(168, 119, 42, 0.16);
+  --gold:        #a87b1c;
+  --gold-soft:   #d6b562;
+  --gold-bright: #c1922a;
+  --gold-wash:   rgba(168, 123, 28, 0.08);
+  --gold-tint:   rgba(168, 123, 28, 0.16);
+
+  /* Imperial chrome — solid dark surfaces (nav bars, card headers, active
+     pills, icons). Surfaces only; text stays --ink. */
+  --imperial:        #6e1414;
+  --imperial-bright: #8a1a1a;
 
   --ink-blue: #234e70;
   --moss:     #486b32;
-  --brick:    #8b2a1f;
+  --brick:    #c0392b;   /* hot warning red — deep red is furniture, this is a warning */
 
-  --focus: #a8772a;
+  --focus: #a87b1c;
 
   /* Spacing */
   --s-1: 4px;  --s-2: 8px;  --s-3: 12px;  --s-4: 16px;
@@ -61,6 +67,10 @@
   --shadow-page: 0 1px 0 var(--rule), 0 16px 40px -20px rgba(40, 30, 18, 0.45);
   --shadow-pop:  0 1px 0 var(--rule), 0 12px 28px -16px rgba(40, 30, 18, 0.4);
 
+  /* Glass — the only two sanctioned gradients (spec 2026-07-21) */
+  --grad-gold:     linear-gradient(180deg, #d9ad33 0%, var(--gold) 100%);
+  --grad-imperial: linear-gradient(180deg, var(--imperial-bright) 0%, #5a0f0f 100%);
+
   /* Motion */
   --ease: cubic-bezier(0.2, 0.4, 0.2, 1);
   --dur:  180ms;
@@ -69,14 +79,11 @@
   --paper-noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0.045 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 
   /* --- Added for the component layer (beyond the TopLeaseMap :root) --- */
-  /* Hairline divider for dark (ink) card headers. Generalized from
-     card-header-bar's rgba(255,255,255,0.18); tinted to paper so the rule
-     reads as warm, not clinical white, on an ink header. */
-  --rule-on-ink: rgba(247, 241, 227, 0.18);
-  /* Danger-button hover. TopLeaseMap uses --brick only for solid error states
-     (no hover variant existed); this is the brick parallel to --gold-bright so
-     .cds-btn-danger:hover can lift the same way .cds-btn-primary:hover does. */
-  --brick-bright: #a5352a;
+  /* Hairline divider for dark (imperial) card headers: a translucent tint of
+     the new paper so the rule reads warm on the red header. */
+  --rule-on-ink: rgba(250, 243, 218, 0.18);
+  /* Danger-button hover, parallel to --gold-bright. */
+  --brick-bright: #d64a3b;
 
   /* --- Plain-English aliases (map onto paper/ink/gold/rule above) --- */
   --bg:         var(--paper);
