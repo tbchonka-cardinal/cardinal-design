@@ -1,20 +1,18 @@
 /* ============================================================
    Cardinal Design System — components.css
-   Version: v2.0.0
+   Version: v3.0.0
    Depends on: tokens.css (every value below is a var(); no raw hex/rgb).
    Generalized from TopLeaseMap's app CSS under the cds- prefix.
    Behavior contract: no JS beyond toggling the .active class.
    ============================================================ */
 
 /* ===== Card ===== */
-/* from #lease-card + .card-header-bar + .card-content-body (aged-ledger card;
-   the auth-card source was legacy bootstrap and is intentionally NOT copied). */
+/* Elevated white surface: crisp (no noise), subtle rule, small resting shadow. */
 .cds-card {
-  background-color: var(--paper);
-  background-image: var(--paper-noise);
-  border: 1px solid var(--ink);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-page);
+  background-color: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
   color: var(--ink);
   font-family: var(--font-body);
@@ -45,9 +43,9 @@
 }
 .cds-card-body::-webkit-scrollbar { width: 10px; }
 .cds-card-body::-webkit-scrollbar-thumb {
-  background: var(--rule);
+  background: var(--rule-strong);
   border-radius: var(--radius-md);
-  border: 2px solid var(--paper);
+  border: 2px solid var(--surface);
 }
 .cds-card-body::-webkit-scrollbar-track { background: transparent; }
 
@@ -60,9 +58,9 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--rule-strong);
   border-radius: var(--radius-sm);
-  background: var(--paper);
+  background: var(--surface);
   color: var(--ink);
   cursor: pointer;
   white-space: nowrap;
@@ -86,14 +84,14 @@
 .cds-btn-primary:hover:not(:disabled) {
   border-color: var(--gold-bright);
   background-color: var(--gold-bright);
-  background-image: linear-gradient(180deg, #e3bb45 0%, var(--gold-bright) 100%);
+  background-image: linear-gradient(180deg, var(--gold-soft) 0%, var(--gold-bright) 100%);
   color: var(--paper);
 }
 
 /* ghost — from .admin-trigger-btn / .upload-cancel (outline that fills on hover) */
 .cds-btn-ghost {
-  border-color: var(--ink);
-  background: var(--paper);
+  border-color: var(--rule-strong);
+  background: var(--surface);
   color: var(--ink);
 }
 .cds-btn-ghost:hover:not(:disabled) {
@@ -115,12 +113,12 @@
 }
 
 /* ===== Panel ===== */
-/* from #left-sidebar / sb-* surfaces (raised paper surface with a hairline rule) */
+/* Floating white surface (sidebars, filter panels, popovers): crisp, with the
+   deepest shadow step. */
 .cds-panel {
-  background-color: var(--paper);
-  background-image: var(--paper-noise);
+  background-color: var(--surface);
   border: 1px solid var(--rule);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-pop);
   color: var(--ink);
 }
@@ -139,14 +137,13 @@
   top: 0;
   z-index: 1;
   background-color: var(--paper-2);
-  background-image: var(--paper-noise);
   padding: 9px 10px;
   font-family: var(--font-body);
   font-size: var(--fs-eyebrow);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: var(--ls-eyebrow);
-  color: var(--gold);
+  color: var(--ink);
   text-align: left;
   border-bottom: 1px solid var(--rule);
   white-space: nowrap;
@@ -156,11 +153,14 @@
   border-bottom: 1px solid var(--rule-soft);
   color: var(--ink);
 }
+/* Zebra: odd rows show the surface white through; even rows get a barely
+   visible warm tint. Row hover wins over both. */
+.cds-table tbody tr:nth-child(odd) td  { background: transparent; }
+.cds-table tbody tr:nth-child(even) td { background: var(--paper-zebra); }
 .cds-table tbody tr:hover td { background: var(--gold-wash); }
 /* right-aligned tabular numbers (from .bb-lease-table td.num) */
 .cds-table .cds-num {
   text-align: right;
-  font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
 }
 
@@ -176,7 +176,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: var(--ls-eyebrow);
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 .cds-input,
@@ -188,8 +188,8 @@
   font-family: var(--font-body);
   font-size: 12.5px;
   color: var(--ink);
-  background: var(--paper-2);
-  border: 1px solid var(--ink-soft);
+  background: var(--surface);
+  border: 1px solid var(--rule-strong);
   border-radius: var(--radius-sm);
   transition: border-color var(--dur) var(--ease),
               box-shadow var(--dur) var(--ease);
@@ -271,7 +271,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: var(--ls-eyebrow);
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 /* ===== Tabs ===== */
@@ -311,7 +311,7 @@
 }
 
 /* ===== Stat (label + value) ===== */
-/* from .prod-summary-grid pairs + .hero-value (gold eyebrow over a mono value) */
+/* from .prod-summary-grid pairs + .hero-value (gold eyebrow over a tabular value) */
 .cds-stat { display: flex; flex-direction: column; gap: 2px; }
 .cds-stat-label {
   font-family: var(--font-body);
@@ -319,10 +319,9 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: var(--ls-eyebrow);
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 .cds-stat-value {
-  font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 500;
   color: var(--ink);
@@ -415,6 +414,7 @@
 }
 .cds-splash-name {
   font-family: var(--font-display);
+  font-feature-settings: 'ss01', 'cv11';
   font-size: 2.4rem;
   /* Pinned line-height: the EB Garamond webfont loads after first paint, and
      its normal line box (~50px at 2.4rem) is taller than the Georgia/local
