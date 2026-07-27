@@ -66,7 +66,7 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 | `.cds-label` | Standalone brass (`--gold-deep`) uppercase field label (used outside `.cds-field`) |
 | `.cds-input` | Text input styled to the white surface field treatment with a brass focus ring |
 | `.cds-select` | Select dropdown styled to match `.cds-input` |
-| `.cds-badge` | Small status indicator: colored dot plus label |
+| `.cds-badge` | Small status label on a feedback tint |
 | `.cds-badge-success` | Badge modifier, emerald, for a good/synced state |
 | `.cds-badge-error` | Badge modifier, brick red, for a failed/error state |
 | `.cds-badge-warning` | Badge modifier, amber, for a caution/pending state |

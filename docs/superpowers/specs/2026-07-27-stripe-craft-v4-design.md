@@ -262,9 +262,10 @@ Three new components:
   radii. Save bars attach to the card being edited, not the page.
 - `.cds-empty`: 1px dashed `--n-300` border, 12px radius, centered `--ink-mute`
   message.
-- `.cds-banner`: neutral notice on `--n-50` with a hairline ring, icon left,
+- `.cds-banner`: neutral notice on `--n-50` with a hairline ring,
   message 14px, optional text-link action right, dismiss far right. Status
   variants use the feedback pairs.
+- Badges and banners carry no leading dot or icon (owner call at the 2026-07-27 visual gate).
 
 ## 11. Showcase and verification
 

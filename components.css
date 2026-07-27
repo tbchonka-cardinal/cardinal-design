@@ -277,15 +277,6 @@
   background: transparent;
   color: var(--text-mute);
 }
-.cds-badge::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: currentColor;
-  flex-shrink: 0;
-}
 .cds-badge-success { color: var(--success-text); background: var(--success-bg); }
 .cds-badge-error   { color: var(--danger-text);  background: var(--danger-bg); }
 .cds-badge-warning { color: var(--warning-text); background: var(--warning-bg); }
@@ -463,12 +454,6 @@
   line-height: var(--lh-body);
   color: var(--text);
 }
-.cds-banner > svg {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-  color: var(--text-soft);
-}
 .cds-banner-action {
   margin-left: auto;
   flex-shrink: 0;
@@ -478,16 +463,12 @@
   white-space: nowrap;
 }
 .cds-banner-success { background: var(--success-bg); color: var(--success-text); }
-.cds-banner-success > svg,
 .cds-banner-success .cds-banner-action { color: var(--success-text); }
 .cds-banner-error   { background: var(--danger-bg);  color: var(--danger-text); }
-.cds-banner-error > svg,
 .cds-banner-error .cds-banner-action   { color: var(--danger-text); }
 .cds-banner-warning { background: var(--warning-bg); color: var(--warning-text); }
-.cds-banner-warning > svg,
 .cds-banner-warning .cds-banner-action { color: var(--warning-text); }
 .cds-banner-info    { background: var(--info-bg);    color: var(--info-text); }
-.cds-banner-info > svg,
 .cds-banner-info .cds-banner-action    { color: var(--info-text); }
 
 /* ============================================================

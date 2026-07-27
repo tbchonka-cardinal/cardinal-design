@@ -436,32 +436,27 @@
       <p class="sc-component-class"><code>.cds-banner</code> + <code>-success</code> / <code>-error</code> / <code>-warning</code> / <code>-info</code></p>
       <div style="display: flex; flex-direction: column; gap: var(--s-150); max-width: 560px;">
         <div class="cds-banner">
-          <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/></svg>
           Monthly production sync runs tonight at 02:00.
           <span class="cds-banner-action">View schedule</span>
           <button class="cds-btn-icon" aria-label="Dismiss"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="2"/></svg></button>
         </div>
         <div class="cds-banner cds-banner-warning">
-          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1L15 14H1z"/></svg>
           3 wells report zero volume for 2026-05.
           <span class="cds-banner-action">Review</span>
         </div>
         <div class="cds-banner cds-banner-success">
-          <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/></svg>
           2026-05 production load reconciled.
         </div>
         <div class="cds-banner cds-banner-error">
-          <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/></svg>
           R2 upload failed for book 412.
           <span class="cds-banner-action">Retry</span>
         </div>
         <div class="cds-banner cds-banner-info">
-          <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/></svg>
           Title chain view is new. Docs cover the join rules.
         </div>
       </div>
       <pre class="sc-snippet"><code>&lt;div class="cds-banner"&gt;
-  &lt;svg&gt;...&lt;/svg&gt; Message text
+  Message text
   &lt;span class="cds-banner-action"&gt;Action&lt;/span&gt;
 &lt;/div&gt;
 &lt;div class="cds-banner cds-banner-warning"&gt;...&lt;/div&gt;</code></pre>
