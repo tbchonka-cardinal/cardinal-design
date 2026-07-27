@@ -40,11 +40,12 @@
   --n-800: #524E48;
   --n-900: #161514;
 
-  /* Brass ramp (the accent). Brass TEXT on light surfaces uses 700. */
+  /* Brass ramp (the accent). Brass TEXT on light surfaces uses 700.
+     700 darkened from #8A6D33 so it holds 4.5:1 on tinted surfaces (n-75, gold-subtle). */
   --brass-300: #D9BC7E;
   --brass-400: #C9A45C;
   --brass-500: #B8934A;
-  --brass-700: #8A6D33;
+  --brass-700: #846931;
   --brass-wash:   rgba(184, 147, 74, 0.08);
   --brass-tint:   rgba(184, 147, 74, 0.16);
   --brass-subtle: #F6F1E5;
@@ -206,7 +207,7 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   font-size: var(--fs-body);
-  line-height: var(--lh-body);
+  line-height: 1.4286;  /* 20px at 14px body; unitless so larger text still scales */
 }
 
 /* Display serif for page/brand headers only. Garamond stylistic sets

@@ -101,7 +101,7 @@
     width: 90px;
     flex-shrink: 0;
   }
-  .sc-spacing-bar { background: var(--gold); height: 14px; border-radius: var(--radius-xs); }
+  .sc-spacing-bar { background: var(--gold); height: 14px; border-radius: 0; }
   .sc-type-row {
     display: flex;
     align-items: baseline;
@@ -206,15 +206,15 @@
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-300);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-300</span><span class="sc-swatch-hex">#D9BC7E</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-400);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-400</span><span class="sc-swatch-hex">#C9A45C</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-500);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-500</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#B8934A</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-700);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-700</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#8A6D33 · text/links</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-700);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-700</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#846931 · text/links</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-subtle);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-subtle</span><span class="sc-swatch-hex">#F6F1E5</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-wash);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-wash</span><span class="sc-swatch-hex">rgba(184,147,74,.08)</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-tint);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-tint</span><span class="sc-swatch-hex">rgba(184,147,74,.16)</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--oxblood-400);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--oxblood-400</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#5E1620</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--oxblood-500);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--oxblood-500</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#4A1017</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--oxblood-700);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--oxblood-700</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#38090F</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--grad-gold);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--grad-gold</span><span class="sc-swatch-hex" style="color: var(--paper-3);">--gold-bright → --gold</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--grad-imperial);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--grad-imperial</span><span class="sc-swatch-hex" style="color: var(--paper-3);">--imperial-bright → #38090F</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--grad-gold);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--grad-gold</span><span class="sc-swatch-hex" style="color: var(--paper-3);">--brass-400 → --brass-500</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--grad-imperial);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--grad-imperial</span><span class="sc-swatch-hex" style="color: var(--paper-3);">--oxblood-400 → --oxblood-700</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--success-bg); display:flex; align-items:center; justify-content:center;"><span style="color: var(--success-text); font-weight:600;">Synced</span></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--success-text / -bg</span><span class="sc-swatch-hex">#1B4D3E on #E7F0E9</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--danger-bg); display:flex; align-items:center; justify-content:center;"><span style="color: var(--danger-text); font-weight:600;">Failed</span></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--danger-text / -bg</span><span class="sc-swatch-hex">#8B1E1E on #FBE9E5</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--warning-bg); display:flex; align-items:center; justify-content:center;"><span style="color: var(--warning-text); font-weight:600;">Check</span></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--warning-text / -bg</span><span class="sc-swatch-hex">#8A5A00 on #FBF3DC</span></div></div>
@@ -402,7 +402,7 @@
 
     <!-- Badge and Pill -->
     <div class="sc-component-block">
-      <p class="sc-component-class"><code>.cds-badge</code> + <code>.cds-badge-success</code> / <code>.cds-badge-error</code> / <code>.cds-badge-muted</code> &nbsp;·&nbsp; <code>.cds-pill</code> + <code>.active</code></p>
+      <p class="sc-component-class"><code>.cds-badge</code> + <code>.cds-badge-success</code> / <code>.cds-badge-error</code> / <code>.cds-badge-warning</code> / <code>.cds-badge-info</code> / <code>.cds-badge-muted</code> &nbsp;·&nbsp; <code>.cds-pill</code> + <code>.active</code></p>
       <div class="sc-demo">
         <span class="cds-badge cds-badge-success">Synced</span>
         <span class="cds-badge cds-badge-error">Sync Failed</span>
@@ -445,6 +445,19 @@
           <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1L15 14H1z"/></svg>
           3 wells report zero volume for 2026-05.
           <span class="cds-banner-action">Review</span>
+        </div>
+        <div class="cds-banner cds-banner-success">
+          <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/></svg>
+          2026-05 production load reconciled.
+        </div>
+        <div class="cds-banner cds-banner-error">
+          <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/></svg>
+          R2 upload failed for book 412.
+          <span class="cds-banner-action">Retry</span>
+        </div>
+        <div class="cds-banner cds-banner-info">
+          <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/></svg>
+          Title chain view is new. Docs cover the join rules.
         </div>
       </div>
       <pre class="sc-snippet"><code>&lt;div class="cds-banner"&gt;

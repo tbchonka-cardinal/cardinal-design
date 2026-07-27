@@ -19,10 +19,13 @@ PAIRS = [
     ("ink-soft on canvas",           "#524E48", "#F9F7F2", 4.5),
     ("ink-mute captions on white",   "#706B62", "#FFFFFF", 4.5),
     ("ink-mute captions on canvas",  "#706B62", "#F9F7F2", 4.5),
+    ("ink-mute captions on raised",  "#706B62", "#F2EFE9", 4.5),
     # brass accent
-    ("gold-deep text on white",      "#8A6D33", "#FFFFFF", 4.5),
-    ("gold-deep text on canvas",     "#8A6D33", "#F9F7F2", 4.5),
-    ("focus ring on white",          "#8A6D33", "#FFFFFF", 3.0),
+    ("gold-deep text on white",      "#846931", "#FFFFFF", 4.5),
+    ("gold-deep text on canvas",     "#846931", "#F9F7F2", 4.5),
+    ("gold-deep text on raised (n-75)", "#846931", "#F2EFE9", 4.5),
+    ("gold-deep on gold-subtle",     "#846931", "#F6F1E5", 4.5),
+    ("focus ring on white",          "#846931", "#FFFFFF", 3.0),
     ("ink text on brass btn",        "#161514", "#B8934A", 4.5),
     ("ink text on brass hover",      "#161514", "#C9A45C", 4.5),
     # chrome and danger

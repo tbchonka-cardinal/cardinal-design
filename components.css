@@ -4,7 +4,7 @@
    Depends on: tokens.css (every value below is a var(); no raw hex/rgb).
    Generalized from TopLeaseMap's app CSS under the cds- prefix.
    Behavior contract: no JS beyond toggling the .active class.
-   Craft: rings not borders; transitions on background-color and box-shadow only (switch knob transform excepted).
+   Craft: rings not borders; transitions on background-color and box-shadow only (switch knob transform and slider border-color excepted).
    ============================================================ */
 
 /* ===== Card ===== */
@@ -456,6 +456,7 @@
   gap: var(--s-150);
   padding: var(--s-150) var(--s-200);
   background: var(--bg);
+  box-shadow: var(--ring);
   border-radius: var(--r-control);
   font-family: var(--font-body);
   font-size: var(--fs-body);

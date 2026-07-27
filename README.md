@@ -48,7 +48,7 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 
 | Class | What it is |
 |---|---|
-| `.cds-card` | Elevated white card container: surface background, hairline rule border, soft resting shadow |
+| `.cds-card` | Elevated white card container: surface background, hairline ring, soft resting shadow |
 | `.cds-card-header` | Oxblood gradient header bar for a card, uppercase meta text |
 | `.cds-card-body` | Padded, scrollable card content area |
 | `.cds-card-footer` | White action band completing the three-band edit card; tints the body via `:has()` |
@@ -56,10 +56,10 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 | `.cds-banner` | Neutral inline notice; `-success`/`-error`/`-warning`/`-info` variants use the feedback tint pairs |
 | `.cds-btn` | Base button shape shared by all button variants |
 | `.cds-btn-primary` | Brass-glass gradient button, for the main action |
-| `.cds-btn-ghost` | Outline button that fills to oxblood on hover |
+| `.cds-btn-ghost` | White secondary button; its ring darkens and its shadow lifts on hover |
 | `.cds-btn-danger` | Solid hot-red button, for destructive actions |
 | `.cds-btn-icon` | 28px square icon button for one inline SVG (close, add, edit, menu) |
-| `.cds-panel` | Floating white surface with a hairline rule border, for sidebars/filters |
+| `.cds-panel` | Floating white surface with a hairline ring, for sidebars/filters |
 | `.cds-table` | Data table: sticky ink-on-paper-2 headers, zebra rows, hairline dividers |
 | `.cds-num` | Right-aligned, tabular-numeral table cell for numeric columns |
 | `.cds-field` | Wrapper around a labeled form control, sets bottom margin |
@@ -72,11 +72,11 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 | `.cds-badge-warning` | Badge modifier, amber, for a caution/pending state |
 | `.cds-badge-info` | Badge modifier, ink-blue, for a neutral informational state |
 | `.cds-badge-muted` | Badge modifier, muted italic, for an empty/inactive state |
-| `.cds-pill` | Outline filter chip; toggled solid oxblood with `.active` |
+| `.cds-pill` | Filter chip on a hairline ring; `.active` marks it with a 2px ink ring |
 | `.cds-eyebrow` | Uppercase, letterspaced, brass (`--gold-deep`) section label |
 | `.cds-tabs` | Flex row container for a tab strip |
 | `.cds-tab` | Individual tab; current tab marked with `.active` |
-| `.active` | Shared state modifier: solid oxblood fill on `.cds-pill`, underline dot on `.cds-tab` |
+| `.active` | Shared state modifier: 2px ink ring on `.cds-pill`, underline dot on `.cds-tab` |
 | `.cds-stat` | Label-over-value stat pair container |
 | `.cds-stat-label` | Brass (`--gold-deep`) uppercase label for a stat |
 | `.cds-stat-value` | Tabular-numeral value for a stat |

@@ -114,7 +114,7 @@ marks. It is no longer an interaction color. Component consequences:
 
 The gold-text rule stays: brass text on light surfaces uses `--gold-deep`.
 
-Focus indicators (the `:focus-visible` outline and input focus rings) use the darker `--brass-700` step: an indicator needs 3:1 on white and brass-500 measures ~2.8:1.
+Focus indicators (the `:focus-visible` outline and input focus rings) use the darker `--brass-700` step (#846931): an indicator needs 3:1 on white and brass-500 measures ~2.8:1.
 
 ### 5.3 Feedback pairs
 
@@ -232,7 +232,10 @@ single ease update in place.
 | `--font-body` | Source Sans 3 stack | system stack | webfont retired |
 | `--ink-mute` | #78736A | #706B62 | caption contrast on canvas |
 | `.cds-btn-primary text` | --paper | --ink | paper on brass measured ~2.6:1; closes the NEXT.md open question |
-| --focus | `--gold` (#B8934A) | `--brass-700` (#8A6D33) | focus indicator needs 3:1 on white; brass-500 measures ~2.8:1 |
+| `--focus` | `--gold` (#B8934A) | `--brass-700` (#846931) | focus indicator needs 3:1 on white; brass-500 measures ~2.8:1 |
+| `--shadow-sm` | single shadow | two-tint pair | ~3x more visible at rest; announce to vendoring apps |
+| `--gold-deep` / `--brass-700` | #8A6D33 | #846931 | 4.5:1 on tinted surfaces (n-75 measured 4.24 before) |
+| body line-height, h1/h2 sizes | 1.5 unitless; h1/h2 unsized | 1.4286 unitless; h1 28px, h2 20px | scale enforcement; announce to vendoring apps |
 
 All other aliases keep their v3 values.
 
@@ -254,14 +257,14 @@ Sweep of existing `cds-` classes onto the new tokens:
 
 Three new components:
 
-- `.cds-card-footer`: completes the three-band card. White header, `--n-75`
+- `.cds-card-footer`: completes the three-band card. oxblood header, `--n-75`
   body, white footer with right-aligned actions, footer inherits the bottom
   radii. Save bars attach to the card being edited, not the page.
 - `.cds-empty`: 1px dashed `--n-300` border, 12px radius, centered `--ink-mute`
   message.
-- `.cds-banner`: neutral notice on `--n-50`, icon left, message 14px, optional
-  text-link action right, dismiss far right. Status variants use the feedback
-  pairs.
+- `.cds-banner`: neutral notice on `--n-50` with a hairline ring, icon left,
+  message 14px, optional text-link action right, dismiss far right. Status
+  variants use the feedback pairs.
 
 ## 11. Showcase and verification
 
@@ -269,8 +272,9 @@ Three new components:
   including the three new components and the feedback pairs.
 - contrast.py validates: each feedback text on its tint, `--gold-deep` on
   `--n-0`/`--n-50`, each ink tier on each paper step it will sit on. Special
-  check: `--n-600` (#78736A) as 12px caption text on white; if it fails 4.5:1,
-  darken the caption use or the token, and record the choice here.
+  check: `--n-600` (#706B62) as 12px caption text on white; if it fails 4.5:1,
+  darken the caption use or the token, and record the choice here. `--n-600`
+  (#706B62) passes.
 - Browser pass on the showcase (Thatcher verifies visually).
 - Tag v4.0.0 only after both pass.
 
