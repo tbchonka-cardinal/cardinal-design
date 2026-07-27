@@ -412,6 +412,83 @@
   outline-offset: 2px;
 }
 
+/* ===== Card footer (three-band card) ===== */
+/* White footer band with right-aligned actions. When a card has a
+   footer, the body band tints to bg-raised: the tinted middle band
+   marks "things you can change" and binds save/cancel to this card,
+   not to the page. */
+.cds-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--s-100);
+  padding: var(--s-150) var(--s-200);
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  border-radius: 0 0 var(--r-container) var(--r-container);
+}
+.cds-card:has(.cds-card-footer) .cds-card-body {
+  background: var(--bg-raised);
+}
+
+/* ===== Empty state ===== */
+/* Dashed border says "this container is real but unfilled". */
+.cds-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--s-400) var(--s-300);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--r-container);
+  color: var(--text-mute);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+/* ===== Inline banner ===== */
+/* Neutral by default: informs without alarming. Colored tints are
+   reserved for real feedback via the status variants. */
+.cds-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--s-150);
+  padding: var(--s-150) var(--s-200);
+  background: var(--bg);
+  border-radius: var(--r-control);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text);
+}
+.cds-banner > svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--text-soft);
+}
+.cds-banner-action {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--accent-text);
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.cds-banner-success { background: var(--success-bg); color: var(--success-text); }
+.cds-banner-success > svg,
+.cds-banner-success .cds-banner-action { color: var(--success-text); }
+.cds-banner-error   { background: var(--danger-bg);  color: var(--danger-text); }
+.cds-banner-error > svg,
+.cds-banner-error .cds-banner-action   { color: var(--danger-text); }
+.cds-banner-warning { background: var(--warning-bg); color: var(--warning-text); }
+.cds-banner-warning > svg,
+.cds-banner-warning .cds-banner-action { color: var(--warning-text); }
+.cds-banner-info    { background: var(--info-bg);    color: var(--info-text); }
+.cds-banner-info > svg,
+.cds-banner-info .cds-banner-action    { color: var(--info-text); }
+
 /* ============================================================
    cds-splash — animated boot splash (icon + app name).
    CSS-ONLY. Consuming app inlines the markup and adds
