@@ -19,7 +19,7 @@
   .sc-masthead-inner { max-width: 1080px; margin: 0 auto; }
   .sc-masthead h1 {
     margin: var(--s-2) 0 var(--s-2);
-    font-size: 32px;
+    font-size: var(--fs-page);
     font-weight: 600;
     letter-spacing: 0.01em;
   }
@@ -178,8 +178,8 @@
 <header class="sc-masthead">
   <div class="sc-masthead-inner">
     <span class="cds-eyebrow" style="color: var(--gold-soft);">Cardinality Design Reference</span>
-    <h1>Cardinal Design System <span class="sc-version">v3.1.0</span></h1>
-    <p class="sc-philosophy">A layered heritage-parchment visual language: a warm off-white canvas, crisp white surfaces raised on soft shadow, deep oxblood chrome, and brass rings and fills. Depth comes from three shadow steps, not texture — the faint paper grain lives on the canvas alone. Type is a three-role humanist system — Garamond for display, Source Sans 3 for UI and for data (tabular figures), Source Code Pro reserved for code — carried across every tool in the Cardinality suite so the ledgers all read as one hand.</p>
+    <h1>Cardinal Design System <span class="sc-version">v4.0.0</span></h1>
+    <p class="sc-philosophy">A layered heritage-parchment visual language with Stripe-grade mechanics: warm off-white canvas, crisp white surfaces held by hairline rings and two-tint shadows, deep oxblood chrome, and a single brass accent that always means "actionable." Type is Garamond for display over the system UI sans (tabular figures for data), with Source Code Pro reserved for code. Five type sizes, a 4px spacing grid, 6px controls inside 12px containers, and 150ms motion on background and shadow only.</p>
   </div>
 </header>
 
@@ -192,69 +192,84 @@
 
     <h3 class="sc-subhead">Color</h3>
     <div class="sc-swatch-grid">
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--paper);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--paper</span><span class="sc-swatch-hex">#F9F7F2</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--paper-2);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--paper-2</span><span class="sc-swatch-hex">#F2EFE9</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--paper-3);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--paper-3</span><span class="sc-swatch-hex">#EBE6DC</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--surface);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--surface</span><span class="sc-swatch-hex">#FFFFFF</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--rule);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--rule</span><span class="sc-swatch-hex">#E6E1D8</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--rule-soft);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--rule-soft</span><span class="sc-swatch-hex">#EFEBE2</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--rule-strong);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--rule-strong</span><span class="sc-swatch-hex">#C8C2B5</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--ink);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--ink</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#161514</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--ink-soft);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--ink-soft</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#524E48</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--ink-mute);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--ink-mute</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#78736A</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--gold);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--gold</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#B8934A</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--gold-bright);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--gold-bright</span><span class="sc-swatch-hex">#C9A45C</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--gold-soft);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--gold-soft</span><span class="sc-swatch-hex">#D9BC7E</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--gold-deep);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--gold-deep</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#8A6D33 · text/links</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--gold-subtle);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--gold-subtle</span><span class="sc-swatch-hex">#F6F1E5</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--gold-wash);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--gold-wash</span><span class="sc-swatch-hex">rgba(184,147,74,.08)</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--gold-tint);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--gold-tint</span><span class="sc-swatch-hex">rgba(184,147,74,.16)</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--imperial);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--imperial</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#4A1017</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--imperial-bright);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--imperial-bright</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#5E1620</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--n-0);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--n-0</span><span class="sc-swatch-hex">#FFFFFF</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--n-25);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--n-25</span><span class="sc-swatch-hex">#FAF8F5</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--n-50);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--n-50</span><span class="sc-swatch-hex">#F9F7F2 · canvas</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--n-75);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--n-75</span><span class="sc-swatch-hex">#F2EFE9</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--n-90);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--n-90</span><span class="sc-swatch-hex">#EFEBE2</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--n-100);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--n-100</span><span class="sc-swatch-hex">#EBE6DC</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--n-150);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--n-150</span><span class="sc-swatch-hex">#E6E1D8</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--n-300);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--n-300</span><span class="sc-swatch-hex">#C8C2B5</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--n-600);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--n-600</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#706B62</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--n-800);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--n-800</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#524E48</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--n-900);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--n-900</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#161514</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-300);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-300</span><span class="sc-swatch-hex">#D9BC7E</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-400);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-400</span><span class="sc-swatch-hex">#C9A45C</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-500);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-500</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#B8934A</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-700);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-700</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#8A6D33 · text/links</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-subtle);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-subtle</span><span class="sc-swatch-hex">#F6F1E5</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-wash);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-wash</span><span class="sc-swatch-hex">rgba(184,147,74,.08)</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-tint);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-tint</span><span class="sc-swatch-hex">rgba(184,147,74,.16)</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--oxblood-400);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--oxblood-400</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#5E1620</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--oxblood-500);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--oxblood-500</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#4A1017</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--oxblood-700);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--oxblood-700</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#38090F</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--grad-gold);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--grad-gold</span><span class="sc-swatch-hex" style="color: var(--paper-3);">--gold-bright → --gold</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--grad-imperial);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--grad-imperial</span><span class="sc-swatch-hex" style="color: var(--paper-3);">--imperial-bright → #38090F</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--success-bg); display:flex; align-items:center; justify-content:center;"><span style="color: var(--success-text); font-weight:600;">Synced</span></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--success-text / -bg</span><span class="sc-swatch-hex">#1B4D3E on #E7F0E9</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--danger-bg); display:flex; align-items:center; justify-content:center;"><span style="color: var(--danger-text); font-weight:600;">Failed</span></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--danger-text / -bg</span><span class="sc-swatch-hex">#8B1E1E on #FBE9E5</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--warning-bg); display:flex; align-items:center; justify-content:center;"><span style="color: var(--warning-text); font-weight:600;">Check</span></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--warning-text / -bg</span><span class="sc-swatch-hex">#8A5A00 on #FBF3DC</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--info-bg); display:flex; align-items:center; justify-content:center;"><span style="color: var(--info-text); font-weight:600;">Note</span></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--info-text / -bg</span><span class="sc-swatch-hex">#1B365D on #E8EEF6</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brick);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brick</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#c0392b</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brick-bright);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brick-bright</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#d64a3b</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--ink-blue);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--ink-blue</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#1B365D</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--moss);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--moss</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#1B4D3E</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--data-amber);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--data-amber</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#A36A00</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--data-crimson);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--data-crimson</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#8B1E1E</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brick);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brick</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#c0392b</span></div></div>
-      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brick-bright);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brick-bright</span><span class="sc-swatch-hex" style="color: var(--paper-3);">#d64a3b</span></div></div>
       <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--rule-on-ink); background-color: var(--imperial);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--rule-on-ink</span><span class="sc-swatch-hex">rgba(247,245,240,.18) on imperial</span></div></div>
+      <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--scrim);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--scrim</span><span class="sc-swatch-hex">rgba(82,78,72,.55)</span></div></div>
     </div>
 
     <h3 class="sc-subhead">Spacing</h3>
     <div>
-      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-1 · 4px</span><div class="sc-spacing-bar" style="width: 4px;"></div></div>
-      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-2 · 8px</span><div class="sc-spacing-bar" style="width: 8px;"></div></div>
-      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-3 · 12px</span><div class="sc-spacing-bar" style="width: 12px;"></div></div>
-      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-4 · 16px</span><div class="sc-spacing-bar" style="width: 16px;"></div></div>
-      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-5 · 24px</span><div class="sc-spacing-bar" style="width: 24px;"></div></div>
-      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-6 · 32px</span><div class="sc-spacing-bar" style="width: 32px;"></div></div>
-      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-7 · 48px</span><div class="sc-spacing-bar" style="width: 48px;"></div></div>
+      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-25 · 2px</span><div class="sc-spacing-bar" style="width: 2px;"></div></div>
+      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-50 · 4px</span><div class="sc-spacing-bar" style="width: 4px;"></div></div>
+      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-75 · 6px</span><div class="sc-spacing-bar" style="width: 6px;"></div></div>
+      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-100 · 8px</span><div class="sc-spacing-bar" style="width: 8px;"></div></div>
+      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-150 · 12px</span><div class="sc-spacing-bar" style="width: 12px;"></div></div>
+      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-200 · 16px</span><div class="sc-spacing-bar" style="width: 16px;"></div></div>
+      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-300 · 24px</span><div class="sc-spacing-bar" style="width: 24px;"></div></div>
+      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-400 · 32px</span><div class="sc-spacing-bar" style="width: 32px;"></div></div>
+      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-600 · 48px</span><div class="sc-spacing-bar" style="width: 48px;"></div></div>
+      <div class="sc-spacing-row"><span class="sc-spacing-label">--s-800 · 64px</span><div class="sc-spacing-bar" style="width: 64px;"></div></div>
     </div>
+    <p class="sc-section-sub" style="margin-top: var(--s-300);">8 inside compact controls · 12 between related items · 16 between fields · 24 between regions · 32 between sections · 48 page bottom. Old --s-1 .. --s-7 alias onto these.</p>
 
     <h3 class="sc-subhead">Type ramp</h3>
     <div>
-      <div class="sc-type-row"><span class="sc-type-label">--fs-eyebrow 10px</span><span style="font-size: var(--fs-eyebrow); text-transform: uppercase; letter-spacing: var(--ls-eyebrow); color: var(--gold-deep); font-weight: 600;">Section Eyebrow</span></div>
-      <div class="sc-type-row"><span class="sc-type-label">--fs-meta 11px</span><span style="font-size: var(--fs-meta);">Meta text, labels, buttons</span></div>
-      <div class="sc-type-row"><span class="sc-type-label">--fs-body 13px</span><span style="font-size: var(--fs-body);">Body copy and table cells</span></div>
-      <div class="sc-type-row"><span class="sc-type-label">--fs-data 13px</span><span style="font-size: var(--fs-data); font-variant-numeric: tabular-nums;">Tabular data, 1,024.50</span></div>
-      <div class="sc-type-row"><span class="sc-type-label">--fs-display 15px</span><span style="font-size: var(--fs-display);">Display / lead copy</span></div>
-      <div class="sc-type-row"><span class="sc-type-label">--fs-title 20px</span><span style="font-size: var(--fs-title); font-weight: 600;">Section Title</span></div>
+      <div class="sc-type-row"><span class="sc-type-label">--fs-caption 12/16</span><span style="font-size: var(--fs-caption); line-height: var(--lh-caption);">Captions, meta, labels · <span style="text-transform: uppercase; letter-spacing: var(--ls-eyebrow); color: var(--accent-text); font-weight: 600;">Eyebrow</span></span></div>
+      <div class="sc-type-row"><span class="sc-type-label">--fs-body 14/20</span><span style="font-size: var(--fs-body); line-height: var(--lh-body);">Body, controls, data 1,024.50 · <b style="font-weight:600;">emphasis 600</b></span></div>
+      <div class="sc-type-row"><span class="sc-type-label">--fs-heading 16/24</span><span style="font-size: var(--fs-heading); line-height: var(--lh-heading); font-weight: 700;">Card heading, sans 700</span></div>
+      <div class="sc-type-row"><span class="sc-type-label">--fs-section 20/28</span><span style="font-family: var(--font-display); font-size: var(--fs-section); line-height: var(--lh-section); font-weight: 600;">Section Title, Garamond</span></div>
+      <div class="sc-type-row"><span class="sc-type-label">--fs-page 28/36</span><span style="font-family: var(--font-display); font-size: var(--fs-page); line-height: var(--lh-page); font-weight: 600;">Page Title, Garamond</span></div>
     </div>
+    <p class="sc-section-sub" style="margin-top: var(--s-150);">Five sizes only. Inside a size, hierarchy comes from weight (400/600/700) and ink tier (--text, --text-soft, --text-mute), never a new size.</p>
 
     <h3 class="sc-subhead">Radii, shadow, motion</h3>
     <div class="sc-misc-list">
-      <div class="sc-misc-item"><b>--radius-xs</b> 0</div>
-      <div class="sc-misc-item"><b>--radius-sm</b> 2px</div>
-      <div class="sc-misc-item"><b>--radius-md</b> 4px</div>
-      <div class="sc-misc-item"><b>--radius-lg</b> 6px (cards)</div>
-      <div class="sc-misc-item"><b>--shadow-sm</b> resting card lift</div>
-      <div class="sc-misc-item"><b>--shadow-page</b> card drop</div>
-      <div class="sc-misc-item"><b>--shadow-pop</b> floating panel drop</div>
-      <div class="sc-misc-item"><b>--ease</b> cubic-bezier(.2,.4,.2,1)</div>
-      <div class="sc-misc-item"><b>--dur</b> 180ms</div>
-      <div class="sc-misc-item"><b>--paper-noise</b> inline SVG turbulence texture</div>
+      <div class="sc-misc-item"><b>--r-sm</b> 4px, badges</div>
+      <div class="sc-misc-item"><b>--r-control</b> 6px, buttons/inputs/pills</div>
+      <div class="sc-misc-item"><b>--r-container</b> 12px, cards/panels</div>
+      <div class="sc-misc-item"><b>--r-full</b> 9999em, toolbar pills</div>
+      <div class="sc-misc-item"><b>--ring</b> hairline via box-shadow</div>
+      <div class="sc-misc-item"><b>--ring-strong</b> hover/input ring</div>
+      <div class="sc-misc-item"><b>--shadow-sm</b> resting cards</div>
+      <div class="sc-misc-item"><b>--shadow-md</b> dropdowns, hover lift</div>
+      <div class="sc-misc-item"><b>--shadow-lg</b> modals, floating panels</div>
+      <div class="sc-misc-item"><b>--shadow-brass</b> primary button</div>
+      <div class="sc-misc-item"><b>--dur / --dur-long</b> 150ms / 300ms</div>
+      <div class="sc-misc-item"><b>--ease</b> cubic-bezier(0,.09,.4,1)</div>
+      <div class="sc-misc-item"><b>--scrim</b> rgba(82,78,72,.55), never black</div>
+      <div class="sc-misc-item"><b>--paper-noise</b> canvas texture only</div>
     </div>
   </section>
 
@@ -277,6 +292,32 @@
   &lt;div class="cds-card-header"&gt;Lease 4021, Harrison Co.&lt;/div&gt;
   &lt;div class="cds-card-body"&gt;
     &lt;p&gt;Gross acres: 160.00&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <!-- Three-band card -->
+    <div class="sc-component-block">
+      <p class="sc-component-class"><code>.cds-card-footer</code> — three-band edit card (tinted body binds Save/Cancel to this card)</p>
+      <div class="cds-card sc-card-demo">
+        <div class="cds-card-header">Payout Settings</div>
+        <div class="cds-card-body">
+          <div class="cds-field">
+            <label>Statement Descriptor</label>
+            <input class="cds-input" type="text" value="CARDINAL RES">
+          </div>
+        </div>
+        <div class="cds-card-footer">
+          <button class="cds-btn cds-btn-ghost">Cancel</button>
+          <button class="cds-btn cds-btn-primary">Save</button>
+        </div>
+      </div>
+      <pre class="sc-snippet"><code>&lt;div class="cds-card"&gt;
+  &lt;div class="cds-card-header"&gt;Payout Settings&lt;/div&gt;
+  &lt;div class="cds-card-body"&gt;...fields...&lt;/div&gt;
+  &lt;div class="cds-card-footer"&gt;
+    &lt;button class="cds-btn cds-btn-ghost"&gt;Cancel&lt;/button&gt;
+    &lt;button class="cds-btn cds-btn-primary"&gt;Save&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
     </div>
@@ -366,6 +407,8 @@
         <span class="cds-badge cds-badge-success">Synced</span>
         <span class="cds-badge cds-badge-error">Sync Failed</span>
         <span class="cds-badge cds-badge-muted">No Notes</span>
+        <span class="cds-badge cds-badge-warning">Zero Volume</span>
+        <span class="cds-badge cds-badge-info">Pending Review</span>
       </div>
       <div class="sc-demo">
         <span class="cds-pill active">Active Leases</span>
@@ -374,9 +417,41 @@
       </div>
       <pre class="sc-snippet"><code>&lt;span class="cds-badge cds-badge-success"&gt;Synced&lt;/span&gt;
 &lt;span class="cds-badge cds-badge-error"&gt;Sync Failed&lt;/span&gt;
+&lt;span class="cds-badge cds-badge-warning"&gt;Zero Volume&lt;/span&gt;
+&lt;span class="cds-badge cds-badge-info"&gt;Pending Review&lt;/span&gt;
 
 &lt;span class="cds-pill active"&gt;Active Leases&lt;/span&gt;
 &lt;span class="cds-pill"&gt;Expired&lt;/span&gt;</code></pre>
+    </div>
+
+    <!-- Empty state -->
+    <div class="sc-component-block">
+      <p class="sc-component-class"><code>.cds-empty</code></p>
+      <div class="cds-empty" style="max-width: 420px;">No production records for this lease yet.</div>
+      <pre class="sc-snippet"><code>&lt;div class="cds-empty"&gt;No production records for this lease yet.&lt;/div&gt;</code></pre>
+    </div>
+
+    <!-- Banner -->
+    <div class="sc-component-block">
+      <p class="sc-component-class"><code>.cds-banner</code> + <code>-success</code> / <code>-error</code> / <code>-warning</code> / <code>-info</code></p>
+      <div style="display: flex; flex-direction: column; gap: var(--s-150); max-width: 560px;">
+        <div class="cds-banner">
+          <svg viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="8" r="7"/></svg>
+          Monthly production sync runs tonight at 02:00.
+          <span class="cds-banner-action">View schedule</span>
+          <button class="cds-btn-icon" aria-label="Dismiss"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="2"/></svg></button>
+        </div>
+        <div class="cds-banner cds-banner-warning">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1L15 14H1z"/></svg>
+          3 wells report zero volume for 2026-05.
+          <span class="cds-banner-action">Review</span>
+        </div>
+      </div>
+      <pre class="sc-snippet"><code>&lt;div class="cds-banner"&gt;
+  &lt;svg&gt;...&lt;/svg&gt; Message text
+  &lt;span class="cds-banner-action"&gt;Action&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="cds-banner cds-banner-warning"&gt;...&lt;/div&gt;</code></pre>
     </div>
 
     <!-- Eyebrow -->
@@ -533,7 +608,7 @@
     document.getElementById('replay-minerva').addEventListener('click', () => playSplash('tpl-minerva', 'Minerva'));
   </script>
 
-  <p class="sc-footer">Cardinal Design System v3.1.0 · Cardinality ecosystem, tbchonka-cardinal</p>
+  <p class="sc-footer">Cardinal Design System v4.0.0 · Cardinality ecosystem, tbchonka-cardinal</p>
 </div>
 
 </body>
