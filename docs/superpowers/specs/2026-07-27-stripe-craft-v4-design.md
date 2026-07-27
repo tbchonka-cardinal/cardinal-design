@@ -230,6 +230,7 @@ single ease update in place.
 | `--font-body` | Source Sans 3 stack | system stack | webfont retired |
 | `--ink-mute` | #78736A | #706B62 | caption contrast on canvas |
 | `.cds-btn-primary text` | --paper | --ink | paper on brass measured ~2.6:1; closes the NEXT.md open question |
+| --focus | --gold (#B8934A) | --brass-700 (#8A6D33) | focus indicator needs 3:1 on white; brass-500 measures ~2.8:1 |
 
 All other aliases keep their v3 values.
 

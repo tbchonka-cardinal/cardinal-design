@@ -22,7 +22,7 @@ PAIRS = [
     # brass accent
     ("gold-deep text on white",      "#8A6D33", "#FFFFFF", 4.5),
     ("gold-deep text on canvas",     "#8A6D33", "#F9F7F2", 4.5),
-    ("gold ring on white (nontext)", "#9F7A30", "#FFFFFF", 3.0),
+    ("focus ring on white",          "#8A6D33", "#FFFFFF", 3.0),
     ("ink text on brass btn",        "#161514", "#B8934A", 4.5),
     ("ink text on brass hover",      "#161514", "#C9A45C", 4.5),
     # chrome and danger
