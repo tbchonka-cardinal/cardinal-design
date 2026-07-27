@@ -4,9 +4,11 @@ The shared visual language for the Cardinality app suite (TopLeaseMap, LeaseInde
 CharlieBot): a layered heritage-parchment system — a warm off-white canvas, crisp
 white surfaces raised on soft shadow, deep oxblood chrome, and brass rings and fills.
 Depth comes from three shadow steps, not texture; the faint paper grain lives on the
-canvas alone. A three-role humanist type system (Garamond for display, Source Sans 3
-for UI and for data — numbers render in the UI sans with tabular figures — and Source
-Code Pro reserved for code). One CSS file, no build step, versioned by git tag.
+canvas alone. Type is Garamond for display over the system UI sans (numbers in tabular
+figures), with Source Code Pro reserved for code. One CSS file, no build step, versioned
+by git tag. v4 adds the Stripe-craft mechanics: hairline rings instead of borders,
+two-tint shadows, a five-size type scale, 6px controls inside 12px containers, and a
+single-accent rule (brass means actionable; oxblood is chrome).
 
 Live showcase: open `index.html` in this repo, or view it hosted once GitHub Pages
 is turned on. It renders every token and every `cds-` component with copy-paste
@@ -17,14 +19,14 @@ snippets.
 Link the whole system (font + tokens + components):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v3.1.0/cardinal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v4.0.0/cardinal.css">
 ```
 
 Token-only alternative, for an app that wants the color/spacing/type variables but
 keeps its own component CSS:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v3.1.0/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v4.0.0/tokens.css">
 ```
 
 Or vendor `tokens.css` into the consuming app's own repo (copy the file in,
@@ -49,6 +51,9 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 | `.cds-card` | Elevated white card container: surface background, hairline rule border, soft resting shadow |
 | `.cds-card-header` | Oxblood gradient header bar for a card, uppercase meta text |
 | `.cds-card-body` | Padded, scrollable card content area |
+| `.cds-card-footer` | White action band completing the three-band edit card; tints the body via `:has()` |
+| `.cds-empty` | Dashed-border empty state with a centered muted message |
+| `.cds-banner` | Neutral inline notice; `-success`/`-error`/`-warning`/`-info` variants use the feedback tint pairs |
 | `.cds-btn` | Base button shape shared by all button variants |
 | `.cds-btn-primary` | Brass-glass gradient button, for the main action |
 | `.cds-btn-ghost` | Outline button that fills to oxblood on hover |
@@ -64,6 +69,8 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 | `.cds-badge` | Small status indicator: colored dot plus label |
 | `.cds-badge-success` | Badge modifier, emerald, for a good/synced state |
 | `.cds-badge-error` | Badge modifier, brick red, for a failed/error state |
+| `.cds-badge-warning` | Badge modifier, amber, for a caution/pending state |
+| `.cds-badge-info` | Badge modifier, ink-blue, for a neutral informational state |
 | `.cds-badge-muted` | Badge modifier, muted italic, for an empty/inactive state |
 | `.cds-pill` | Outline filter chip; toggled solid oxblood with `.active` |
 | `.cds-eyebrow` | Uppercase, letterspaced, brass (`--gold-deep`) section label |
