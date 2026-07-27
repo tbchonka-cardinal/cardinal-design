@@ -92,9 +92,11 @@ Values unchanged, names formalized. Warm neutral ramp `--n-*`:
 | `--n-100` | #EBE6DC | --paper-3 |
 | `--n-150` | #E6E1D8 | --rule |
 | `--n-300` | #C8C2B5 | --rule-strong |
-| `--n-600` | #78736A | --ink-mute |
+| `--n-600` | #706B62 | --ink-mute |
 | `--n-800` | #524E48 | --ink-soft |
 | `--n-900` | #161514 | --ink |
+
+v4 note: n-600 darkened from #78736A so 12px captions pass 4.5:1 on the canvas (measured 4.43 before, ~4.97 after).
 
 Brass and oxblood get small ramps the same way (`--brass-*`, `--oxblood-*`)
 covering the existing five brass values and two oxblood values.
@@ -122,7 +124,7 @@ Candidate values, to be validated and adjusted during implementation:
 |---|---|---|
 | success | #1B4D3E (moss) | #E7F0E9 |
 | error | #8B1E1E (data-crimson; brick #c0392b stays for danger buttons) | #FBE9E5 |
-| warning | #A36A00 (data-amber) | #FBF3DC |
+| warning | #8A5A00 (new step below data-amber; #A36A00 measured 4.11:1 on its tint) | #FBF3DC |
 | info | #1B365D (ink-blue) | #E8EEF6 |
 
 Tints appear only in feedback contexts: badges, banners, form validation.
@@ -226,6 +228,8 @@ single ease update in place.
 | `--shadow-page` | single shadow | `--shadow-md` pair | two-tint rebuild |
 | `--shadow-pop` | single shadow | `--shadow-lg` pair | two-tint rebuild |
 | `--font-body` | Source Sans 3 stack | system stack | webfont retired |
+| `--ink-mute` | #78736A | #706B62 | caption contrast on canvas |
+| `.cds-btn-primary text` | --paper | --ink | paper on brass measured ~2.6:1; closes the NEXT.md open question |
 
 All other aliases keep their v3 values.
 
@@ -237,7 +241,7 @@ Sweep of existing `cds-` classes onto the new tokens:
   oxblood gradient (chrome). The body band uses `--n-75` only in the
   three-band pattern (10, `.cds-card-footer`); plain cards stay white.
 - `.cds-btn`: 6px radius, ring-based borders, `--shadow-brass` on primary,
-  heights stay 32/28.
+  heights stay 32/28. Primary text is ink on brass, per §9.
 - `.cds-btn-ghost`: white, `--ring`, hover = `--ring-strong` + `--shadow-md`.
 - `.cds-pill.active`: 2px ink ring on white.
 - `.cds-input`, `.cds-select`: 6px radius, ring instead of border, brass focus
