@@ -96,7 +96,7 @@ Values unchanged, names formalized. Warm neutral ramp `--n-*`:
 | `--n-800` | #524E48 | --ink-soft |
 | `--n-900` | #161514 | --ink |
 
-v4 note: n-600 darkened from #78736A so 12px captions pass 4.5:1 on the canvas (measured 4.43 before, ~4.97 after).
+v4 note: n-600 darkened from #78736A so 12px captions pass 4.5:1 on the canvas (measured 4.43 before, 4.94 after).
 
 Brass and oxblood get small ramps the same way (`--brass-*`, `--oxblood-*`)
 covering the existing five brass values and two oxblood values.
@@ -113,6 +113,8 @@ marks. It is no longer an interaction color. Component consequences:
   on white (Stripe filter-chip pattern).
 
 The gold-text rule stays: brass text on light surfaces uses `--gold-deep`.
+
+Focus indicators (the `:focus-visible` outline and input focus rings) use the darker `--brass-700` step: an indicator needs 3:1 on white and brass-500 measures ~2.8:1.
 
 ### 5.3 Feedback pairs
 
@@ -230,7 +232,7 @@ single ease update in place.
 | `--font-body` | Source Sans 3 stack | system stack | webfont retired |
 | `--ink-mute` | #78736A | #706B62 | caption contrast on canvas |
 | `.cds-btn-primary text` | --paper | --ink | paper on brass measured ~2.6:1; closes the NEXT.md open question |
-| --focus | --gold (#B8934A) | --brass-700 (#8A6D33) | focus indicator needs 3:1 on white; brass-500 measures ~2.8:1 |
+| --focus | `--gold` (#B8934A) | `--brass-700` (#8A6D33) | focus indicator needs 3:1 on white; brass-500 measures ~2.8:1 |
 
 All other aliases keep their v3 values.
 
@@ -245,8 +247,8 @@ Sweep of existing `cds-` classes onto the new tokens:
   heights stay 32/28. Primary text is ink on brass, per §9.
 - `.cds-btn-ghost`: white, `--ring`, hover = `--ring-strong` + `--shadow-md`.
 - `.cds-pill.active`: 2px ink ring on white.
-- `.cds-input`, `.cds-select`: 6px radius, ring instead of border, brass focus
-  ring unchanged in color.
+- `.cds-input`, `.cds-select`: 6px radius, ring instead of border, focus
+  ring uses `--focus` (brass-700).
 - `.cds-badge`: feedback pairs from 5.3.
 - `.cds-table`, `.cds-switch`, `.cds-tabs`: token sweep, no structural change.
 
