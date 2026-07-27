@@ -239,7 +239,7 @@ git commit -m "test: v4 palette contrast harness; lock adjusted values"
   /* Scrim: warm gray from the ink family, never black */
   --scrim: rgba(82, 78, 72, 0.55);
 
-  --focus: var(--brass-500);
+  --focus: var(--brass-700);  /* focus indicator needs 3:1; brass-500 is ~2.8:1 on white */
 
   /* Glass — the only two sanctioned gradients (spec 2026-07-21) */
   --grad-gold:     linear-gradient(180deg, var(--brass-400) 0%, var(--brass-500) 100%);
@@ -595,7 +595,7 @@ Replace the `thead th` and `tbody td` rules only (keep the `.cds-table` base rul
 .cds-select:focus,
 .cds-field textarea:focus {
   outline: none;
-  box-shadow: 0 0 0 1px var(--accent), 0 0 0 3px var(--brass-tint);
+  box-shadow: 0 0 0 1px var(--focus), 0 0 0 3px var(--brass-tint);
 }
 .cds-input:disabled,
 .cds-select:disabled,
