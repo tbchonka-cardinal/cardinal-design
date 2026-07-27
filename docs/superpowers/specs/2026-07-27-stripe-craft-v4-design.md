@@ -257,7 +257,7 @@ Sweep of existing `cds-` classes onto the new tokens:
 
 Three new components:
 
-- `.cds-card-footer`: completes the three-band card. oxblood header, `--n-75`
+- `.cds-card-footer`: completes the three-band card. Oxblood header, `--n-75`
   body, white footer with right-aligned actions, footer inherits the bottom
   radii. Save bars attach to the card being edited, not the page.
 - `.cds-empty`: 1px dashed `--n-300` border, 12px radius, centered `--ink-mute`
