@@ -33,8 +33,6 @@
   font-size: var(--fs-caption);
   line-height: var(--lh-caption);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: var(--ls-eyebrow);
 }
 
 .cds-card-body {
@@ -58,8 +56,6 @@
   font-size: var(--fs-caption);
   line-height: var(--lh-caption);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   border: none;
   border-radius: var(--r-control);
   background: var(--bg-surface);
@@ -164,8 +160,6 @@
   font-size: var(--fs-caption);
   line-height: var(--lh-caption);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: var(--ls-eyebrow);
   color: var(--text);
   text-align: left;
   border-bottom: 1px solid var(--border);   /* row dividers stay borders */
@@ -198,8 +192,6 @@
   font-size: var(--fs-caption);
   line-height: var(--lh-caption);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: var(--ls-eyebrow);
   color: var(--accent-text);
 }
 
@@ -290,8 +282,6 @@
   font-size: var(--fs-caption);
   line-height: var(--lh-caption);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: var(--ls-eyebrow);
   color: var(--gold-deep);
 }
 
@@ -311,8 +301,6 @@
   font-size: var(--fs-caption);
   line-height: var(--lh-caption);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: var(--ls-eyebrow);
   color: var(--ink-mute);
   background: none;
   border: none;
@@ -339,8 +327,6 @@
   font-size: var(--fs-caption);
   line-height: var(--lh-caption);
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: var(--ls-eyebrow);
   color: var(--gold-deep);
 }
 .cds-stat-value {
@@ -516,6 +502,8 @@
   letter-spacing: 0.5em;
   text-indent: 0.5em;
   color: var(--ink);
+  /* Logotype exemption: the wordmark keeps caps + 0.5em tracking by design
+     (no-caps spec 2026-07-28). Do not copy this pattern into UI text. */
   text-transform: uppercase;
   opacity: 0;
   animation: cds-splash-name-in 700ms var(--ease, ease) 1200ms forwards;

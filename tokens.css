@@ -1,6 +1,6 @@
 /* ============================================================
    Cardinal Design System — tokens.css
-   Version: v4.0.0 ("Stripe-craft")
+   Version: v4.1.0 ("Stripe-craft, no caps")
    Spec:    docs/superpowers/specs/2026-07-27-stripe-craft-v4-design.md
    Philosophy: heritage parchment identity, Stripe mechanics. Warm
      off-white canvas, crisp white surfaces, oxblood chrome, brass
@@ -92,7 +92,9 @@
   --fs-heading: 16px;  --lh-heading: 24px;
   --fs-section: 20px;  --lh-section: 28px;
   --fs-page:    28px;  --lh-page:    36px;
-  --ls-eyebrow: 0.12em;
+  /* DEPRECATED 2026-07-28 (no-caps spec): eyebrow tracking retired.
+     Kept at 0 so pinned consumers lose the tracking on their next bump. */
+  --ls-eyebrow: 0;
 
   /* Spacing: 4px grid, 100 = 8px */
   --s-25: 2px;   --s-50: 4px;   --s-75: 6px;   --s-100: 8px;
