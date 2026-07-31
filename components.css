@@ -1,6 +1,6 @@
 /* ============================================================
    Cardinal Design System — components.css
-   Version: v4.1.0
+   Version: v4.2.0
    Depends on: tokens.css (every value below is a var(); no raw hex/rgb).
    Generalized from TopLeaseMap's app CSS under the cds- prefix.
    Behavior contract: no JS beyond toggling the .active class.
@@ -20,18 +20,20 @@
   line-height: var(--lh-body);
 }
 
+/* Neutral raised band, brass underline. Oxblood belongs to the masthead
+   (and to button fills); as of v4.2.0 it is not a card-header fill —
+   every open card used to shout in burgundy. */
 .cds-card-header {
   display: flex;
   align-items: center;
   gap: var(--s-100);
-  padding: var(--s-150) var(--s-200);
-  background-color: var(--oxblood-500);   /* fallback if gradients unsupported */
-  background-image: var(--grad-imperial);
-  color: var(--n-50);
+  padding: var(--s-100) var(--s-200);
+  background-color: var(--bg-raised);
+  color: var(--text);
   border-bottom: 1px solid var(--accent);
   font-family: var(--font-body);
-  font-size: var(--fs-caption);
-  line-height: var(--lh-caption);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   font-weight: 600;
 }
 

@@ -1,10 +1,10 @@
 /* ============================================================
    Cardinal Design System — tokens.css
-   Version: v4.1.0 ("Stripe-craft, no caps")
+   Version: v4.2.0 ("Sharp edges")
    Spec:    docs/superpowers/specs/2026-07-27-stripe-craft-v4-design.md
    Philosophy: heritage parchment identity, Stripe mechanics. Warm
-     off-white canvas, crisp white surfaces, oxblood chrome, brass
-     accent, Garamond display over a system UI sans. Three layers
+     off-white canvas, crisp white surfaces, oxblood masthead, brass
+     accent, one system UI sans for everything. Three layers
      below: primitives (ordered ramps, numeric names), roles (what
      components consume), and v3 compatibility aliases. Components
      never reference a primitive directly.
@@ -12,17 +12,27 @@
      - Type: five sizes (12/14/16/20/28), line heights on the 4px
        grid. Inside a size, hierarchy comes from weight (400/600/700)
        and ink tier, never a new size.
+     - Type family: ONE sans (--font-body) for every piece of UI,
+       data, and heading text. --font-display (Garamond) is reserved
+       for the app wordmark at the top of the screen and the boot
+       splash. Nothing else. --font-mono is for verbatim transcription
+       and code only, never for numbers.
      - Space: 8 inside compact controls, 12 between related items,
        16 between fields, 24 between regions, 32 between sections,
        48 page bottom.
-     - Radii: 6px controls inside 12px containers (2:1); 4px small
-       bits; 9999em pills. Square icon tiles use border-radius: 20%.
-     - Separators: box-shadow rings, not borders. Exceptions: table
-       row dividers, card-header underline, dashed empty states.
+     - Radii: near-square. 3px controls inside 4px containers, 2px
+       small bits, 9999em pills. Square icon tiles use border-radius: 20%.
+     - Separators: box-shadow rings, not borders. A ring is DEFINITE
+       (n-200, one visible step off the surface) but never heavier
+       than 1px. Exceptions: table row dividers, card-header
+       underline, dashed empty states — those stay on the faint
+       --rule so tables don't turn into a grid of boxes.
      - Motion: interactive elements transition background-color and
        box-shadow only, at 150ms. The switch knob slide is the one
        sanctioned transform.
-     - Brass is the only actionable color. Oxblood is chrome.
+     - Brass is the only actionable color. Oxblood is the masthead,
+       plus button fills and hovers. Oxblood is NOT a text color and
+       NOT a card-header fill.
    ============================================================ */
 :root {
   /* ---------- Layer 1: primitives ---------- */
@@ -35,6 +45,7 @@
   --n-90:  #EFEBE2;
   --n-100: #EBE6DC;
   --n-150: #E6E1D8;
+  --n-200: #D8D2C5;  /* the ring step: definite against every surface, still 1px */
   --n-300: #C8C2B5;
   --n-600: #706B62;  /* darkened from #78736A: 4.5:1 captions on canvas */
   --n-800: #524E48;
@@ -78,9 +89,11 @@
 
   /* ---------- Layer 2: roles ---------- */
 
-  /* Fonts. UI and data ride the system stack (Segoe UI on Windows);
-     Garamond is display only (h1/h2); mono for code. The Garamond and
-     Source Code Pro imports live in cardinal.css. */
+  /* Fonts. Everything rides the system stack (Segoe UI on Windows).
+     Garamond is the WORDMARK ONLY (masthead app name, boot splash) as
+     of v4.2.0 — headings, card headers and data all use --font-body.
+     Mono is for verbatim transcription and code, never numbers. The
+     Garamond and Source Code Pro imports live in cardinal.css. */
   --font-display: 'EB Garamond', Garamond, Georgia, serif;
   --font-body:    system-ui, -apple-system, 'Segoe UI', Roboto,
                   'Helvetica Neue', Arial, sans-serif;
@@ -105,16 +118,20 @@
   --control-h: 32px;
   --control-h-sm: 28px;
 
-  /* Radii: 2:1 container-to-control */
-  --r-sm: 4px;
-  --r-control: 6px;
-  --r-container: 12px;
+  /* Radii: near-square (v4.2.0). Enough rounding to read as drawn on
+     purpose, not enough to soften the rectangle. */
+  --r-sm: 2px;
+  --r-control: 3px;
+  --r-container: 4px;
   --r-full: 9999em;
 
   /* Rings: hairline borders drawn as box-shadow. Zero layout space,
-     animate and recolor freely, compose with drop shadows. */
-  --ring:        0 0 0 1px var(--n-150);
+     animate and recolor freely, compose with drop shadows. One weight
+     (1px) at three strengths — the border is DEFINITE, never heavy. */
+  --ring:        0 0 0 1px var(--n-200);
   --ring-strong: 0 0 0 1px var(--n-300);
+  /* The signature edge: brass surface inside a darker brass band. */
+  --ring-accent: 0 0 0 1px var(--brass-500);
 
   /* Elevation: two-tint pairs. Tight near-black contact shadow plus
      wide warm ambient (from n-800). Fixed opacity, geometric offsets. */
@@ -151,7 +168,7 @@
   --text-mute:     var(--n-600);
   --accent:        var(--brass-500);
   --accent-text:   var(--brass-700);
-  --border:        var(--n-150);
+  --border:        var(--n-200);          /* (changed v4.2.0) n-150 -> n-200 */
   --border-strong: var(--n-300);
 
   /* ---------- Layer 3: v3 compatibility aliases ----------
@@ -189,10 +206,10 @@
   --s-5: var(--s-300);
   --s-6: var(--s-400);
   --s-7: var(--s-600);
-  --radius-xs: var(--r-sm);             /* (changed) 0 -> 4px */
-  --radius-sm: var(--r-sm);             /* (changed) 2px -> 4px */
-  --radius-md: var(--r-control);        /* (changed) 4px -> 6px */
-  --radius-lg: var(--r-container);      /* (changed) 6px -> 12px */
+  --radius-xs: var(--r-sm);             /* (changed v4.2.0) 4px -> 2px */
+  --radius-sm: var(--r-sm);             /* (changed v4.2.0) 4px -> 2px */
+  --radius-md: var(--r-control);        /* (changed v4.2.0) 6px -> 3px */
+  --radius-lg: var(--r-container);      /* (changed v4.2.0) 12px -> 4px */
   --shadow-page: var(--shadow-md);
   --shadow-pop:  var(--shadow-lg);
 }
@@ -212,15 +229,23 @@ body {
   line-height: 1.4286;  /* 20px at 14px body; unitless so larger text still scales */
 }
 
-/* Display serif for page/brand headers only. Garamond stylistic sets
-   (small-cap alternates + old-style figures) apply here only. */
+/* Headings ride the body sans as of v4.2.0. Garamond survives on the
+   wordmark alone — .cds-wordmark, .cds-splash-name, and each app's own
+   masthead logo. Do not put --font-display anywhere else. */
 h1, h2 {
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+h1 { font-size: var(--fs-page);    line-height: var(--lh-page); }
+h2 { font-size: var(--fs-section); line-height: var(--lh-section); }
+
+/* The one sanctioned Garamond hook. Stylistic sets (small-cap
+   alternates + old-style figures) apply here only. */
+.cds-wordmark {
   font-family: var(--font-display);
   font-weight: 600;
   font-feature-settings: 'ss01', 'cv11';
 }
-h1 { font-size: var(--fs-page);    line-height: var(--lh-page); }
-h2 { font-size: var(--fs-section); line-height: var(--lh-section); }
 
 a {
   color: var(--accent-text);

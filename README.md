@@ -2,13 +2,15 @@
 
 The shared visual language for the Cardinality app suite (TopLeaseMap, LeaseIndex,
 CharlieBot): a layered heritage-parchment system — a warm off-white canvas, crisp
-white surfaces raised on soft shadow, deep oxblood chrome, and brass rings and fills.
+white surfaces raised on soft shadow, a deep oxblood masthead, and brass rings and fills.
 Depth comes from three shadow steps, not texture; the faint paper grain lives on the
-canvas alone. Type is Garamond for display over the system UI sans (numbers in tabular
-figures), with Source Code Pro reserved for code. One CSS file, no build step, versioned
-by git tag. v4 adds the Stripe-craft mechanics: hairline rings instead of borders,
-two-tint shadows, a five-size type scale, 6px controls inside 12px containers, and a
-single-accent rule (brass means actionable; oxblood is chrome).
+canvas alone. Type is one system UI sans for everything (numbers in tabular figures);
+Garamond is the wordmark alone and Source Code Pro is reserved for code. One CSS file,
+no build step, versioned by git tag. v4 adds the Stripe-craft mechanics: hairline rings
+instead of borders, two-tint shadows, a five-size type scale, and a single-accent rule
+(brass means actionable). v4.2 sharpens it: near-square radii (3px controls inside 4px
+containers), a definite 1px ring, Garamond off everything but the wordmark, and oxblood
+out of card headers.
 
 Live showcase: open `index.html` in this repo, or view it hosted once GitHub Pages
 is turned on. It renders every token and every `cds-` component with copy-paste
@@ -19,14 +21,14 @@ snippets.
 Link the whole system (font + tokens + components):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v4.1.0/cardinal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v4.2.0/cardinal.css">
 ```
 
 Token-only alternative, for an app that wants the color/spacing/type variables but
 keeps its own component CSS:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v4.1.0/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v4.2.0/tokens.css">
 ```
 
 Or vendor `tokens.css` into the consuming app's own repo (copy the file in,
@@ -49,7 +51,7 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 | Class | What it is |
 |---|---|
 | `.cds-card` | Elevated white card container: surface background, hairline ring, soft resting shadow |
-| `.cds-card-header` | Oxblood gradient header bar for a card, uppercase meta text |
+| `.cds-card-header` | Raised neutral header band for a card, brass hairline beneath |
 | `.cds-card-body` | Padded, scrollable card content area |
 | `.cds-card-footer` | White action band completing the three-band edit card; tints the body via `:has()` |
 | `.cds-empty` | Dashed-border empty state with a centered muted message |
