@@ -1,6 +1,6 @@
 /* ============================================================
    Cardinal Design System — components.css
-   Version: v4.2.0
+   Version: v5.0.0
    Depends on: tokens.css (every value below is a var(); no raw hex/rgb).
    Generalized from TopLeaseMap's app CSS under the cds- prefix.
    Behavior contract: no JS beyond toggling the .active class.
@@ -96,7 +96,7 @@
   box-shadow: var(--ring-strong), var(--shadow-md);
 }
 
-/* danger — solid hot red, distinct from oxblood chrome */
+/* danger: solid hot red, distinct from the lapis chrome */
 .cds-btn-danger {
   background: var(--brick);
   color: var(--n-0);

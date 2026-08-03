@@ -1,9 +1,9 @@
 /* ============================================================
    Cardinal Design System — tokens.css
-   Version: v4.2.0 ("Sharp edges")
+   Version: v5.0.0 ("Lapis chrome")
    Spec:    docs/superpowers/specs/2026-07-27-stripe-craft-v4-design.md
    Philosophy: heritage parchment identity, Stripe mechanics. Warm
-     off-white canvas, crisp white surfaces, oxblood masthead, brass
+     off-white canvas, crisp white surfaces, lapis masthead, brass
      accent, one system UI sans for everything. Three layers
      below: primitives (ordered ramps, numeric names), roles (what
      components consume), and v3 compatibility aliases. Components
@@ -30,8 +30,8 @@
      - Motion: interactive elements transition background-color and
        box-shadow only, at 150ms. The switch knob slide is the one
        sanctioned transform.
-     - Brass is the only actionable color. Oxblood is the masthead,
-       plus button fills and hovers. Oxblood is NOT a text color and
+     - Brass is the only actionable color. Lapis is the masthead,
+       plus button fills and hovers. Lapis is NOT a text color and
        NOT a card-header fill.
    ============================================================ */
 :root {
@@ -61,10 +61,14 @@
   --brass-tint:   rgba(184, 147, 74, 0.16);
   --brass-subtle: #F6F1E5;
 
-  /* Oxblood ramp (the chrome). Surfaces only; text on them is --n-50. */
-  --oxblood-400: #5E1620;
-  --oxblood-500: #4A1017;
-  --oxblood-700: #38090F;
+  /* Lapis ramp (the chrome). Surfaces only; text on them is --n-50.
+     Ink blue off a ballpoint sketch of the Maison Carree, 2026-08-03.
+     500 holds roughly 8:1 against --n-50, so cream text on the header
+     band clears AA. Replaced the previous chrome ramp outright; no
+     trace of the old color remains anywhere in the suite. */
+  --lapis-400: #2B5CA8;
+  --lapis-500: #1E4585;
+  --lapis-700: #14305E;
 
   /* Feedback pairs. Text passes 4.5:1 on its own tint and on white
      (docs/superpowers/tools/contrast.py). Tints appear only in
@@ -74,7 +78,7 @@
   --warning-text: #8A5A00;  --warning-bg: #FBF3DC;
   --info-text:    #1B365D;  --info-bg:    #E8EEF6;
 
-  /* Hot action red (danger buttons; must not blend into oxblood) */
+  /* Hot action red (danger buttons; kept distinct from the chrome blue) */
   --brick:        #c0392b;
   --brick-bright: #d64a3b;
 
@@ -154,9 +158,9 @@
 
   /* Glass — the only two sanctioned gradients (spec 2026-07-21) */
   --grad-gold:     linear-gradient(180deg, var(--brass-400) 0%, var(--brass-500) 100%);
-  --grad-imperial: linear-gradient(180deg, var(--oxblood-400) 0%, var(--oxblood-700) 100%);
+  --grad-imperial: linear-gradient(180deg, var(--lapis-400) 0%, var(--lapis-700) 100%);
 
-  /* Hairline divider on dark oxblood headers */
+  /* Hairline divider on the dark chrome header */
   --rule-on-ink: rgba(247, 245, 240, 0.18);
 
   /* Plain-English roles */
@@ -192,8 +196,8 @@
   --gold-wash:   var(--brass-wash);
   --gold-tint:   var(--brass-tint);
   --gold-subtle: var(--brass-subtle);
-  --imperial:        var(--oxblood-500);
-  --imperial-bright: var(--oxblood-400);
+  --imperial:        var(--lapis-500);
+  --imperial-bright: var(--lapis-400);
   --fs-eyebrow: var(--fs-caption);      /* (changed) 10px -> 12px */
   --fs-meta:    var(--fs-caption);      /* (changed) 11px -> 12px */
   --fs-data:    var(--fs-body);         /* (changed) 13px -> 14px */

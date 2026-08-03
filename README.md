@@ -21,14 +21,14 @@ snippets.
 Link the whole system (font + tokens + components):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v4.2.0/cardinal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v5.0.0/cardinal.css">
 ```
 
 Token-only alternative, for an app that wants the color/spacing/type variables but
 keeps its own component CSS:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v4.2.0/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v5.0.0/tokens.css">
 ```
 
 Or vendor `tokens.css` into the consuming app's own repo (copy the file in,
