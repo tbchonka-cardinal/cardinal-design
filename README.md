@@ -2,15 +2,16 @@
 
 The shared visual language for the Cardinality app suite (TopLeaseMap, LeaseIndex,
 CharlieBot): a layered heritage-parchment system — a warm off-white canvas, crisp
-white surfaces raised on soft shadow, a deep oxblood masthead, and brass rings and fills.
+white surfaces raised on soft shadow, a lapis masthead, and brass rings and fills.
 Depth comes from three shadow steps, not texture; the faint paper grain lives on the
 canvas alone. Type is one system UI sans for everything (numbers in tabular figures);
 Garamond is the wordmark alone and Source Code Pro is reserved for code. One CSS file,
 no build step, versioned by git tag. v4 adds the Stripe-craft mechanics: hairline rings
 instead of borders, two-tint shadows, a five-size type scale, and a single-accent rule
 (brass means actionable). v4.2 sharpens it: near-square radii (3px controls inside 4px
-containers), a definite 1px ring, Garamond off everything but the wordmark, and oxblood
-out of card headers.
+containers), a definite 1px ring, Garamond off everything but the wordmark, and the
+chrome color out of card headers. v5.0.0 replaced the chrome ramp outright: lapis in,
+oxblood gone, no trace of the old color left anywhere in the suite.
 
 Live showcase: open `index.html` in this repo, or view it hosted once GitHub Pages
 is turned on. It renders every token and every `cds-` component with copy-paste
@@ -37,7 +38,7 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 
 ## Versioning policy
 
-- Pin every consumer to a git tag (`@v2.0.0`), never `@main`. jsDelivr caches tags
+- Pin every consumer to a git tag (`@v5.0.0`), never `@main`. jsDelivr caches tags
   aggressively; `@main` will not reliably pick up changes and gives you no way to
   roll back.
 - Workflow to change anything: edit the CSS in this repo, tag a new version

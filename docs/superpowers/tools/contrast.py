@@ -1,4 +1,4 @@
-"""WCAG contrast ratios for the Cardinal v4 palette. Run: python contrast.py"""
+"""WCAG contrast ratios for the Cardinal v5 palette. Run: python contrast.py"""
 
 def lum(hexcolor):
     r, g, b = (int(hexcolor.lstrip('#')[i:i+2], 16) / 255 for i in (0, 2, 4))
@@ -29,7 +29,8 @@ PAIRS = [
     ("ink text on brass btn",        "#161514", "#B8934A", 4.5),
     ("ink text on brass hover",      "#161514", "#C9A45C", 4.5),
     # chrome and danger
-    ("paper on imperial",            "#F9F7F2", "#4A1017", 4.5),
+    ("paper on lapis",               "#F9F7F2", "#1E4585", 4.5),
+    ("header text (n-50) on lapis-500", "#F9F7F2", "#1E4585", 4.5),
     ("white on brick (danger btn)",  "#FFFFFF", "#c0392b", 4.5),
     # feedback: text on its own tint
     ("success text on tint",         "#1B4D3E", "#E7F0E9", 4.5),

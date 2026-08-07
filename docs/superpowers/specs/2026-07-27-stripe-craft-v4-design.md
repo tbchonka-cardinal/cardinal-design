@@ -1,5 +1,9 @@
 # Stripe-craft v4: design
 
+> **Note (v5.0.0, 2026-08-03):** The mechanics here still hold — rings, radii,
+> type scale, motion. The chrome color sections are superseded: v5.0.0 replaced
+> the oxblood ramp with lapis. Read this spec for craft, not for color.
+
 Date: 2026-07-27
 Repo: cardinal-design
 Status: approved pending Thatcher's spec review
