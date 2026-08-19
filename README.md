@@ -5,8 +5,9 @@ CharlieBot): a layered heritage-parchment system — a warm off-white canvas, cr
 white surfaces raised on soft shadow, a lapis masthead, and brass rings and fills.
 Depth comes from three shadow steps, not texture; the faint paper grain lives on the
 canvas alone. Type is one system UI sans for everything (numbers in tabular figures);
-Garamond is the wordmark alone and Source Code Pro is reserved for code. One CSS file,
-no build step, versioned by git tag. v4 adds the Stripe-craft mechanics: hairline rings
+Garamond is the wordmark alone and Source Code Pro is reserved for code. Apps link one
+file, `cardinal.css`, which imports the font, then `tokens.css`, then `components.css`.
+No build step. Versioned by git tag. v4 adds the Stripe-craft mechanics: hairline rings
 instead of borders, two-tint shadows, a five-size type scale, and a single-accent rule
 (brass means actionable). v4.2 sharpens it: near-square radii (3px controls inside 4px
 containers), a definite 1px ring, Garamond off everything but the wordmark, and the
@@ -42,7 +43,7 @@ in local dev, and pull a fresh copy by hand when you want to bump.
   aggressively; `@main` will not reliably pick up changes and gives you no way to
   roll back.
 - Workflow to change anything: edit the CSS in this repo, tag a new version
-  (`v1.x.y`), then go bump the pinned tag in each consuming app deliberately. No
+  (`vX.Y.Z`), then go bump the pinned tag in each consuming app deliberately. No
   app auto-follows a moving target.
 - Non-goals: no dark theme, no JS behaviors, no build pipeline or npm
   package, no React.
