@@ -1,6 +1,6 @@
 # cardinal-design
 
-The design system every Cardinality app consumes: `cardinal.css`,
+The design system every CardinalCore app consumes: `cardinal.css`,
 `tokens.css`, `components.css`, one shared visual language for
 TopLeaseMap, LeaseIndex, and CharlieBot.
 
