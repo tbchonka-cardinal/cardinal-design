@@ -1,6 +1,6 @@
 # Cardinal Design System
 
-The shared visual language for the Cardinality app suite (TopLeaseMap, LeaseIndex,
+The shared visual language for the CardinalCore app suite (TopLeaseMap, LeaseIndex,
 CharlieBot): a layered heritage-parchment system — a warm off-white canvas, crisp
 white surfaces raised on soft shadow, a lapis masthead, and brass rings and fills.
 Depth comes from three shadow steps, not texture; the faint paper grain lives on the
