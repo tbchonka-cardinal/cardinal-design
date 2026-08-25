@@ -1,9 +1,14 @@
 /* ============================================================
    Cardinal Design System — components.css
-   Version: v5.0.0
+   Version: v6.0.0
    Depends on: tokens.css (every value below is a var(); no raw hex/rgb).
    Generalized from TopLeaseMap's app CSS under the cds- prefix.
    Behavior contract: no JS beyond toggling the .active class.
+   Theme contract (v6.0.0): every color here goes through a role or a
+     v3 alias, never a neutral primitive, so wrapping any component in
+     .cds-dark rewires it. The three primitives that remain are
+     theme-neutral on purpose: --n-900 ink on a brass fill, --n-0 white
+     on brick, and the brass ramp itself.
    Craft: rings not borders; transitions on background-color and box-shadow only (switch knob transform and slider border-color excepted).
    ============================================================ */
 
@@ -219,7 +224,7 @@
 .cds-select:focus,
 .cds-field textarea:focus {
   outline: none;
-  box-shadow: 0 0 0 1px var(--focus), 0 0 0 3px var(--brass-tint);
+  box-shadow: 0 0 0 1px var(--focus), 0 0 0 3px var(--gold-tint);
 }
 .cds-input:disabled,
 .cds-select:disabled,
@@ -253,7 +258,7 @@
 .cds-pill.active {
   color: var(--text);
   background: var(--bg-surface);
-  box-shadow: 0 0 0 2px var(--n-900);
+  box-shadow: 0 0 0 2px var(--text);
 }
 
 /* ===== Badge ===== */
@@ -358,7 +363,7 @@
 .cds-switch-slider {
   position: absolute;
   inset: 0;
-  background: var(--n-100);
+  background: var(--paper-3);
   border: 1px solid var(--border);
   border-radius: 10px;
   transition: background var(--dur) var(--ease),

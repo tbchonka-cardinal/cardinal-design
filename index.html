@@ -171,6 +171,29 @@
   .sc-card-demo { width: 320px; }
   .sc-panel-demo { padding: var(--s-4); width: 260px; }
   .sc-stat-row { display: flex; gap: var(--s-6); }
+  /* The dark stage: a .cds-dark scope drawn as its own page ground so
+     the section reads the way an app would. Every .sc-* helper inside
+     it picks up the dark roles on its own. */
+  .sc-dark-stage {
+    background-color: var(--bg);
+    background-image: var(--paper-noise);
+    padding: var(--s-5);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--ring);
+  }
+  .sc-dark-stage .sc-subhead:first-child { margin-top: 0; }
+  .sc-grid-rows { border-radius: var(--radius-md); overflow: hidden; }
+  .sc-grid-row {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s-4);
+    padding: var(--s-2) var(--s-3);
+    font-size: var(--fs-body);
+  }
+  .sc-grid-row:nth-child(even) { background: var(--paper-zebra); }
+  .sc-grid-row .k { color: var(--ink-mute); }
+  .sc-grid-row .v { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .sc-grid-row .v.missing { color: var(--ink-mute); }
 </style>
 </head>
 <body>
@@ -178,8 +201,8 @@
 <header class="sc-masthead">
   <div class="sc-masthead-inner">
     <span class="cds-eyebrow" style="color: var(--gold-soft);">Cardinality Design Reference</span>
-    <h1>Cardinal Design System <span class="sc-version">v5.0.0</span></h1>
-    <p class="sc-philosophy">A layered heritage-parchment visual language with Stripe-grade mechanics: warm off-white canvas, crisp white surfaces held by hairline rings and two-tint shadows, lapis chrome, and a single brass accent that always means "actionable." Type is Garamond for display over the system UI sans (tabular figures for data), with Source Code Pro reserved for code. Five type sizes, a 4px spacing grid, 6px controls inside 12px containers, and 150ms motion on background and shadow only.</p>
+    <h1>Cardinal Design System <span class="sc-version">v6.0.0</span></h1>
+    <p class="sc-philosophy">A layered heritage-parchment visual language with Stripe-grade mechanics: warm off-white canvas, crisp white surfaces held by hairline rings and two-tint shadows, lapis chrome, and a single brass accent that always means "actionable." Type is Garamond for display over the system UI sans (tabular figures for data), with Source Code Pro reserved for code. Five type sizes, a 4px spacing grid, 6px controls inside 12px containers, and 150ms motion on background and shadow only. v6 adds the dark scope: one class, <code>.cds-dark</code>, that swings the neutral ramp to a warm near-black and lifts brass and lapis to their light tiers.</p>
   </div>
 </header>
 
@@ -523,6 +546,118 @@
 
   </section>
 
+  <!-- ===================== DARK SCOPE ===================== -->
+  <section class="sc-section" id="dark">
+    <h2 class="sc-section-title">Dark scope</h2>
+    <p class="sc-section-sub">Put <code>.cds-dark</code> on any element and every color role under it rewires onto the warm dark ramp. Nothing else moves: same spacing, same radii, same 1px ring, same type, same 150ms motion. Brass stays the only actionable color and lapis stays the chrome; only their lightness shifts, so a dark surface reads as the same system rather than a second one. Scope it to one card for a dark card on a light page, or to <code>&lt;body&gt;</code> for a whole app. Every pair below clears WCAG AA in <code>docs/superpowers/tools/contrast.py</code>.</p>
+
+    <div class="cds-dark sc-dark-stage">
+
+      <h3 class="sc-subhead">The dark ramp</h3>
+      <div class="sc-swatch-grid">
+        <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--dk-900);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--dk-900</span><span class="sc-swatch-hex">#1A1714 · ground</span></div></div>
+        <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--dk-800);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--dk-800</span><span class="sc-swatch-hex">#25211D · panel</span></div></div>
+        <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--dk-750);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--dk-750</span><span class="sc-swatch-hex">#2E2924 · zebra</span></div></div>
+        <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--dk-700);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--dk-700</span><span class="sc-swatch-hex">#37312B · raised</span></div></div>
+        <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--dk-600);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--dk-600</span><span class="sc-swatch-hex">#413A33 · tint, divider</span></div></div>
+        <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--dk-500);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--dk-500</span><span class="sc-swatch-hex">#4A4239 · ring</span></div></div>
+        <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--dk-450);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--dk-450</span><span class="sc-swatch-hex">#5A5147 · strong ring</span></div></div>
+        <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--dk-300);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--dk-300</span><span class="sc-swatch-hex">#AEA69A · muted text</span></div></div>
+        <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--dk-100);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--dk-100</span><span class="sc-swatch-hex">#D6CFC4 · soft text</span></div></div>
+        <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--dk-0);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--dk-0</span><span class="sc-swatch-hex">#F5F1EA · text</span></div></div>
+        <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-300);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--gold-deep (dark)</span><span class="sc-swatch-hex">#D9BC7E · brass text, focus</span></div></div>
+        <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--brass-900);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--brass-900</span><span class="sc-swatch-hex">#33291B · gold-subtle</span></div></div>
+        <div class="sc-swatch"><div class="sc-swatch-color" style="background: var(--lapis-200);"></div><div class="sc-swatch-meta"><span class="sc-swatch-name">--lapis-200</span><span class="sc-swatch-hex">#A8C4EA · link hover</span></div></div>
+      </div>
+
+      <h3 class="sc-subhead">A card on the dark ground</h3>
+      <div class="sc-demo">
+        <div class="cds-card sc-card-demo">
+          <div class="cds-card-header">
+            <span class="cds-eyebrow">Lease</span>
+            <strong style="display:block;">Chonka 182-544</strong>
+          </div>
+          <div class="cds-card-body">
+            <div class="sc-grid-rows">
+              <div class="sc-grid-row"><span class="k">Operator</span><span class="v">Cardinal Resources</span></div>
+              <div class="sc-grid-row"><span class="k">Gross acres</span><span class="v">1,284.50</span></div>
+              <div class="sc-grid-row"><span class="k">Royalty</span><span class="v">18.75%</span></div>
+              <div class="sc-grid-row"><span class="k">Effective date</span><span class="v missing">--</span></div>
+              <div class="sc-grid-row"><span class="k">Term</span><span class="v">3 years</span></div>
+              <div class="sc-grid-row"><span class="k">Depth limit</span><span class="v missing">--</span></div>
+            </div>
+            <p style="margin: var(--s-4) 0 0;">Recorded in <a href="#dark">book 182, page 544</a>. Hover the link for the lapis tier.</p>
+          </div>
+          <div class="cds-card-footer">
+            <button class="cds-btn cds-btn-ghost">Cancel</button>
+            <button class="cds-btn cds-btn-primary">Save</button>
+          </div>
+        </div>
+
+        <div class="cds-panel sc-panel-demo">
+          <span class="cds-eyebrow">Filters</span>
+          <div class="cds-field" style="margin-top: var(--s-3);">
+            <label class="cds-label" for="dk-in">County</label>
+            <input class="cds-input" id="dk-in" placeholder="Tab into me for the ring">
+          </div>
+          <div class="cds-field">
+            <label class="cds-label" for="dk-sel">Status</label>
+            <select class="cds-select" id="dk-sel"><option>Any</option><option>Held by production</option></select>
+          </div>
+          <div class="sc-demo" style="margin: 0;">
+            <span class="cds-pill active">Leases</span>
+            <span class="cds-pill">Wells</span>
+          </div>
+        </div>
+
+        <div class="cds-panel sc-panel-demo">
+          <span class="cds-eyebrow">States</span>
+          <div class="sc-demo" style="margin-top: var(--s-3);">
+            <span class="cds-badge cds-badge-success">Synced</span>
+            <span class="cds-badge cds-badge-error">Failed</span>
+            <span class="cds-badge cds-badge-warning">Pending</span>
+            <span class="cds-badge cds-badge-info">Note</span>
+            <span class="cds-badge cds-badge-muted">Empty</span>
+          </div>
+          <div class="sc-stat-row" style="margin-top: var(--s-4);">
+            <div class="cds-stat">
+              <span class="cds-stat-label">Tracts</span>
+              <span class="cds-stat-value">412</span>
+            </div>
+            <div class="cds-stat">
+              <span class="cds-stat-label">Net acres</span>
+              <span class="cds-stat-value">8,904</span>
+            </div>
+          </div>
+          <p style="margin-bottom: 0;"><button class="cds-btn cds-btn-danger">Delete</button>
+             <label class="cds-switch"><input type="checkbox" checked><span class="cds-switch-slider"></span></label></p>
+        </div>
+      </div>
+
+      <h3 class="sc-subhead">Table, zebra rows and dividers</h3>
+      <table class="cds-table">
+        <thead><tr><th>Book-Page</th><th>Grantor</th><th>Instrument</th><th class="cds-num">Acres</th></tr></thead>
+        <tbody>
+          <tr><td>182-544</td><td>Chonka, T. B.</td><td>Oil and gas lease</td><td class="cds-num">1,284.50</td></tr>
+          <tr><td>182-551</td><td>Reeves Family Trust</td><td>Memorandum</td><td class="cds-num">640.00</td></tr>
+          <tr><td>183-012</td><td>Ward, E.</td><td>Assignment</td><td class="cds-num">320.25</td></tr>
+          <tr><td>183-088</td><td>Loving Minerals LP</td><td>Ratification</td><td class="cds-num">80.00</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="sc-subhead">Banners and empty state</h3>
+      <div class="cds-banner cds-banner-info">Extraction finished on 412 of 415 documents.</div>
+      <div class="cds-banner cds-banner-warning">Three pages need a second pass.</div>
+      <div class="cds-empty">No documents match this filter.</div>
+    </div>
+
+    <pre class="sc-snippet"><code>&lt;!-- one dark card floating on a light page --&gt;
+&lt;div class="cds-dark cds-card"&gt; ... &lt;/div&gt;
+
+&lt;!-- or the whole app --&gt;
+&lt;body class="cds-dark"&gt; ... &lt;/body&gt;</code></pre>
+  </section>
+
   <section class="sc-section" id="identity">
     <h2 class="sc-section-title">Identity</h2>
 
@@ -616,7 +751,7 @@
     document.getElementById('replay-minerva').addEventListener('click', () => playSplash('tpl-minerva', 'Minerva'));
   </script>
 
-  <p class="sc-footer">Cardinal Design System v5.0.0 · Cardinality ecosystem, tbchonka-cardinal</p>
+  <p class="sc-footer">Cardinal Design System v6.0.0 · Cardinality ecosystem, tbchonka-cardinal</p>
 </div>
 
 </body>

@@ -1,13 +1,14 @@
 /* ============================================================
    Cardinal Design System — tokens.css
-   Version: v5.0.0 ("Lapis chrome")
+   Version: v6.0.0 ("Dark scope")
    Spec:    docs/superpowers/specs/2026-07-27-stripe-craft-v4-design.md
+            docs/superpowers/specs/2026-08-25-dark-scope-v6-design.md
    Philosophy: heritage parchment identity, Stripe mechanics. Warm
      off-white canvas, crisp white surfaces, lapis masthead, brass
-     accent, one system UI sans for everything. Three layers
+     accent, one system UI sans for everything. Four layers
      below: primitives (ordered ramps, numeric names), roles (what
-     components consume), and v3 compatibility aliases. Components
-     never reference a primitive directly.
+     components consume), v3 compatibility aliases, and the dark
+     scope. Components never reference a primitive directly.
    Craft rules (edit the spec before breaking one):
      - Type: five sizes (12/14/16/20/28), line heights on the 4px
        grid. Inside a size, hierarchy comes from weight (400/600/700)
@@ -32,7 +33,12 @@
        sanctioned transform.
      - Brass is the only actionable color. Lapis is the masthead,
        plus button fills and hovers. Lapis is NOT a text color and
-       NOT a card-header fill.
+       NOT a card-header fill. The one lapis text use is the link
+       hover, and it goes through --link-hover.
+     - Dark is a SCOPE, not a second stylesheet. Put .cds-dark on
+       any element and the roles under it rewire onto the --dk-*
+       ramp. Spacing, radii, ring weight, type and motion do not
+       change. Brass and lapis stay the accents.
    ============================================================ */
 :root {
   /* ---------- Layer 1: primitives ---------- */
@@ -51,12 +57,33 @@
   --n-800: #524E48;
   --n-900: #161514;
 
+  /* Warm DARK ramp, for the .cds-dark scope (v6.0.0). Same rule as
+     the light ramp: the number is how dark the value is, 0 lightest,
+     900 darkest. The distribution is what differs — the light ramp
+     crowds the light end (surfaces near white, one dark ink), this
+     one crowds the dark end (surfaces near black, one light ink).
+     Steps are even in L*: ground 8.0, panel 13.0, zebra 17.0,
+     raised 20.8, deep tint 24.9. Prism's #1B1B1B/#282828/#393939
+     set the VALUE steps; the hue stays warm (R>G>B), because the
+     identity is parchment, not cool gray. */
+  --dk-0:   #F5F1EA;  /* primary text on dark: warm paper white */
+  --dk-100: #D6CFC4;  /* secondary text */
+  --dk-300: #AEA69A;  /* muted text and captions: 4.5:1 on every dark ground */
+  --dk-450: #5A5147;  /* the strong ring step */
+  --dk-500: #4A4239;  /* the ring step: definite against every dark surface, still 1px */
+  --dk-600: #413A33;  /* deep tint fill, table divider */
+  --dk-700: #37312B;  /* raised band: card header, hover fill, faint divider */
+  --dk-750: #2E2924;  /* zebra stripe */
+  --dk-800: #25211D;  /* panel: the card surface */
+  --dk-900: #1A1714;  /* page ground */
+
   /* Brass ramp (the accent). Brass TEXT on light surfaces uses 700.
      700 darkened from #8A6D33 so it holds 4.5:1 on tinted surfaces (n-75, gold-subtle). */
   --brass-300: #D9BC7E;
   --brass-400: #C9A45C;
   --brass-500: #B8934A;
   --brass-700: #846931;
+  --brass-900: #33291B;  /* the dark end: brass-tinted fill under .cds-dark */
   --brass-wash:   rgba(184, 147, 74, 0.08);
   --brass-tint:   rgba(184, 147, 74, 0.16);
   --brass-subtle: #F6F1E5;
@@ -66,6 +93,7 @@
      500 holds roughly 8:1 against --n-50, so cream text on the header
      band clears AA. Replaced the previous chrome ramp outright; no
      trace of the old color remains anywhere in the suite. */
+  --lapis-200: #A8C4EA;  /* the light end: lapis as TEXT on a dark ground (v6.0.0) */
   --lapis-400: #2B5CA8;
   --lapis-500: #1E4585;
   --lapis-700: #14305E;
@@ -172,6 +200,10 @@
   --text-mute:     var(--n-600);
   --accent:        var(--brass-500);
   --accent-text:   var(--brass-700);
+  /* The one sanctioned lapis text use: link hover. A role of its own
+     so the dark scope can lighten it without moving the masthead
+     band (v6.0.0). */
+  --link-hover:    var(--imperial);
   --border:        var(--n-200);          /* (changed v4.2.0) n-150 -> n-200 */
   --border-strong: var(--n-300);
 
@@ -255,14 +287,125 @@ a {
   color: var(--accent-text);
   text-decoration: none;
 }
-a:hover { color: var(--imperial); text-decoration: underline; }
+a:hover { color: var(--link-hover); text-decoration: underline; }
 
 ::selection {
-  background: var(--brass-tint);
+  background: var(--gold-tint);
   color: var(--text);
 }
 
 :focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
+}
+
+/* ============================================================
+   Layer 4: the dark scope (v6.0.0)
+   Spec: docs/superpowers/specs/2026-08-25-dark-scope-v6-design.md
+
+   Put .cds-dark on any element. Every role and alias under it
+   rewires onto the --dk-* ramp; everything that is not color
+   (spacing, radii, ring weight, type, motion) is untouched, so a
+   component looks like itself in either theme. Scope it to one
+   card for a dark card on a light page (Terminus does this with
+   #lease-card), or to <body> for a whole app.
+
+   Two things carry over on Thatcher's call (2026-08-25): brass is
+   still the only actionable color, and lapis is still the chrome.
+   Only their lightness moves. Where brass or lapis is TEXT, the
+   scope swaps in the light end of the ramp; where it is a fill or
+   a band, the value stands.
+   ============================================================ */
+.cds-dark {
+  /* The scope paints its own ground and its own text color.
+     Inherited `color` is a computed value, not a var reference, so
+     a dark card dropped into a light page would otherwise keep the
+     light page's ink. A component background (.cds-card, .cds-panel)
+     still wins over --bg here: components.css loads after this. */
+  background-color: var(--bg);
+  color: var(--text);
+  color-scheme: dark;
+
+  /* ---- neutral roles ---- */
+  --bg:            var(--dk-900);
+  --bg-surface:    var(--dk-800);
+  --bg-raised:     var(--dk-700);
+  --text:          var(--dk-0);
+  --text-soft:     var(--dk-100);
+  --text-mute:     var(--dk-300);
+  --border:        var(--dk-500);
+  --border-strong: var(--dk-450);
+
+  /* ---- v3 aliases, same wiring ---- */
+  --paper:       var(--dk-900);
+  --paper-2:     var(--dk-700);
+  --paper-3:     var(--dk-600);
+  --surface:     var(--dk-800);
+  --paper-zebra: var(--dk-750);
+  --rule:        var(--dk-600);
+  --rule-soft:   var(--dk-700);
+  --rule-strong: var(--dk-450);
+  --ink:         var(--dk-0);
+  --ink-soft:    var(--dk-100);
+  --ink-mute:    var(--dk-300);
+
+  /* ---- brass: fills hold, text lightens ---- */
+  --accent:      var(--brass-500);  /* unchanged: a brass fill or hairline already
+                                       reads bright against a dark ground */
+  --accent-text: var(--brass-300);
+  --gold:        var(--brass-500);
+  --gold-bright: var(--brass-400);
+  --gold-soft:   var(--brass-300);
+  --gold-deep:   var(--brass-300);  /* "deep" means high contrast, and on dark
+                                       the high-contrast brass is the light one */
+  --gold-subtle: var(--brass-900);
+  /* The two alpha tints are the one place this scope touches a
+     primitive: a fixed alpha over a dark ground is a different
+     color, not a dimmer one. Both lift to the light brass. */
+  --brass-wash: rgba(217, 188, 126, 0.10);
+  --brass-tint: rgba(217, 188, 126, 0.22);
+  --gold-wash:  rgba(217, 188, 126, 0.10);
+  --gold-tint:  rgba(217, 188, 126, 0.22);
+
+  /* ---- lapis: the band holds, the text tier lightens ---- */
+  --imperial:        var(--lapis-500);  /* still the masthead band; lapis-500 reads
+                                           as blue against --dk-900 */
+  --imperial-bright: var(--lapis-200);  /* "bright" means the lapis that pops off
+                                           this ground, so on dark it is the light one */
+  --link-hover:      var(--lapis-200);
+  --focus:           var(--brass-300);  /* 3:1 on every dark ground */
+
+  /* ---- rings: same 1px weight, dark steps ---- */
+  --ring:        0 0 0 1px var(--dk-500);
+  --ring-strong: 0 0 0 1px var(--dk-450);
+  --ring-accent: 0 0 0 1px var(--brass-500);  /* unchanged */
+
+  /* ---- elevation: same geometry, black instead of two warm tints.
+          On a dark ground a warm ambient shadow is invisible; the
+          card floating on a light map needs a real one. ---- */
+  --shadow-sm: 0 1px 1px rgba(0,0,0,0.44), 0 2px 5px rgba(0,0,0,0.30);
+  --shadow-md: 0 3px 6px rgba(0,0,0,0.44), 0 7px 14px rgba(0,0,0,0.30);
+  --shadow-lg: 0 5px 15px rgba(0,0,0,0.44), 0 15px 35px rgba(0,0,0,0.30);
+  --shadow-brass: 0 2px 5px rgba(0,0,0,0.50);
+  --shadow-page: var(--shadow-md);
+  --shadow-pop:  var(--shadow-lg);
+  --scrim: rgba(10, 9, 8, 0.72);
+
+  /* Paper grain inverts: light specks on the dark ground, 3% alpha. */
+  --paper-noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.98 0 0 0 0 0.95 0 0 0 0 0.90 0 0 0 0.03 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+
+  /* ---- feedback pairs: tint and text swap ends. A light chip on a
+          dark card reads as a flare, so the tint goes deep and the
+          text goes light. Both directions pass 4.5:1 (contrast.py). ---- */
+  --success-text: #9FD9B8;  --success-bg: #1C2E24;
+  --danger-text:  #F0A9A0;  --danger-bg:  #331E1C;
+  --warning-text: #E5BE72;  --warning-bg: #33291A;
+  --info-text:    #A8C4EA;  --info-bg:    #1E2836;
+
+  /* Jewel data colors lift to clear 3:1 on the panel as dots and
+     chart series. Brick keeps its value: white on it still passes. */
+  --ink-blue:     #6E9BD6;
+  --moss:         #6FB894;
+  --data-amber:   #D9A544;
+  --data-crimson: #E0857A;
 }

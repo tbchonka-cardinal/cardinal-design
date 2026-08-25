@@ -6,7 +6,7 @@ TopLeaseMap, LeaseIndex, and CharlieBot.
 
 ## Consumption model
 
-Apps pin a jsDelivr CDN URL to a git tag (`@v5.0.0`), or vendor
+Apps pin a jsDelivr CDN URL to a git tag (`@v6.0.0`), or vendor
 `tokens.css` in directly (TopLeaseMap does this for its token layer).
 See README.md for both patterns.
 
@@ -27,4 +27,8 @@ consuming app. No app auto-follows a moving target.
 
 - README.md — the class reference and the versioning policy.
 - `docs/superpowers/tools/contrast.py` — run this to verify any
-  palette change holds WCAG contrast before it ships.
+  palette change holds WCAG contrast before it ships. It gates both
+  the light layer and the `.cds-dark` scope; a palette change ships
+  only if it exits 0.
+- `docs/superpowers/specs/2026-08-25-dark-scope-v6-design.md` — the
+  dark scope: the ramp, the accent decisions, the scope mechanism.
