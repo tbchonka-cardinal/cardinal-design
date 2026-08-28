@@ -546,6 +546,162 @@
 
   </section>
 
+  <!-- ===================== CARD GRAMMAR ===================== -->
+  <section class="sc-section" id="card-grammar">
+    <h2 class="sc-section-title">Card grammar <span class="sc-version">v6.1.0</span></h2>
+    <p class="sc-section-sub">The fact row, card table, tab bar, panel and notes classes that arrived from TopLeaseMap's <code>cards.css</code> in v6.1.0, composed into one card. <code>.cds-ct-row</code> is a per-row grid; the grammar leaves the column template to the consumer, so this demo sets <code>grid-template-columns</code> inline on each row.</p>
+
+    <h3 class="sc-subhead">Light</h3>
+    <div class="sc-demo">
+      <div class="cds-card sc-card-demo" style="width: 440px;">
+        <div class="cds-card-header">
+          <span class="cds-card-header-actions">
+            <button class="cds-card-action-btn">Edit</button>
+            <button class="cds-card-action-btn">PPQ</button>
+          </span>
+        </div>
+        <div class="cds-fact-row cds-fact-row--5">
+          <div class="cds-fact-cell">
+            <div class="cds-card-id-pill">4021</div>
+            <div class="cds-card-identity-name">Chonka 182-544</div>
+          </div>
+          <div class="cds-fact-cell">
+            <span class="cds-fact-label">Acres</span>
+            <span class="cds-fact-value">160.00</span>
+          </div>
+          <div class="cds-fact-cell">
+            <span class="cds-fact-label">Royalty</span>
+            <span class="cds-fact-value">18.75%</span>
+          </div>
+          <div class="cds-fact-cell is-missing">
+            <span class="cds-fact-label">Effective Date</span>
+            <span class="cds-fact-value">--</span>
+          </div>
+          <div class="cds-fact-cell">
+            <span class="cds-fact-label">Candidate</span>
+            <span class="cds-fact-value"><span class="cds-fact-status-box" style="background: #2e7d4f; color: #fff; border-color: #2e7d4f;">Active</span></span>
+          </div>
+        </div>
+        <div class="cds-card-tab-bar cds-card-tab-bar--underline">
+          <button class="cds-card-tab active">Wells</button>
+          <button class="cds-card-tab">PPQ</button>
+          <button class="cds-card-tab">Notes</button>
+        </div>
+        <div class="cds-card-body">
+          <div class="cds-card-table">
+            <div class="cds-ct-row cds-ct-head" style="grid-template-columns: 1.6fr 1fr 1fr;">
+              <span class="cds-ct-cell">Well Name</span>
+              <span class="cds-ct-cell">Status</span>
+              <span class="cds-ct-cell cds-ct-num">Gross 12M</span>
+            </div>
+            <div class="cds-ct-row cds-ct-section-row" style="grid-template-columns: 1fr;">
+              <span class="cds-ct-section">Producing</span>
+            </div>
+            <div class="cds-ct-row" style="grid-template-columns: 1.6fr 1fr 1fr;">
+              <span class="cds-ct-cell">Buckeye 4H</span>
+              <span class="cds-ct-cell">Active</span>
+              <span class="cds-ct-cell cds-ct-num">2,140</span>
+            </div>
+            <div class="cds-ct-row" style="grid-template-columns: 1.6fr 1fr 1fr;">
+              <span class="cds-ct-cell">Zimmerman 2</span>
+              <span class="cds-ct-cell">Active</span>
+              <span class="cds-ct-cell cds-ct-num">985</span>
+            </div>
+            <div class="cds-ct-row" style="grid-template-columns: 1.6fr 1fr 1fr;">
+              <span class="cds-ct-cell">Kensington Unit 1</span>
+              <span class="cds-ct-cell is-missing">Shut in</span>
+              <span class="cds-ct-cell cds-ct-num">--</span>
+            </div>
+          </div>
+
+          <div class="cds-card-panel">
+            <div class="cds-card-panel-title">Notes</div>
+            <div class="cds-card-notes">Recorded in book 182, page 544. HBP by production, no shallow rights reserved.</div>
+            <span class="cds-card-notes-status saved">Saved</span>
+          </div>
+
+          <div class="cds-card-note">No production rows.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sc-subhead">Dark</h3>
+    <div class="cds-dark sc-dark-stage">
+      <div class="sc-demo">
+        <div class="cds-card sc-card-demo" style="width: 440px;">
+          <div class="cds-card-header">
+            <span class="cds-card-header-actions">
+              <button class="cds-card-action-btn">Edit</button>
+              <button class="cds-card-action-btn">PPQ</button>
+            </span>
+          </div>
+          <div class="cds-fact-row cds-fact-row--5">
+            <div class="cds-fact-cell">
+              <div class="cds-card-id-pill">4021</div>
+              <div class="cds-card-identity-name">Chonka 182-544</div>
+            </div>
+            <div class="cds-fact-cell">
+              <span class="cds-fact-label">Acres</span>
+              <span class="cds-fact-value">160.00</span>
+            </div>
+            <div class="cds-fact-cell">
+              <span class="cds-fact-label">Royalty</span>
+              <span class="cds-fact-value">18.75%</span>
+            </div>
+            <div class="cds-fact-cell is-missing">
+              <span class="cds-fact-label">Effective Date</span>
+              <span class="cds-fact-value">--</span>
+            </div>
+            <div class="cds-fact-cell">
+              <span class="cds-fact-label">Candidate</span>
+              <span class="cds-fact-value"><span class="cds-fact-status-box" style="background: #2e7d4f; color: #fff; border-color: #2e7d4f;">Active</span></span>
+            </div>
+          </div>
+          <div class="cds-card-tab-bar cds-card-tab-bar--underline">
+            <button class="cds-card-tab active">Wells</button>
+            <button class="cds-card-tab">PPQ</button>
+            <button class="cds-card-tab">Notes</button>
+          </div>
+          <div class="cds-card-body">
+            <div class="cds-card-table">
+              <div class="cds-ct-row cds-ct-head" style="grid-template-columns: 1.6fr 1fr 1fr;">
+                <span class="cds-ct-cell">Well Name</span>
+                <span class="cds-ct-cell">Status</span>
+                <span class="cds-ct-cell cds-ct-num">Gross 12M</span>
+              </div>
+              <div class="cds-ct-row cds-ct-section-row" style="grid-template-columns: 1fr;">
+                <span class="cds-ct-section">Producing</span>
+              </div>
+              <div class="cds-ct-row" style="grid-template-columns: 1.6fr 1fr 1fr;">
+                <span class="cds-ct-cell">Buckeye 4H</span>
+                <span class="cds-ct-cell">Active</span>
+                <span class="cds-ct-cell cds-ct-num">2,140</span>
+              </div>
+              <div class="cds-ct-row" style="grid-template-columns: 1.6fr 1fr 1fr;">
+                <span class="cds-ct-cell">Zimmerman 2</span>
+                <span class="cds-ct-cell">Active</span>
+                <span class="cds-ct-cell cds-ct-num">985</span>
+              </div>
+              <div class="cds-ct-row" style="grid-template-columns: 1.6fr 1fr 1fr;">
+                <span class="cds-ct-cell">Kensington Unit 1</span>
+                <span class="cds-ct-cell is-missing">Shut in</span>
+                <span class="cds-ct-cell cds-ct-num">--</span>
+              </div>
+            </div>
+
+            <div class="cds-card-panel">
+              <div class="cds-card-panel-title">Notes</div>
+              <div class="cds-card-notes">Recorded in book 182, page 544. HBP by production, no shallow rights reserved.</div>
+              <span class="cds-card-notes-status saved">Saved</span>
+            </div>
+
+            <div class="cds-card-note">No production rows.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== DARK SCOPE ===================== -->
   <section class="sc-section" id="dark">
     <h2 class="sc-section-title">Dark scope</h2>

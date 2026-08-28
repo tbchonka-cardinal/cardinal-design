@@ -76,6 +76,13 @@ component's own background rule wins over the scope's.
 
 Details, including every value and why: `docs/superpowers/specs/2026-08-25-dark-scope-v6-design.md`.
 
+The card grammar (fact rows, card tables, tab bars, panels, notes) arrived
+from TopLeaseMap's `cards.css` in v6.1.0, added inside `components.css`'s
+existing Card section rather than as a separate file. That whole section —
+from `.cds-card` through `.cds-card-note` — is the vendoring unit: an app
+that copies rather than links `components.css` copies that one contiguous
+block and re-copies it whole on the next tag bump.
+
 ## Class reference
 
 | Class | What it is |
@@ -83,8 +90,35 @@ Details, including every value and why: `docs/superpowers/specs/2026-08-25-dark-
 | `.cds-dark` | Theme scope: rewires every color role beneath it onto the warm dark ramp. Lives in `tokens.css`, so token-only consumers get it |
 | `.cds-card` | Elevated white card container: surface background, hairline ring, soft resting shadow |
 | `.cds-card-header` | Raised neutral header band for a card, brass hairline beneath |
-| `.cds-card-body` | Padded, scrollable card content area |
+| `.cds-card-body` | Padded, scrollable card content area; v6.1.0 added `flex: 1; min-height: 0`, inert outside a flex parent, so a pinned card column can let the body take the leftover height |
 | `.cds-card-footer` | White action band completing the three-band edit card; tints the body via `:has()` |
+| `.cds-card-header-actions` | Header action-button cluster; right padding clears an absolutely-positioned close control |
+| `.cds-card-action-btn` | Quiet ghost button inside the header actions cluster |
+| `.cds-card-id-pill` | Display-only identity pill in house gold |
+| `.cds-card-identity-name` | Identity name shown under the id pill |
+| `.cds-fact-row` | Header fact row: identity cell plus facts, four-column base shape; `--solo`/`--3`/`--5` size the column count |
+| `.cds-fact-cell` | One fact-row cell; `.is-missing` mutes its label and value color |
+| `.cds-fact-label` | Small brass (`--gold-deep`) label above a fact value |
+| `.cds-fact-value` | Tabular-numeral fact value |
+| `.cds-fact-status-box` | Filled color status chip inside a fact cell, tint supplied by the app; no box on `--` |
+| `.cds-card-table` | Card-scoped table grammar: header band over zebra rows, no divider lines |
+| `.cds-card-lv-table` | Label/value banded table variant: two columns, value right |
+| `.cds-ct-row` | One card-table row (its own grid; column template is left to the consumer); odd rows zebra, excluding the head and section rows |
+| `.cds-ct-head` | Card-table header row |
+| `.cds-ct-cell` | Card-table cell; `.is-missing` mutes its color |
+| `.cds-ct-num` | Right-aligned card-table cell for numeric columns |
+| `.cds-ct-link` | Underline-on-hover link inside a card-table cell |
+| `.cds-ct-section` | Gold section-header text spanning the full row width |
+| `.cds-ct-section-row` | Card-table row wrapping a `.cds-ct-section` label, excluded from zebra striping |
+| `.cds-card-tab-bar` | Segmented pill tab bar inside a card |
+| `.cds-card-tab-bar--underline` | Tab bar variant: transparent bar, 3px brass underline on the active tab |
+| `.cds-card-tab` | Individual card tab; current tab marked with `.active` |
+| `.cds-card-panel` | Boxed subsection inside a card body, brass ring and tinted background |
+| `.cds-card-panel-title` | Brass eyebrow title for a `.cds-card-panel` |
+| `.cds-card-notes` | Read-only note surface |
+| `.cds-card-notes-edit` | Editable notes textarea, same surface treatment as `.cds-card-notes` |
+| `.cds-card-notes-status` | Save-status label with a leading dot; `.saving`/`.saved`/`.error` color it |
+| `.cds-card-note` | Quiet inline note inside a card body (loading, empty, absent states) |
 | `.cds-empty` | Dashed-border empty state with a centered muted message |
 | `.cds-banner` | Neutral inline notice; `-success`/`-error`/`-warning`/`-info` variants use the feedback tint pairs |
 | `.cds-btn` | Base button shape shared by all button variants |

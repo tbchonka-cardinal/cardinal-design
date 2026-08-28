@@ -1,6 +1,6 @@
 /* ============================================================
    Cardinal Design System — components.css
-   Version: v6.0.0
+   Version: v6.1.0
    Depends on: tokens.css (every value below is a var(); no raw hex/rgb).
    Generalized from TopLeaseMap's app CSS under the cds- prefix.
    Behavior contract: no JS beyond toggling the .active class.
@@ -13,7 +13,10 @@
    ============================================================ */
 
 /* ===== Card ===== */
-/* Elevated white surface: crisp (no noise), subtle rule, small resting shadow. */
+/* Elevated white surface: crisp (no noise), subtle rule, small resting shadow.
+   The card grammar below the body rules (fact rows, card tables, tab bars,
+   panels, notes) arrived from TopLeaseMap cards.css in v6.1.0. Consumers
+   vendoring the card grammar copy this whole Card section. */
 .cds-card {
   background-color: var(--bg-surface);
   border-radius: var(--r-container);
@@ -44,6 +47,10 @@
 
 .cds-card-body {
   padding: var(--s-200) var(--s-200) var(--s-150);
+  /* Inert outside a flex parent; inside one (a pinned card column) the
+     body takes the leftover height and scrolls (v6.1.0 merge). */
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   scrollbar-color: var(--border) transparent;
 }
@@ -54,6 +61,336 @@
   border: 2px solid var(--bg-surface);
 }
 .cds-card-body::-webkit-scrollbar-track { background: transparent; }
+
+/* ---- Card grammar (v6.1.0, from TopLeaseMap cards.css) ---- */
+
+/* Action cluster inside the header band: quiet ghost buttons, always
+   visible. Hover is a flat one-step surface swap, instant. The right
+   padding clears an app's absolutely-positioned close control. */
+.cds-card-header-actions {
+  display: inline-flex;
+  gap: 2px;
+  padding-right: 26px;
+}
+
+.cds-card-action-btn {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: none;
+  border: none;
+  border-radius: var(--r-control);
+  padding: 4px 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: none;
+  display: inline-flex;
+  align-items: center;
+}
+.cds-card-action-btn:hover {
+  background: var(--paper-3);
+  color: var(--ink);
+}
+.cds-card-action-btn:disabled { opacity: 0.5; cursor: default; }
+
+/* Display-only id pill in house gold: a record's identity field. */
+.cds-card-id-pill {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--paper);
+  border-radius: var(--r-control);
+  padding: 2px 10px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Identity name under the id pill. */
+.cds-card-identity-name {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Header fact row: one row of left-aligned columns — identity first,
+   then facts. The base is the four-column shape; variants below size
+   other fact counts. */
+.cds-fact-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) 1fr 1fr 1fr;
+  border-bottom: 1px solid var(--rule);
+}
+.cds-fact-row--solo { grid-template-columns: minmax(0, 1fr); }
+.cds-fact-row--3 { grid-template-columns: minmax(0, 1.6fr) 1fr 1fr; }
+.cds-fact-row--5 { grid-template-columns: minmax(0, 1.3fr) repeat(4, 1fr); }
+
+.cds-fact-cell {
+  padding: 10px 14px 8px;
+  border-left: 1px solid var(--rule-soft);
+  min-width: 0;
+}
+.cds-fact-cell:first-child { border-left: none; }
+
+.cds-fact-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--gold-deep);
+  margin-bottom: 4px;
+}
+
+.cds-fact-value {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Missing data: color change on label AND value, never opacity. */
+.cds-fact-cell.is-missing .cds-fact-label,
+.cds-fact-cell.is-missing .cds-fact-value,
+.cds-ct-cell.is-missing { color: var(--ink-mute); }
+
+/* Status box: a filled color box when a status color exists, composed
+   by the app from its own status palette. No box on '--'. */
+.cds-fact-status-box {
+  display: inline-block;
+  padding: 2px 9px;
+  border: 1px solid transparent;
+  border-radius: var(--r-control);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Card table grammar: header band over zebra rows, no divider lines. */
+.cds-card-table {
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-variant-numeric: tabular-nums;
+}
+.cds-ct-row {
+  display: grid;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 8px;
+}
+/* .cds-ct-section-row (section headers) is excluded so a section's gold
+   text row never gets a zebra background even when it lands on an odd
+   row, and so the label/value rows after it restart the banding cleanly. */
+.cds-ct-row:nth-child(odd):not(.cds-ct-head):not(.cds-ct-section-row) { background: var(--paper-zebra); }
+.cds-ct-head {
+  background: var(--paper-2);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.cds-ct-cell {
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 3px 4px;
+}
+.cds-ct-num { text-align: right; }
+.cds-ct-link {
+  color: var(--imperial);
+  text-decoration: none;
+}
+.cds-ct-link:hover { text-decoration: underline; }
+
+/* Table section header row: gold text spanning the full row width, same
+   size as the data rows it introduces, no panel box or border. */
+.cds-ct-section {
+  grid-column: 1 / -1;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+
+/* Label/value banded tables: two columns, value right. */
+.cds-card-lv-table .cds-ct-row { grid-template-columns: minmax(0, 1fr) auto; }
+.cds-card-lv-table { margin-top: 10px; }
+.cds-card-lv-table:first-of-type { margin-top: 0; }
+
+/* Card tabs — segmented pill bar. */
+.cds-card-tab-bar {
+  display: flex;
+  gap: 3px;
+  margin: 0 0 16px;
+  background: var(--paper-2);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 3px;
+  position: relative;
+}
+
+.cds-card-tab {
+  padding: 5px 14px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: none;
+  cursor: pointer;
+  color: var(--ink-mute);
+  position: relative;
+  transition: background-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.cds-card-tab:hover {
+  color: var(--ink-soft);
+}
+.cds-card-tab.active {
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+}
+
+/* Underline tabs variant: transparent bar, 3px gold bar under the active
+   tab via border-bottom (a positioned div glitches at narrow widths).
+   Every tab reserves the 3px with a transparent border so nothing shifts
+   on activation. */
+.cds-card-tab-bar--underline {
+  margin: 12px 18px 0;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  gap: 18px;
+  box-shadow: none;
+}
+.cds-card-tab-bar--underline .cds-card-tab {
+  padding: 8px 2px;
+  border-radius: 0;
+  background: none;
+  color: var(--ink-mute);
+  border-bottom: 3px solid transparent;
+}
+.cds-card-tab-bar--underline .cds-card-tab:hover {
+  background: none;
+  color: var(--ink-soft);
+}
+.cds-card-tab-bar--underline .cds-card-tab.active {
+  background: none;
+  box-shadow: none;
+  color: var(--ink);
+  border-bottom-color: var(--gold);
+}
+
+/* Boxed subsection inside a card body: the gold eyebrow lives INSIDE a
+   tinted box wearing the brass ring. Its content is a lighter
+   box-within-box on the white surface, so an editable field reads as
+   the thing you click. */
+.cds-card-panel {
+  background: var(--paper-2);
+  box-shadow: var(--ring-accent);
+  border-radius: var(--r-sm);
+  padding: 10px 12px 12px;
+  margin-top: 12px;
+}
+
+.cds-card-panel-title {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  color: var(--gold-deep);
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule-soft);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Notes: a read-only note surface, its editable textarea twin, and a
+   dot-plus-label save status. */
+.cds-card-notes {
+  background: var(--surface);
+  border: none;
+  box-shadow: var(--ring-strong);
+  border-radius: var(--r-sm);
+  padding: 9px 11px;
+  white-space: pre-wrap;
+  color: var(--ink);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+}
+
+.cds-card-notes-edit {
+  display: block;
+  width: 100%;
+  min-height: 72px;
+  background: var(--surface);
+  border: none;
+  box-shadow: var(--ring-strong);
+  border-radius: var(--r-sm);
+  padding: 9px 11px;
+  font: 400 var(--fs-body)/1.55 var(--font-body);
+  color: var(--ink);
+  resize: vertical;
+  box-sizing: border-box;
+  cursor: text;
+  transition: box-shadow var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+.cds-card-notes-edit::placeholder {
+  color: var(--ink-mute);
+  font-style: italic;
+}
+.cds-card-notes-edit:hover:not(:focus):not(:disabled) {
+  box-shadow: 0 0 0 1px var(--ink-mute);
+}
+.cds-card-notes-edit:focus {
+  outline: none;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--focus), 0 0 0 3px var(--gold-tint);
+}
+.cds-card-notes-edit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.cds-card-notes-status {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-mute);
+  text-transform: none;
+  letter-spacing: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.cds-card-notes-status:not(:empty)::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.cds-card-notes-status.saving { color: var(--ink-mute); font-style: italic; }
+.cds-card-notes-status.saved  { color: var(--moss); }
+.cds-card-notes-status.error  { color: var(--brick); }
+
+/* Quiet inline note inside a card body (loading, empty, absent states). */
+.cds-card-note {
+  color: var(--ink-mute);
+  font-size: var(--fs-body);
+  padding: 10px 0;
+}
 
 /* ===== Buttons ===== */
 /* base from .admin-trigger-btn / .upload-confirm / .upload-cancel (shared shape). */
