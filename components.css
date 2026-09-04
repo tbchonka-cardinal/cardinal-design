@@ -1,6 +1,6 @@
 /* ============================================================
    Cardinal Design System — components.css
-   Version: v6.2.0
+   Version: v6.2.1
    Depends on: tokens.css (every value below is a var(); no raw hex/rgb).
    Generalized from TopLeaseMap's app CSS under the cds- prefix.
    Behavior contract: no JS beyond toggling the .active class.
@@ -95,11 +95,13 @@
 .cds-card-action-btn:disabled { opacity: 0.5; cursor: default; }
 
 /* Display-only id pill in house gold: a record's identity field. Sits on
-   the .cds-fact-label line (same 10px, centered in the label's line box) so
-   the identity cell lines up with the fact cells beside it (v6.2.0). Dark
-   text on gold. */
+   the .cds-fact-label line: a 14px block like the label, so the identity
+   cell lines up with the fact cells beside it whatever line-height the card
+   inherits (v6.2.1; v6.2.0 sat in the cell's own line box and drifted by the
+   difference). Dark text on gold. */
 .cds-card-id-pill {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   background: var(--gold);
   color: var(--ink);
   border-radius: var(--r-control);
@@ -110,12 +112,11 @@
   line-height: 14px;
   text-align: center;
   white-space: nowrap;
-  vertical-align: middle;
 }
 
 /* Identity name under the id pill, on the .cds-fact-value line: same 13px,
-   same weight, tabular figures for serials (v6.2.0). The pill's line box is
-   the label's line height, so the same 4px gap puts the name on the value line. */
+   same weight, tabular figures for serials (v6.2.0). Pill and label are both
+   14px blocks, so the same 4px gap puts the name on the value line. */
 .cds-card-identity-name {
   display: block;
   margin-top: 4px;
@@ -153,6 +154,7 @@
   font-family: var(--font-body);
   font-size: 10px;
   font-weight: 600;
+  line-height: 14px;
   color: var(--gold-deep);
   margin-bottom: 4px;
 }
