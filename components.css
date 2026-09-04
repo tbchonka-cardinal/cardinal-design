@@ -1,6 +1,6 @@
 /* ============================================================
    Cardinal Design System — components.css
-   Version: v6.1.0
+   Version: v6.2.0
    Depends on: tokens.css (every value below is a var(); no raw hex/rgb).
    Generalized from TopLeaseMap's app CSS under the cds- prefix.
    Behavior contract: no JS beyond toggling the .active class.
@@ -94,31 +94,37 @@
 }
 .cds-card-action-btn:disabled { opacity: 0.5; cursor: default; }
 
-/* Display-only id pill in house gold: a record's identity field. */
+/* Display-only id pill in house gold: a record's identity field. Sits on
+   the .cds-fact-label line (same 10px, same 4px gap below) so the identity
+   cell lines up with the fact cells beside it (v6.2.0). Dark text on gold. */
 .cds-card-id-pill {
   display: inline-block;
   background: var(--gold);
-  color: var(--paper);
+  color: var(--ink);
   border-radius: var(--r-control);
-  padding: 2px 10px;
+  padding: 0 8px;
+  margin-bottom: 4px;
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
+  line-height: 14px;
   text-align: center;
   white-space: nowrap;
+  vertical-align: top;
 }
 
-/* Identity name under the id pill. */
+/* Identity name under the id pill, on the .cds-fact-value line: same 13px,
+   same weight, tabular figures for serials (v6.2.0). */
 .cds-card-identity-name {
   display: block;
-  margin-top: 4px;
   font-family: var(--font-body);
-  font-size: var(--fs-body);
+  font-size: 13px;
   font-weight: 500;
   color: var(--ink);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Header fact row: one row of left-aligned columns — identity first,

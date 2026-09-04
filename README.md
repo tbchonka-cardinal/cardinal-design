@@ -94,8 +94,8 @@ block and re-copies it whole on the next tag bump.
 | `.cds-card-footer` | White action band completing the three-band edit card; tints the body via `:has()` |
 | `.cds-card-header-actions` | Header action-button cluster; right padding clears an absolutely-positioned close control |
 | `.cds-card-action-btn` | Quiet ghost button inside the header actions cluster |
-| `.cds-card-id-pill` | Display-only identity pill in house gold |
-| `.cds-card-identity-name` | Identity name shown under the id pill |
+| `.cds-card-id-pill` | Gold identity pill on the fact-label line: 10px, dark text on gold, 4px below; v6.2.0 moved it off its own 12px size so the identity cell aligns with the fact cells |
+| `.cds-card-identity-name` | Identity name on the fact-value line: 13px, weight 500, tabular figures; v6.2.0 dropped the 4px top margin and the body-size font |
 | `.cds-fact-row` | Header fact row: identity cell plus facts, four-column base shape; `--solo`/`--3`/`--5` size the column count |
 | `.cds-fact-cell` | One fact-row cell; `.is-missing` mutes its label and value color |
 | `.cds-fact-label` | Small brass (`--gold-deep`) label above a fact value |

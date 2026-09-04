@@ -1,13 +1,13 @@
 /* ============================================================
    Cardinal Design System — cardinal.css
-   Version: v6.1.0
+   Version: v6.2.0
    The one file an app links. Loads the display/code fonts, then
    tokens, then components. UI text uses the system stack: no
    webfont needed for it.
 
    Usage (pin to a git tag, never @main):
    <link rel="stylesheet"
-     href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v6.1.0/cardinal.css">
+     href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v6.2.0/cardinal.css">
 
    Token-only consumers (e.g. TopLeaseMap) link tokens.css the same way.
    ============================================================ */
