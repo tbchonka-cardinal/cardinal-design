@@ -95,28 +95,30 @@
 .cds-card-action-btn:disabled { opacity: 0.5; cursor: default; }
 
 /* Display-only id pill in house gold: a record's identity field. Sits on
-   the .cds-fact-label line (same 10px, same 4px gap below) so the identity
-   cell lines up with the fact cells beside it (v6.2.0). Dark text on gold. */
+   the .cds-fact-label line (same 10px, centered in the label's line box) so
+   the identity cell lines up with the fact cells beside it (v6.2.0). Dark
+   text on gold. */
 .cds-card-id-pill {
   display: inline-block;
   background: var(--gold);
   color: var(--ink);
   border-radius: var(--r-control);
   padding: 0 8px;
-  margin-bottom: 4px;
   font-family: var(--font-body);
   font-size: 10px;
   font-weight: 600;
   line-height: 14px;
   text-align: center;
   white-space: nowrap;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 /* Identity name under the id pill, on the .cds-fact-value line: same 13px,
-   same weight, tabular figures for serials (v6.2.0). */
+   same weight, tabular figures for serials (v6.2.0). The pill's line box is
+   the label's line height, so the same 4px gap puts the name on the value line. */
 .cds-card-identity-name {
   display: block;
+  margin-top: 4px;
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
@@ -147,6 +149,7 @@
 .cds-fact-cell:first-child { border-left: none; }
 
 .cds-fact-label {
+  display: block;
   font-family: var(--font-body);
   font-size: 10px;
   font-weight: 600;
@@ -155,6 +158,7 @@
 }
 
 .cds-fact-value {
+  display: block;
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
@@ -165,7 +169,9 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Missing data: color change on label AND value, never opacity. */
+/* Label over value on two lines whatever element the consumer uses (v6.2.0:
+   the showcase used spans, TopLeaseMap divs, and only one matched the
+   identity cell). Missing data: color change on label AND value, never opacity. */
 .cds-fact-cell.is-missing .cds-fact-label,
 .cds-fact-cell.is-missing .cds-fact-value,
 .cds-ct-cell.is-missing { color: var(--ink-mute); }
