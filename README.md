@@ -78,8 +78,9 @@ Details, including every value and why: `docs/superpowers/specs/2026-08-25-dark-
 
 The card grammar (fact rows, card tables, tab bars, panels, notes) arrived
 from TopLeaseMap's `cards.css` in v6.1.0, added inside `components.css`'s
-existing Card section rather than as a separate file. That whole section —
-from `.cds-card` through `.cds-card-note` — is the vendoring unit: an app
+existing Card section rather than as a separate file. The card shell
+(v6.3.0) joined the end of the same section. That whole section — from
+`.cds-card` through the shell's `.cds-card-chart` — is the vendoring unit: an app
 that copies rather than links `components.css` copies that one contiguous
 block and re-copies it whole on the next tag bump.
 
@@ -119,6 +120,21 @@ block and re-copies it whole on the next tag bump.
 | `.cds-card-notes-edit` | Editable notes textarea, same surface treatment as `.cds-card-notes` |
 | `.cds-card-notes-status` | Save-status label with a leading dot; `.saving`/`.saved`/`.error` color it |
 | `.cds-card-note` | Quiet inline note inside a card body (loading, empty, absent states) |
+| `.cds-card-shell` | v6.3.0 card shell: the pinned card's column; action bar, identity and tabs stay put while the body scrolls. Markup comes from the app (TopLeaseMap `card-shell.js`); this package ships only the CSS |
+| `.cds-card-action-btn.is-primary` | The one brass-filled action in a shell's action bar |
+| `.cds-card-identity` | Shell identity zone: `-top` row (id pill and `.cds-card-kind` word), `.cds-card-title` (wraps, never cut off), `.cds-card-facts` (one fact line, key numbers in `<b>`) |
+| `.cds-card-chips` | Row of editable status chips: `.cds-card-chip-wrap` (label plus chip) around a `.cds-card-field-box.cds-card-chip` pill |
+| `.cds-card-tab-count` | Muted count after a tab label |
+| `.cds-card-section` | Marks a section table (gold heading row); `.cds-card-section-aside` holds a right-side count or link |
+| `.cds-card-link` | Quiet text button inside a body, e.g. "Full PPQ ›" |
+| `.cds-card-tone-pos` / `.cds-card-tone-neg` | Moss / crimson value color for money and status |
+| `.cds-card-empty` | One muted line for an empty or loading section |
+| `.cds-card-toolbar` | Filter box and buttons above a table; `.cds-card-search` is its filter input |
+| `.cds-card-field` | A row whose value sits in `.cds-card-field-box`: a box always means editable. Parts: `-text`, `-caret`, `-input` (the open editor), `-msg` (Saving…, error, warning via `data-state`); `.cds-card-field--long` for long text |
+| `.cds-card-menu` | Floating select / multi-select menu for a field box: `-option`, `-check`, `-done` |
+| `.cds-card-more` | `⋯` disclosure for rare actions; `.cds-card-more-menu` is its list |
+| `.cds-card-row-link` | Table row that opens something, with hover and focus fill |
+| `.cds-card-chart` | Fixed-height chart slot under a section heading |
 | `.cds-empty` | Dashed-border empty state with a centered muted message |
 | `.cds-banner` | Neutral inline notice; `-success`/`-error`/`-warning`/`-info` variants use the feedback tint pairs |
 | `.cds-btn` | Base button shape shared by all button variants |

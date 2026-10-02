@@ -406,6 +406,92 @@
   padding: 10px 0;
 }
 
+/* ---- Card shell (v6.3.0, from TopLeaseMap card-shell.css) ----
+   One frame for every pinned card: action bar, identity (id pill, kind
+   word, full title, one fact line, optional status chips), tabs, then a
+   body built only from sections, rows, boxed editable fields, tables,
+   a toolbar and empty lines. Spec: TopLeaseMap
+   docs/superpowers/specs/2026-10-01-card-shell-design.md. Tokens only. */
+
+/* The shell is the pinned card's column: zones 1-3 fixed, the body scrolls. */
+.cds-card-shell { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+
+/* Zone 1: one primary action wears the brass fill. */
+.cds-card-action-btn.is-primary { background: var(--gold-soft); color: var(--surface); }
+.cds-card-action-btn.is-primary:hover { background: var(--gold-bright); color: var(--surface); }
+
+/* Zone 2: identity. The title wraps; it is never cut off. */
+.cds-card-identity { padding: 12px 18px 10px; }
+.cds-card-identity-top { display: flex; align-items: center; gap: 6px; }
+.cds-card-kind { font-size: var(--fs-caption); line-height: var(--lh-caption); color: var(--ink-mute); }
+.cds-card-title { margin-top: 4px; font-size: var(--fs-heading); line-height: var(--lh-heading); font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+.cds-card-facts { margin-top: 2px; font-size: var(--fs-caption); line-height: var(--lh-caption); color: var(--ink-soft); }
+.cds-card-facts b { color: var(--ink); font-weight: 600; }
+.cds-card-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; margin-top: 8px; }
+.cds-card-chip-wrap { display: inline-flex; align-items: center; gap: 6px; font-size: var(--fs-caption); color: var(--ink-mute); }
+.cds-card-field-box.cds-card-chip { width: auto; min-height: 20px; padding: 0 8px; border-radius: var(--r-full); font-weight: 600; }
+.cds-card-chip-wrap .cds-card-field-msg { white-space: nowrap; }
+
+/* Zone 3: tabs sit on a hairline, with counts after the label. */
+.cds-card-shell .cds-card-tab-bar--underline { margin: 0; padding: 0 18px; border-bottom: 1px solid var(--rule); }
+.cds-card-tab-count { margin-left: 4px; font-size: 11px; font-weight: 400; color: var(--ink-mute); }
+
+/* Zone 4 pieces. */
+.cds-card-section .cds-ct-section-row.has-aside { grid-template-columns: minmax(0, 1fr) auto; }
+.cds-card-section .cds-ct-section-row.has-aside .cds-ct-section { grid-column: auto; }
+.cds-card-section-aside { font-size: var(--fs-caption); }
+.cds-card-link { border: 0; padding: 0; background: none; color: var(--ink-mute); font: inherit; cursor: pointer; }
+.cds-card-link:hover { color: var(--gold-soft); }
+.cds-card-tone-pos { color: var(--moss); }
+.cds-card-tone-neg { color: var(--data-crimson); }
+.cds-card-empty { padding: 6px 8px; font-size: var(--fs-caption); color: var(--ink-mute); }
+.cds-card-toolbar { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+.cds-card-search { flex: 1; min-width: 0; box-sizing: border-box; border: 0; border-radius: var(--r-control); padding: 4px 8px; background: var(--paper); box-shadow: var(--ring); color: var(--ink); font: inherit; font-size: var(--fs-caption); }
+
+/* Field: a row whose value sits in a box. A box means you can edit it. */
+.cds-card-lv-table .cds-ct-row.cds-card-field { grid-template-columns: minmax(0, 1fr) 58%; }
+.cds-card-field--long { align-items: start; }
+.cds-card-field-cell { display: flex; flex-direction: column; min-width: 0; padding: 2px 0; }
+.cds-card-field-box { display: flex; align-items: center; justify-content: space-between; gap: 6px; width: 100%; min-height: 24px; box-sizing: border-box; padding: 1px 8px; border: 0; border-radius: var(--r-control); background: var(--paper); box-shadow: var(--ring); color: var(--ink); font: inherit; font-variant-numeric: tabular-nums; text-align: left; cursor: pointer; }
+.cds-card-field-box[hidden] { display: none; }
+.cds-card-field-box:hover { box-shadow: var(--ring-strong); }
+.cds-card-field-box:focus-visible, .cds-card-field-box.is-open { outline: none; box-shadow: var(--ring-accent); }
+.cds-card-field-box.is-saving { cursor: progress; opacity: 0.7; }
+.cds-card-field--long .cds-card-field-box { align-items: flex-start; min-height: 48px; padding: 5px 8px; }
+.cds-card-field-text { min-width: 0; overflow-wrap: anywhere; white-space: pre-wrap; }
+.cds-card-field-text.is-missing { color: var(--ink-mute); }
+.cds-card-field-caret { flex: none; font-size: 10px; color: var(--ink-mute); }
+.cds-card-field-input { width: 100%; min-height: 24px; box-sizing: border-box; padding: 1px 8px; border: 0; border-radius: var(--r-control); background: var(--paper); box-shadow: var(--ring-accent); color: var(--ink); font: inherit; }
+textarea.cds-card-field-input { min-height: 72px; padding: 5px 8px; resize: vertical; }
+.cds-card-field-msg { font-size: 11px; line-height: 16px; color: var(--ink-mute); }
+.cds-card-field-msg:empty { display: none; }
+.cds-card-field-msg[data-state="error"] { color: var(--danger-text); }
+.cds-card-field-msg[data-state="warning"] { color: var(--warning-text); }
+
+/* Select and multi-select menus float above the card in its scope. */
+.cds-card-menu { position: fixed; z-index: 1000; display: grid; max-height: 280px; overflow-y: auto; padding: 4px; border-radius: var(--r-container); background: var(--surface); box-shadow: var(--ring), var(--shadow-pop); color: var(--ink); font-family: var(--font-body); font-size: var(--fs-caption); }
+.cds-card-menu-option, .cds-card-menu-done { border: 0; border-radius: var(--r-sm); padding: 5px 8px; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.cds-card-menu-option:hover, .cds-card-menu-option.is-selected { background: var(--paper-2); }
+.cds-card-menu-check { display: flex; align-items: center; gap: 6px; padding: 4px 8px; cursor: pointer; }
+.cds-card-menu-done { margin-top: 4px; font-weight: 600; text-align: center; color: var(--gold-soft); }
+
+/* "More" menu: the rare actions behind a ⋯. */
+.cds-card-more { position: relative; }
+.cds-card-more > summary { list-style: none; cursor: pointer; }
+.cds-card-more > summary::-webkit-details-marker { display: none; }
+.cds-card-more-menu { position: absolute; top: calc(100% + 4px); right: 0; z-index: 5; display: grid; gap: 2px; min-width: 190px; padding: 4px; border-radius: var(--r-container); background: var(--surface); box-shadow: var(--ring), var(--shadow-pop); }
+.cds-card-more-menu button { border: 0; border-radius: var(--r-sm); padding: 5px 8px; background: none; color: var(--ink); font: inherit; font-size: var(--fs-caption); text-align: left; cursor: pointer; }
+.cds-card-more-menu button:hover { background: var(--paper-2); }
+.cds-card-more-menu button:disabled { cursor: not-allowed; opacity: 0.48; }
+
+/* Table: a titled table spaces like a section; a row that opens something
+   shows it on hover and focus. */
+.cds-card-table.cds-card-section:not(.cds-card-lv-table):not(:first-child) { margin-top: 10px; }
+.cds-card-row-link { cursor: pointer; }
+.cds-card-row-link:hover, .cds-card-row-link:focus-visible { outline: none; background: var(--paper-2); }
+/* A chart under a section heading. */
+.cds-card-chart { position: relative; height: 150px; padding: 4px 0 8px; }
+
 /* ===== Buttons ===== */
 /* base from .admin-trigger-btn / .upload-confirm / .upload-cancel (shared shape). */
 .cds-btn {
