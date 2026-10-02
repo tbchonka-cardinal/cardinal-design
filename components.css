@@ -220,11 +220,13 @@
   padding: 3px 4px;
 }
 .cds-ct-num { text-align: right; }
+/* Brass at rest, lapis on hover, the same as a plain link (v6.4.0; it sat
+   in --imperial, the masthead band, which the dark scope keeps dark). */
 .cds-ct-link {
-  color: var(--imperial);
+  color: var(--accent-text);
   text-decoration: none;
 }
-.cds-ct-link:hover { text-decoration: underline; }
+.cds-ct-link:hover { color: var(--link-hover); text-decoration: underline; }
 
 /* Table section header row: gold text spanning the full row width, same
    size as the data rows it introduces, no panel box or border. */

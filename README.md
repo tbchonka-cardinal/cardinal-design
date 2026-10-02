@@ -108,7 +108,7 @@ block and re-copies it whole on the next tag bump.
 | `.cds-ct-head` | Card-table header row |
 | `.cds-ct-cell` | Card-table cell; `.is-missing` mutes its color |
 | `.cds-ct-num` | Right-aligned card-table cell for numeric columns |
-| `.cds-ct-link` | Underline-on-hover link inside a card-table cell |
+| `.cds-ct-link` | Link inside a card-table cell: brass at rest, lapis and underlined on hover, like a plain link; v6.4.0 moved it off `--imperial`, which stays dark under `.cds-dark` |
 | `.cds-ct-section` | Gold section-header text spanning the full row width |
 | `.cds-ct-section-row` | Card-table row wrapping a `.cds-ct-section` label, excluded from zebra striping |
 | `.cds-card-tab-bar` | Segmented pill tab bar inside a card |
