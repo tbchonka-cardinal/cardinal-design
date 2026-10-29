@@ -413,7 +413,7 @@
    word, full title, one fact line, optional status chips), tabs, then a
    body built only from sections, rows, boxed editable fields, tables,
    a toolbar and empty lines. Spec: TopLeaseMap
-   docs/superpowers/specs/2026-10-01-card-shell-design.md. Tokens only. */
+   docs/specs/2026-10-01-card-shell-design.md. Tokens only. */
 
 /* The shell is the pinned card's column: zones 1-3 fixed, the body scrolls. */
 .cds-card-shell { display: flex; flex-direction: column; flex: 1; min-height: 0; }
@@ -493,6 +493,129 @@ textarea.cds-card-field-input { min-height: 72px; padding: 5px 8px; resize: vert
 .cds-card-row-link:hover, .cds-card-row-link:focus-visible { outline: none; background: var(--paper-2); }
 /* A chart under a section heading. */
 .cds-card-chart { position: relative; height: 150px; padding: 4px 0 8px; }
+
+/* ---- Card shell grammar (v7.0.0, from the TopLeaseMap pilot) ----
+   After the Claude Code app (Thatcher, 2026-10-29): four type sizes; a
+   group is a small muted heading over hairline rows, never a band or a
+   zebra; a value reads as text and its edit box shows on hover or focus
+   (Thatcher kept hover-only boxes after seeing it); a status is a dot and
+   a word, its colour in --field-color. Scoped to .cds-card-shell, so the
+   older card grammar outside a shell is unchanged. */
+
+/* ---------- Identity and tabs ---------- */
+.cds-card-shell .cds-card-identity { padding: 14px 18px 8px; }
+.cds-card-shell .cds-card-kind { font-size: var(--type-meta); line-height: var(--type-meta-lh); }
+.cds-card-shell .cds-card-title { margin-top: 2px; font-size: var(--type-title); line-height: var(--type-title-lh); }
+.cds-card-shell .cds-card-facts { font-size: var(--type-label); line-height: var(--type-label-lh); }
+
+.cds-card-shell .cds-card-tab-bar--underline { gap: 16px; }
+.cds-card-shell .cds-card-tab-bar--underline .cds-card-tab {
+  padding: 6px 0 6px;
+  font-size: var(--type-body);
+  font-weight: 500;
+  border-bottom-width: 2px;
+}
+.cds-card-shell .cds-card-tab-count { font-size: var(--type-meta); }
+
+/* ---------- Groups and rows ---------- */
+.cds-card-shell .cds-card-lv-table { font-size: var(--type-body); line-height: var(--type-body-lh); }
+/* 24px between groups. The first group in the body sits at the top, even
+   when a host div wraps it (the lease card mounts Notes and Geography in
+   their own hosts after the tab body). */
+.cds-card-shell .cds-card-body .cds-card-section,
+.cds-card-shell .cds-card-body .cds-card-lv-table { margin-top: 24px; }
+.cds-card-shell .cds-card-body > .cds-card-section:first-child,
+.cds-card-shell .cds-card-body > :first-child > .cds-card-section:first-child,
+.cds-card-shell .cds-card-body > .cds-card-lv-table:first-child,
+.cds-card-shell .cds-card-body > :first-child > .cds-card-lv-table:first-child { margin-top: 0; }
+
+.cds-card-shell .cds-ct-row { padding: 0; }
+.cds-card-shell .cds-ct-cell { padding: 4px 4px; }
+.cds-card-shell .cds-ct-cell:first-child { padding-left: 0; }
+/* Values stop 6px short of the hairline's end, the gutter a field's hover
+   box needs around its text. */
+.cds-card-shell .cds-ct-cell:last-child { padding-right: 6px; }
+
+/* The group heading: small, muted, no colour of its own. */
+.cds-card-shell .cds-ct-section-row { min-height: 20px; }
+.cds-card-shell .cds-ct-section-row .cds-ct-section {
+  font-size: var(--type-label);
+  line-height: var(--type-label-lh);
+  font-weight: 600;
+  color: var(--ink-mute);
+}
+
+/* Hairlines between rows replace the zebra. */
+.cds-card-shell .cds-ct-row:nth-child(odd):not(.cds-ct-head):not(.cds-ct-section-row) { background: none; }
+.cds-card-shell .cds-ct-row:not(.cds-ct-section-row) + .cds-ct-row:not(.cds-ct-head) { box-shadow: inset 0 1px 0 var(--rule-soft); }
+.cds-card-shell .cds-ct-head {
+  background: none;
+  font-size: var(--type-meta);
+  font-weight: 500;
+  color: var(--ink-mute);
+}
+
+/* A label is soft ink; its value is ink. */
+.cds-card-shell .cds-card-lv-table > .cds-ct-row > .cds-ct-cell:first-child { color: var(--ink-soft); }
+
+/* ---------- Fields: text at rest, a box on hover or focus ---------- */
+/* The box hugs its value at the row's right, so its right edge meets the
+   hairline's end and the text lines up with the read-only values. The arrow
+   cursor holds: a value is text until it opens. */
+.cds-card-shell .cds-card-field-cell { padding: 0; }
+.cds-card-shell .cds-card-field:not(.cds-card-field--long) .cds-card-field-box { width: auto; min-width: 72px; margin-left: auto; }
+.cds-card-shell .cds-card-field-box {
+  cursor: default;
+  position: relative;
+  justify-content: flex-end;
+  min-height: 26px;
+  padding: 1px 6px 1px 20px;
+  background: transparent;
+  box-shadow: none;
+  text-align: right;
+}
+.cds-card-shell .cds-card-field-box:hover { background: var(--paper-2); box-shadow: var(--ring); }
+.cds-card-shell .cds-card-field-box:focus-visible,
+.cds-card-shell .cds-card-field-box.is-open { background: var(--paper-2); box-shadow: var(--ring-accent); }
+/* The caret sits at the box's left, so showing it never moves the text. */
+.cds-card-shell .cds-card-field-caret { position: absolute; left: 6px; visibility: hidden; }
+.cds-card-shell .cds-card-field-box:hover .cds-card-field-caret,
+.cds-card-shell .cds-card-field-box:focus-visible .cds-card-field-caret,
+.cds-card-shell .cds-card-field-box.is-open .cds-card-field-caret { visibility: visible; }
+.cds-card-shell .cds-card-field:not(.cds-card-field--long) .cds-card-field-input { width: min(100%, 200px); min-height: 26px; margin-left: auto; padding: 1px 6px; text-align: right; }
+/* No spin arrows, so a number keeps its place when its editor opens. */
+.cds-card-shell .cds-card-field-input[type="number"] { appearance: textfield; }
+.cds-card-shell .cds-card-field-input[type="number"]::-webkit-inner-spin-button,
+.cds-card-shell .cds-card-field-input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* Long text reads left once it has words; empty, it is one quiet -- like
+   every other row. */
+.cds-card-shell .cds-card-field--long .cds-card-field-box { min-height: 26px; padding: 3px 6px 3px 20px; }
+.cds-card-shell .cds-card-field--long .cds-card-field-box:has(.cds-card-field-text:not(.is-missing)) {
+  justify-content: flex-start;
+  padding-left: 6px;
+  text-align: left;
+}
+
+/* ---------- Status: a dot and a word ---------- */
+.cds-card-shell .cds-card-field-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  font-weight: inherit;
+}
+.cds-card-shell .cds-card-field-pill::before {
+  content: '';
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--field-color);
+}
+
+/* ---------- Empty and quiet notes ---------- */
+.cds-card-shell .cds-card-empty { padding: 4px 0; font-size: var(--type-label); }
 
 /* ===== Buttons ===== */
 /* base from .admin-trigger-btn / .upload-confirm / .upload-cancel (shared shape). */

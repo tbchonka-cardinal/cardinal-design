@@ -15,6 +15,12 @@ chrome color out of card headers. v5.0.0 replaced the chrome ramp outright: lapi
 oxblood gone, no trace of the old color left anywhere in the suite. v6.0.0 adds the
 dark scope: one class, `.cds-dark`, swings the neutral ramp to a warm near-black and
 lifts brass and lapis to their light tiers. Nothing else changes with it.
+v7.0.0 takes its cue from the Claude Code app (Thatcher, 2026-10-29): four type
+sizes (`--type-meta` 11, `--type-label` 12, `--type-body` 13, `--type-title` 15),
+and inside a `.cds-card-shell` a group is a small muted heading over hairline
+rows, never a band or a zebra; a value reads as right-aligned text whose edit
+box shows on hover or focus; a status is a dot and a word. The v4 `--fs-*`
+sizes stay until no consumer reads them.
 
 Live showcase: open `index.html` in this repo, or view it hosted once GitHub Pages
 is turned on. It renders every token and every `cds-` component with copy-paste
@@ -25,14 +31,14 @@ snippets.
 Link the whole system (font + tokens + components):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v6.0.0/cardinal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.0.0/cardinal.css">
 ```
 
 Token-only alternative, for an app that wants the color/spacing/type variables but
 keeps its own component CSS:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v6.0.0/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.0.0/tokens.css">
 ```
 
 Or vendor `tokens.css` into the consuming app's own repo (copy the file in,
@@ -41,7 +47,7 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 
 ## Versioning policy
 
-- Pin every consumer to a git tag (`@v6.0.0`), never `@main`. jsDelivr caches tags
+- Pin every consumer to a git tag (`@v7.0.0`), never `@main`. jsDelivr caches tags
   aggressively; `@main` will not reliably pick up changes and gives you no way to
   roll back.
 - Workflow to change anything: edit the CSS in this repo, tag a new version
@@ -130,11 +136,12 @@ block and re-copies it whole on the next tag bump.
 | `.cds-card-tone-pos` / `.cds-card-tone-neg` | Moss / crimson value color for money and status |
 | `.cds-card-empty` | One muted line for an empty or loading section |
 | `.cds-card-toolbar` | Filter box and buttons above a table; `.cds-card-search` is its filter input |
-| `.cds-card-field` | A row whose value sits in `.cds-card-field-box`: a box always means editable. Parts: `-text`, `-caret`, `-input` (the open editor), `-msg` (Saving…, error, warning via `data-state`); `.cds-card-field--long` for long text |
+| `.cds-card-field` | An editable row: its value sits in `.cds-card-field-box`, which in a v7 shell shows only on hover or focus (the arrow cursor holds). Parts: `-text`, `-caret`, `-input` (the open editor), `-msg` (Saving…, error, warning via `data-state`); `.cds-card-field--long` for long text |
 | `.cds-card-menu` | Floating select / multi-select menu for a field box: `-option`, `-check`, `-done` |
 | `.cds-card-more` | `⋯` disclosure for rare actions; `.cds-card-more-menu` is its list |
 | `.cds-card-row-link` | Table row that opens something, with hover and focus fill |
 | `.cds-card-chart` | Fixed-height chart slot under a section heading |
+| `.cds-card-field-pill` | v7.0.0: a status on a field's text, drawn as a dot in `--field-color` before the word |
 | `.cds-empty` | Dashed-border empty state with a centered muted message |
 | `.cds-banner` | Neutral inline notice; `-success`/`-error`/`-warning`/`-info` variants use the feedback tint pairs |
 | `.cds-btn` | Base button shape shared by all button variants |

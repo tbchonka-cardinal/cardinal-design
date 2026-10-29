@@ -1,6 +1,6 @@
 /* ============================================================
    Cardinal Design System — tokens.css
-   Version: v6.0.0 ("Dark scope")
+   Version: v7.0.0 ("Four sizes")
    Spec:    docs/superpowers/specs/2026-07-27-stripe-craft-v4-design.md
             docs/superpowers/specs/2026-08-25-dark-scope-v6-design.md
    Philosophy: heritage parchment identity, Stripe mechanics. Warm
@@ -10,9 +10,10 @@
      components consume), v3 compatibility aliases, and the dark
      scope. Components never reference a primitive directly.
    Craft rules (edit the spec before breaking one):
-     - Type: five sizes (12/14/16/20/28), line heights on the 4px
-       grid. Inside a size, hierarchy comes from weight (400/600/700)
-       and ink tier, never a new size.
+     - Type: four sizes (11/12/13/15, --type-*), line heights on the
+       4px grid. Inside a size, hierarchy comes from weight (400/600)
+       and ink tier, never a new size. The v4 --fs-* scale stays until
+       no consumer reads it.
      - Type family: ONE sans (--font-body) for every piece of UI,
        data, and heading text. --font-display (Garamond) is reserved
        for the app wordmark at the top of the screen and the boot
@@ -131,7 +132,15 @@
                   'Helvetica Neue', Arial, sans-serif;
   --font-mono:    'Source Code Pro', Consolas, monospace;
 
-  /* Type scale, line heights locked to the 4px grid */
+  /* Type scale (v7.0.0): four sizes, line heights on the 4px grid.
+     Inside a size, weight and ink tier set the hierarchy. New and
+     migrated screens use these. */
+  --type-meta:  11px;  --type-meta-lh:  16px;  /* counts, hints, column heads */
+  --type-label: 12px;  --type-label-lh: 16px;  /* group headings, facts, controls */
+  --type-body:  13px;  --type-body-lh:  20px;  /* rows and values */
+  --type-title: 15px;  --type-title-lh: 20px;  /* one per pane */
+  /* The v4 scale. Screens not yet migrated still read it; it goes once
+     no consumer does. */
   --fs-caption: 12px;  --lh-caption: 16px;
   --fs-body:    14px;  --lh-body:    20px;
   --fs-heading: 16px;  --lh-heading: 24px;
