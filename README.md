@@ -25,6 +25,9 @@ v7.1.0 gives tabs two kinds: underline tabs switch a view or section, and
 fill tabs pick one of a few in place.
 v7.2.0 makes a status a dot and a word (`.cds-status`), with mid-tone
 `--status-*` dot colors that stay apart at 6px.
+v7.3.0 makes a chip a hairline ring with no fill (`.cds-chip`): an on chip
+sits on `--paper-3` inside an ink ring, and `.cds-chip-x` drops a picked value.
+It replaces `.cds-pill`, which stays for old consumers.
 
 Live showcase: open `index.html` in this repo, or view it hosted once GitHub Pages
 is turned on. It renders every token and every `cds-` component with copy-paste
@@ -35,14 +38,14 @@ snippets.
 Link the whole system (font + tokens + components):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.2.0/cardinal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.3.0/cardinal.css">
 ```
 
 Token-only alternative, for an app that wants the color/spacing/type variables but
 keeps its own component CSS:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.2.0/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.3.0/tokens.css">
 ```
 
 Or vendor `tokens.css` into the consuming app's own repo (copy the file in,
@@ -51,7 +54,7 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 
 ## Versioning policy
 
-- Pin every consumer to a git tag (`@v7.2.0`), never `@main`. jsDelivr caches tags
+- Pin every consumer to a git tag (`@v7.3.0`), never `@main`. jsDelivr caches tags
   aggressively; `@main` will not reliably pick up changes and gives you no way to
   roll back.
 - Workflow to change anything: edit the CSS in this repo, tag a new version
@@ -166,6 +169,8 @@ block and re-copies it whole on the next tag bump.
 | `.cds-badge-warning` | Badge modifier, amber, for a caution/pending state |
 | `.cds-badge-info` | Badge modifier, ink-blue, for a neutral informational state |
 | `.cds-badge-muted` | Badge modifier, muted italic, for an empty/inactive state |
+| `.cds-chip` | v7.3.0 chip: a choice you toggle or a value you picked; a hairline ring, no fill; `aria-pressed="true"` or `.active` puts it on `--paper-3` in an ink ring, `"mixed"` dashes it |
+| `.cds-chip-label` / `.cds-chip-x` | The chip's ellipsized words, and the button that drops a picked value |
 | `.cds-pill` | Filter chip on a hairline ring; `.active` marks it with a 2px ink ring |
 | `.cds-eyebrow` | Uppercase, letterspaced, brass (`--gold-deep`) section label |
 | `.cds-tabs` | v7.1.0 tab strip: underline tabs that switch a view or section; draws no rule of its own |

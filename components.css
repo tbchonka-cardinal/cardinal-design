@@ -934,6 +934,65 @@ textarea.cds-card-field-input { min-height: 72px; padding: 5px 8px; resize: vert
 .cds-status-warning { --status: var(--status-warning); }
 .cds-status-danger { --status: var(--status-danger); color: var(--danger-text); }
 
+/* ===== Chip ===== */
+/* A chip is a choice you toggle or a value you picked (v7.3.0, after the
+   Claude Code app): a hairline ring inside the box (so a clipping strip
+   never cuts it), no fill, the label size. An on chip
+   (aria-pressed="true" or .active) sits on --paper-3 inside an ink ring,
+   one step above the gray panels chips sit on.
+   A picked value you can drop ends in .cds-chip-x. A chip that only
+   labels is plain text, and a state is a .cds-status. */
+.cds-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-50);
+  min-width: 0;
+  max-width: 100%;
+  height: 20px;
+  box-sizing: border-box;
+  padding: 0 var(--s-75);
+  border: 0;
+  border-radius: var(--r-control);
+  box-shadow: inset var(--ring);
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: var(--type-label);
+  font-weight: 400;
+  line-height: var(--type-label-lh);
+  white-space: nowrap;
+  transition: box-shadow var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+button.cds-chip:hover:not(:disabled) { box-shadow: inset var(--ring-strong); color: var(--ink); }
+.cds-chip[aria-pressed="true"], .cds-chip.active {
+  background: var(--paper-3);
+  box-shadow: inset 0 0 0 1px var(--ink-soft);
+  color: var(--ink);
+}
+.cds-chip[aria-pressed="mixed"] { outline: 1px dashed var(--ink-mute); outline-offset: -3px; color: var(--ink); }
+.cds-chip:disabled { opacity: 0.45; }
+.cds-chip:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.cds-chip-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.cds-chip:has(> .cds-chip-x) { padding-right: 0; }
+.cds-chip-x {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-mute);
+  font: inherit;
+  line-height: 1;
+}
+.cds-chip-x:hover { color: var(--ink); }
+.cds-chip-x svg { width: 10px; height: 10px; }
+.cds-chip-x:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+
 /* ===== Stat (label + value) ===== */
 /* from .prod-summary-grid pairs + .hero-value (gold eyebrow over a tabular value) */
 .cds-stat { display: flex; flex-direction: column; gap: 2px; }
