@@ -855,38 +855,57 @@ textarea.cds-card-field-input { min-height: 72px; padding: 5px 8px; resize: vert
 }
 
 /* ===== Tabs ===== */
-/* from .well-tab (paper-surface tabs; ink-mute idle, gold dot under .active).
-   Canonicalized on well-tab rather than the masthead .nav-tab so the component
-   consumes tokens cleanly and works on a paper surface. */
+/* Two kinds (v7.1.0, after the Claude Code app). Underline tabs switch a
+   whole view or section; fill tabs pick one of a few in place. A tab is a
+   word: muted at rest, ink on hover, ink at 600 when open. Mark the open tab
+   with aria-selected="true" or .active. The strip draws no rule; the band it
+   sits in owns any hairline, and an underline tab overlaps it by 1px. */
 .cds-tabs {
   display: flex;
   align-items: stretch;
-  border-bottom: 1px solid var(--rule-soft);
+  gap: var(--s-50);
+  min-width: 0;
 }
 .cds-tab {
-  position: relative;
-  padding: var(--s-2) var(--s-4) 9px;
-  font-family: var(--font-body);
-  font-size: var(--fs-caption);
-  line-height: var(--lh-caption);
-  font-weight: 600;
-  color: var(--ink-mute);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-50);
+  flex: 0 0 auto;
+  min-height: 28px;
+  margin-bottom: -1px;
+  padding: 0 var(--s-100);
+  border: 0;
+  border-bottom: 2px solid transparent;
   background: none;
-  border: none;
+  color: var(--ink-mute);
+  font-family: var(--font-body);
+  font-size: var(--type-label);
+  line-height: var(--type-label-lh);
+  font-weight: 500;
+  white-space: nowrap;
   cursor: pointer;
+  transition: color var(--dur) var(--ease), background-color var(--dur) var(--ease);
 }
-.cds-tab:hover { color: var(--ink-soft); }
-.cds-tab.active { color: var(--ink); }
-.cds-tab.active::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  background: var(--gold);
+.cds-tab:hover { color: var(--ink); }
+.cds-tab[aria-selected="true"], .cds-tab.active {
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom-color: var(--gold);
 }
+.cds-tab:disabled { opacity: .45; cursor: default; }
+.cds-tab[hidden] { display: none; }
+.cds-tab:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+.cds-tab-count { color: var(--ink-mute); font-weight: 400; font-variant-numeric: tabular-nums; }
+
+/* Fill tabs: the open one sits on a soft fill, with no underline. */
+.cds-tabs--fill { align-items: center; gap: var(--s-25); }
+.cds-tabs--fill .cds-tab {
+  min-height: 24px;
+  margin-bottom: 0;
+  border-bottom: 0;
+  border-radius: var(--r-control);
+}
+.cds-tabs--fill .cds-tab[aria-selected="true"], .cds-tabs--fill .cds-tab.active { background: var(--paper-2); }
 
 /* ===== Stat (label + value) ===== */
 /* from .prod-summary-grid pairs + .hero-value (gold eyebrow over a tabular value) */

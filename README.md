@@ -21,6 +21,8 @@ and inside a `.cds-card-shell` a group is a small muted heading over hairline
 rows, never a band or a zebra; a value reads as right-aligned text whose edit
 box shows on hover or focus; a status is a dot and a word. The v4 `--fs-*`
 sizes stay until no consumer reads them.
+v7.1.0 gives tabs two kinds: underline tabs switch a view or section, and
+fill tabs pick one of a few in place.
 
 Live showcase: open `index.html` in this repo, or view it hosted once GitHub Pages
 is turned on. It renders every token and every `cds-` component with copy-paste
@@ -31,14 +33,14 @@ snippets.
 Link the whole system (font + tokens + components):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.0.0/cardinal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.1.0/cardinal.css">
 ```
 
 Token-only alternative, for an app that wants the color/spacing/type variables but
 keeps its own component CSS:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.0.0/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.1.0/tokens.css">
 ```
 
 Or vendor `tokens.css` into the consuming app's own repo (copy the file in,
@@ -47,7 +49,7 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 
 ## Versioning policy
 
-- Pin every consumer to a git tag (`@v7.0.0`), never `@main`. jsDelivr caches tags
+- Pin every consumer to a git tag (`@v7.1.0`), never `@main`. jsDelivr caches tags
   aggressively; `@main` will not reliably pick up changes and gives you no way to
   roll back.
 - Workflow to change anything: edit the CSS in this repo, tag a new version
@@ -164,9 +166,11 @@ block and re-copies it whole on the next tag bump.
 | `.cds-badge-muted` | Badge modifier, muted italic, for an empty/inactive state |
 | `.cds-pill` | Filter chip on a hairline ring; `.active` marks it with a 2px ink ring |
 | `.cds-eyebrow` | Uppercase, letterspaced, brass (`--gold-deep`) section label |
-| `.cds-tabs` | Flex row container for a tab strip |
-| `.cds-tab` | Individual tab; current tab marked with `.active` |
-| `.active` | Shared state modifier: 2px ink ring on `.cds-pill`, underline dot on `.cds-tab` |
+| `.cds-tabs` | v7.1.0 tab strip: underline tabs that switch a view or section; draws no rule of its own |
+| `.cds-tabs--fill` | v7.1.0 fill tabs that pick one of a few in place; the open one sits on `--paper-2` |
+| `.cds-tab` | A tab: a muted word, ink at 600 when open (`aria-selected="true"` or `.active`) |
+| `.cds-tab-count` | A count after a tab's word, muted, tabular |
+| `.active` | Shared state modifier: 2px ink ring on `.cds-pill`, open state on `.cds-tab` |
 | `.cds-stat` | Label-over-value stat pair container |
 | `.cds-stat-label` | Brass (`--gold-deep`) uppercase label for a stat |
 | `.cds-stat-value` | Tabular-numeral value for a stat |
