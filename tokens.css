@@ -1,6 +1,6 @@
 /* ============================================================
    Cardinal Design System — tokens.css
-   Version: v7.3.0 ("Chips")
+   Version: v7.4.0 ("Flat buttons")
    Spec:    docs/superpowers/specs/2026-07-27-stripe-craft-v4-design.md
             docs/superpowers/specs/2026-08-25-dark-scope-v6-design.md
    Philosophy: heritage parchment identity, Stripe mechanics. Warm
@@ -164,6 +164,7 @@
   /* Control sizing — one height so rows line up */
   --control-h: 32px;
   --control-h-sm: 28px;
+  --control-h-xs: 22px;   /* v7.4.0: a button inside a row */
 
   /* Radii: near-square (v4.2.0). Enough rounding to read as drawn on
      purpose, not enough to soften the rectangle. */

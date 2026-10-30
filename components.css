@@ -618,65 +618,54 @@ textarea.cds-card-field-input { min-height: 72px; padding: 5px 8px; resize: vert
 .cds-card-shell .cds-card-empty { padding: 4px 0; font-size: var(--type-label); }
 
 /* ===== Buttons ===== */
-/* base from .admin-trigger-btn / .upload-confirm / .upload-cancel (shared shape). */
+/* A button (v7.4.0, after the Claude Code app) is flat: 28px, the label
+   size, no gradient and no drop shadow. The default wears a hairline ring;
+   a ghost has none until hover; primary is the one solid brass action on a
+   surface, in ink words; danger is red words that tint red on hover.
+   .cds-btn-sm is 22px, for a button inside a row. */
 .cds-btn {
-  padding: var(--s-100) var(--s-200);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-75);
+  height: var(--control-h-sm);
+  box-sizing: border-box;
+  padding: 0 var(--s-150);
   font-family: var(--font-body);
-  font-size: var(--fs-caption);
-  line-height: var(--lh-caption);
-  font-weight: 600;
-  border: none;
+  font-size: var(--type-label);
+  line-height: var(--type-label-lh);
+  font-weight: 500;
+  border: 0;
   border-radius: var(--r-control);
-  background: var(--bg-surface);
-  color: var(--text);
-  box-shadow: var(--ring), var(--shadow-sm);
-  cursor: pointer;
+  background: transparent;
+  color: var(--ink);
+  box-shadow: inset var(--ring);
   white-space: nowrap;
   transition: background-color var(--dur) var(--ease),
-              box-shadow var(--dur) var(--ease);
+              box-shadow var(--dur) var(--ease),
+              color var(--dur) var(--ease);
 }
-.cds-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
+.cds-btn[hidden] { display: none; }
+.cds-btn:hover:not(:disabled) { background: var(--paper-2); box-shadow: inset var(--ring-strong); }
+.cds-btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.cds-btn:disabled { opacity: 0.45; }
+.cds-btn svg { flex: none; width: 14px; height: 14px; }
+.cds-btn-sm { height: var(--control-h-xs); padding: 0 var(--s-100); }
 
-/* primary — brass glass. Ink text: paper on brass measures ~2.6:1. */
-.cds-btn-primary {
-  background-color: var(--brass-500);       /* fallback */
-  background-image: var(--grad-gold);
-  box-shadow: inset 0 1px 0 rgba(255, 240, 190, 0.4), var(--shadow-brass);
-  color: var(--n-900);
-}
-.cds-btn-primary:hover:not(:disabled) {
-  background-color: var(--brass-400);
-  background-image: linear-gradient(180deg, var(--brass-300) 0%, var(--brass-400) 100%);
-  box-shadow: inset 0 1px 0 rgba(255, 240, 190, 0.4), var(--shadow-md);
-}
+/* primary: solid brass, ink words (paper on brass measures ~2.6:1) */
+.cds-btn-primary { background: var(--brass-500); box-shadow: none; color: var(--n-900); font-weight: 600; }
+.cds-btn-primary:hover:not(:disabled) { background: var(--brass-400); box-shadow: none; }
 
-/* ghost/secondary — white, ring darkens and shadow lifts on hover */
-.cds-btn-ghost {
-  background: var(--bg-surface);
-  color: var(--text);
-  box-shadow: var(--ring), var(--shadow-sm);
-}
-.cds-btn-ghost:hover:not(:disabled) {
-  box-shadow: var(--ring-strong), var(--shadow-md);
-}
+/* ghost: no ring until hover */
+.cds-btn-ghost { box-shadow: none; color: var(--ink-soft); }
+.cds-btn-ghost:hover:not(:disabled) { background: var(--paper-3); box-shadow: none; color: var(--ink); }
 
-/* danger: solid hot red, distinct from the lapis chrome */
-.cds-btn-danger {
-  background: var(--brick);
-  color: var(--n-0);
-  box-shadow: var(--shadow-sm);
-}
-.cds-btn-danger:hover:not(:disabled) {
-  background: var(--brick-bright);
-  box-shadow: var(--shadow-md);
-}
+/* danger: red words; the hover tints red */
+.cds-btn-danger { color: var(--danger-text); }
+.cds-btn-danger:hover:not(:disabled) { background: var(--danger-bg); box-shadow: inset 0 0 0 1px var(--danger-text); }
 
-/* icon — square hit target for a single inline SVG (close, add, edit, menu).
-   Replaces raw-text glyph buttons ('x', '+', '⋯'). The SVG inherits
-   currentColor; size it 14-16px inside the 28px box. */
+/* icon: a square for one inline SVG (close, add, edit, menu). The SVG
+   inherits currentColor; size it 14-16px inside the 28px box. */
 .cds-btn-icon {
   display: inline-flex;
   align-items: center;
@@ -689,15 +678,12 @@ textarea.cds-card-field-input { min-height: 72px; padding: 5px 8px; resize: vert
   border-radius: var(--r-control);
   background: transparent;
   color: var(--ink-soft);
-  cursor: pointer;
-  transition: background-color var(--dur) var(--ease),
-              box-shadow var(--dur) var(--ease);
+  transition: background-color var(--dur) var(--ease);
 }
-.cds-btn-icon:hover:not(:disabled) {
-  background: var(--paper-3);
-  color: var(--ink);
-}
-.cds-btn-icon:disabled { opacity: 0.4; cursor: not-allowed; }
+.cds-btn-icon[hidden] { display: none; }
+.cds-btn-icon:hover:not(:disabled) { background: var(--paper-3); color: var(--ink); }
+.cds-btn-icon:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.cds-btn-icon:disabled { opacity: 0.45; }
 .cds-btn-icon svg { width: 15px; height: 15px; display: block; }
 
 /* ===== Panel ===== */

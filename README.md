@@ -28,6 +28,9 @@ v7.2.0 makes a status a dot and a word (`.cds-status`), with mid-tone
 v7.3.0 makes a chip a hairline ring with no fill (`.cds-chip`): an on chip
 sits on `--paper-3` inside an ink ring, and `.cds-chip-x` drops a picked value.
 It replaces `.cds-pill`, which stays for old consumers.
+v7.4.0 makes buttons flat: 28px (`.cds-btn-sm` 22px), the label size, no
+gradient or drop shadow; a hairline default, a ringless ghost, solid brass
+primary in ink words, and danger as red words.
 
 Live showcase: open `index.html` in this repo, or view it hosted once GitHub Pages
 is turned on. It renders every token and every `cds-` component with copy-paste
@@ -38,14 +41,14 @@ snippets.
 Link the whole system (font + tokens + components):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.3.0/cardinal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.4.0/cardinal.css">
 ```
 
 Token-only alternative, for an app that wants the color/spacing/type variables but
 keeps its own component CSS:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.3.0/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.4.0/tokens.css">
 ```
 
 Or vendor `tokens.css` into the consuming app's own repo (copy the file in,
@@ -54,7 +57,7 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 
 ## Versioning policy
 
-- Pin every consumer to a git tag (`@v7.3.0`), never `@main`. jsDelivr caches tags
+- Pin every consumer to a git tag (`@v7.4.0`), never `@main`. jsDelivr caches tags
   aggressively; `@main` will not reliably pick up changes and gives you no way to
   roll back.
 - Workflow to change anything: edit the CSS in this repo, tag a new version
@@ -151,10 +154,11 @@ block and re-copies it whole on the next tag bump.
 | `.cds-card-field-pill` | v7.0.0: a status on a field's text, drawn as a dot in `--field-color` before the word |
 | `.cds-empty` | Dashed-border empty state with a centered muted message |
 | `.cds-banner` | Neutral inline notice; `-success`/`-error`/`-warning`/`-info` variants use the feedback tint pairs |
-| `.cds-btn` | Base button shape shared by all button variants |
-| `.cds-btn-primary` | Brass-glass gradient button, for the main action |
-| `.cds-btn-ghost` | White secondary button; its ring darkens and its shadow lifts on hover |
-| `.cds-btn-danger` | Solid hot-red button, for destructive actions |
+| `.cds-btn` | v7.4.0 flat button: 28px, label size, a hairline ring; hover fills `--paper-2` |
+| `.cds-btn-sm` | The 22px size, for a button inside a row |
+| `.cds-btn-primary` | Solid brass in ink words, for the one main action on a surface |
+| `.cds-btn-ghost` | No ring until hover, muted words |
+| `.cds-btn-danger` | Red words that tint red on hover, for destructive actions |
 | `.cds-btn-icon` | 28px square icon button for one inline SVG (close, add, edit, menu) |
 | `.cds-panel` | Floating white surface with a hairline ring, for sidebars/filters |
 | `.cds-table` | Data table: sticky ink-on-paper-2 headers, zebra rows, hairline dividers |
