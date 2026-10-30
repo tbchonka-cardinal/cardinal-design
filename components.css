@@ -907,6 +907,33 @@ textarea.cds-card-field-input { min-height: 72px; padding: 5px 8px; resize: vert
 }
 .cds-tabs--fill .cds-tab[aria-selected="true"], .cds-tabs--fill .cds-tab.active { background: var(--paper-2); }
 
+/* ===== Status ===== */
+/* A status is a dot and a word (v7.2.0, after the Claude Code app): no box,
+   no fill. The tone colors the dot; the words stay as they are, except a
+   danger status, which colors them too. An app with its own state attribute
+   sets --status itself from the --status-* dot tokens. */
+.cds-status {
+  --status: var(--ink-mute);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-75);
+  min-width: 0;
+  max-width: 100%;
+  white-space: nowrap;
+}
+.cds-status::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--status);
+}
+.cds-status-success { --status: var(--status-success); }
+.cds-status-info { --status: var(--status-info); }
+.cds-status-warning { --status: var(--status-warning); }
+.cds-status-danger { --status: var(--status-danger); color: var(--danger-text); }
+
 /* ===== Stat (label + value) ===== */
 /* from .prod-summary-grid pairs + .hero-value (gold eyebrow over a tabular value) */
 .cds-stat { display: flex; flex-direction: column; gap: 2px; }

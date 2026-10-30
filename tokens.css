@@ -1,6 +1,6 @@
 /* ============================================================
    Cardinal Design System — tokens.css
-   Version: v7.0.0 ("Four sizes")
+   Version: v7.2.0 ("Status dots")
    Spec:    docs/superpowers/specs/2026-07-27-stripe-craft-v4-design.md
             docs/superpowers/specs/2026-08-25-dark-scope-v6-design.md
    Philosophy: heritage parchment identity, Stripe mechanics. Warm
@@ -116,6 +116,12 @@
   --moss:         #1B4D3E;
   --data-amber:   #A36A00;
   --data-crimson: #8B1E1E;
+  /* Status dots (v7.2.0): mid tones, so green and blue stay apart at 6px
+     where the dark *-text pair reads as black. */
+  --status-success: #2F8A5F;
+  --status-info:    var(--lapis-400);
+  --status-warning: var(--data-amber);
+  --status-danger:  var(--danger-text);
 
   /* Paper texture — 1% noise SVG. Canvas only; surfaces are crisp. */
   --paper-noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0.045 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
@@ -417,4 +423,8 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
   --moss:         #6FB894;
   --data-amber:   #D9A544;
   --data-crimson: #E0857A;
+  --status-success: var(--moss);
+  --status-info:    var(--ink-blue);
+  --status-warning: var(--data-amber);
+  --status-danger:  var(--data-crimson);
 }
