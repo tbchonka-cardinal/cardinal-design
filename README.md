@@ -31,6 +31,9 @@ It replaces `.cds-pill`, which stays for old consumers.
 v7.4.0 makes buttons flat: 28px (`.cds-btn-sm` 22px), the label size, no
 gradient or drop shadow; a hairline default, a ringless ghost, solid brass
 primary in ink words, and danger as red words.
+v7.5.0 sets the UI and data font to Inter (`--font-body`), loaded by
+`cardinal.css` with the other webfonts; the system stack is the fallback. A
+token-only consumer loads Inter itself.
 
 Live showcase: open `index.html` in this repo, or view it hosted once GitHub Pages
 is turned on. It renders every token and every `cds-` component with copy-paste
@@ -41,14 +44,14 @@ snippets.
 Link the whole system (font + tokens + components):
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.4.0/cardinal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.5.0/cardinal.css">
 ```
 
 Token-only alternative, for an app that wants the color/spacing/type variables but
 keeps its own component CSS:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.4.0/tokens.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tbchonka-cardinal/cardinal-design@v7.5.0/tokens.css">
 ```
 
 Or vendor `tokens.css` into the consuming app's own repo (copy the file in,
@@ -57,7 +60,7 @@ in local dev, and pull a fresh copy by hand when you want to bump.
 
 ## Versioning policy
 
-- Pin every consumer to a git tag (`@v7.4.0`), never `@main`. jsDelivr caches tags
+- Pin every consumer to a git tag (`@v7.5.0`), never `@main`. jsDelivr caches tags
   aggressively; `@main` will not reliably pick up changes and gives you no way to
   roll back.
 - Workflow to change anything: edit the CSS in this repo, tag a new version

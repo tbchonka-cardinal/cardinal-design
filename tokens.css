@@ -1,6 +1,6 @@
 /* ============================================================
    Cardinal Design System — tokens.css
-   Version: v7.4.0 ("Flat buttons")
+   Version: v7.5.0 ("Inter")
    Spec:    docs/superpowers/specs/2026-07-27-stripe-craft-v4-design.md
             docs/superpowers/specs/2026-08-25-dark-scope-v6-design.md
    Philosophy: heritage parchment identity, Stripe mechanics. Warm
@@ -128,13 +128,14 @@
 
   /* ---------- Layer 2: roles ---------- */
 
-  /* Fonts. Everything rides the system stack (Segoe UI on Windows).
-     Garamond is the WORDMARK ONLY (masthead app name, boot splash) as
-     of v4.2.0 — headings, card headers and data all use --font-body.
+  /* Fonts. UI and data use Inter (v7.5.0, Thatcher 2026-11-18: Segoe UI's
+     bold read heavy), loaded with the other webfonts; the system stack is
+     the fallback. Garamond is the WORDMARK ONLY (masthead app name, boot
+     splash) as of v4.2.0 — headings, card headers and data all use --font-body.
      Mono is for verbatim transcription and code, never numbers. The
      Garamond and Source Code Pro imports live in cardinal.css. */
   --font-display: 'EB Garamond', Garamond, Georgia, serif;
-  --font-body:    system-ui, -apple-system, 'Segoe UI', Roboto,
+  --font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto,
                   'Helvetica Neue', Arial, sans-serif;
   --font-mono:    'Source Code Pro', Consolas, monospace;
 
